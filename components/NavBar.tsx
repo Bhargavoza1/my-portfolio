@@ -1,6 +1,8 @@
 "use client"
 import Link from "next/link";
 import {usePathname } from "next/navigation";
+import {Button} from "@/components/ui/button";
+import {Menu} from "lucide-react";
 
 const MyLink = (a:{href:string, title:string , className:string })=>{
     const router:string = usePathname();
@@ -20,7 +22,12 @@ function NavBar() {
     return (
         <div>
         <header className='w-full px-32 py-8 font-medium  flex items-center justify-between '>
-           <nav >
+
+            <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu />
+            </Button>
+
+           <nav  className="hidden   md:flex md:w-full        ">
                <MyLink href="/" title="Home" className='mr-4'/>
                <MyLink href="/about" title="About" className='mx-4'/>
                <MyLink href="/projects" title="Projects" className='mx-4'/>
