@@ -13,7 +13,7 @@ const MyLink = (a:{href:string, title:string , className:string })=>{
         <Link href={a.href} className={`${a.className} relative group md:text-xl  lg:text-3xl `} style=  {myfont.style} >
             {a.title}
 
-            <span className={`h-[2px] inline-block  w-0 bg-[#FBD46D] absolute -bottom-0.5 left-[50%] translate-x-[-50%]
+            <span className={`h-[2px] inline-block  w-0 bg-[#ffd646] absolute -bottom-0.5 left-[50%] translate-x-[-50%]
                 group-hover:w-full transition-all ease duration-300  ${router === a.href ? 'w-full' : 'w-0'} `} >
                 &nbsp;
             </span>
@@ -24,7 +24,7 @@ const MyLink = (a:{href:string, title:string , className:string })=>{
 function NavBar() {
     return (
 
-        <header className=' flex items-center justify-between '>
+        <header className=' flex items-center justify-between  '>
            <div></div>
 
            <div>

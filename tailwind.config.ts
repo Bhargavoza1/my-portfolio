@@ -8,7 +8,12 @@ const config: Config = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
+
     extend: {
+      screens: {
+        '3xl': '2000px',
+        'myimg': '1300px'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -16,6 +21,8 @@ const config: Config = {
       },
     },
   },
+
+
   plugins: [],
 }
 export default config
