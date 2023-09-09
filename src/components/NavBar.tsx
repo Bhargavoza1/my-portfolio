@@ -24,11 +24,11 @@ const MyLink = (a:{href:string, title:string , className:string })=>{
 function NavBar() {
     return (
 
-        <header className=' flex items-center justify-between  '>
-           <div></div>
+        <header className=' grid myimg:flex  content-center   items-center  justify-end navcenter:justify-evenly      place-items-center  '>
+
 
            <div>
-                <nav  className="hidden  px-32 py-10   md:flex md:w-full        ">
+                <nav  className="hidden  px-32 py-[40px]   md:flex md:w-full        ">
                     <MyLink href="/" title="Home" className='lg:mr-6 sm:mr-3'/>
                     <MyLink href="/about" title="About" className='lg:mx-6 sm:mx-3'/>
                     <MyLink href="/projects" title="Projects" className='lg:mx-6 sm:mx-3 '/>
@@ -37,7 +37,7 @@ function NavBar() {
                 </nav>
             </div>
 
-            <div className=' py-6 px-5 md:hidden '>
+            <div className=' py-6 px-5 md:hidden  '>
                 <Button variant="ghost" size="icon" className="md:hidden ">
                 <Menu />
                 </Button>
