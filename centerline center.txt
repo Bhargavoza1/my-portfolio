@@ -1,0 +1,2 @@
+    <div className="absolute left-1/2 -ml-0.5 w-0.5 h-screen bg-gray-600"></div>
+    <div className="absolute  -ml-0.5 w-screen h-0.5 bg-gray-600"></div>
