@@ -10,7 +10,7 @@ const myfont = localFont({src:"./fonts/cyber.bold-book.ttf"})
 const MyLink = (a:{href:string, title:string , className:string })=>{
     const router:string = usePathname();
     return(
-        <Link href={a.href} className={`${a.className} relative group md:text-xl  lg:text-3xl `} style=  {myfont.style} >
+        <Link href={a.href} className={`${a.className} relative group md:text-2xl  lg:text-4xl `} style=  {myfont.style} >
             {a.title}
 
             <span className={`h-[2px] inline-block  w-0 bg-[#ffd646] absolute -bottom-0.5 left-[50%] translate-x-[-50%]
@@ -24,11 +24,11 @@ const MyLink = (a:{href:string, title:string , className:string })=>{
 function NavBar() {
     return (
 
-        <header className=' grid myimg:flex  content-center   items-center  justify-end navcenter:justify-evenly      place-items-center  '>
+        <header className=' grid myimg:flex  content-center   items-center  justify-end navcenter:justify-evenly       place-items-center  '>
 
 
            <div>
-                <nav  className="hidden  px-32 py-[40px]   md:flex md:w-full        ">
+                <nav  className="hidden  myimg:px-32 py-[40px]   md:flex md:w-full        ">
                     <MyLink href="/" title="Home" className='lg:mr-6 sm:mr-3'/>
                     <MyLink href="/about" title="About" className='lg:mx-6 sm:mx-3'/>
                     <MyLink href="/projects" title="Projects" className='lg:mx-6 sm:mx-3 '/>
