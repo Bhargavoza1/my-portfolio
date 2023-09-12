@@ -10,7 +10,7 @@ const myfont = localFont({src:"./fonts/cyber.bold-book.ttf"})
 const MyLink = (a:{href:string, title:string , className:string })=>{
     const router:string = usePathname();
     return(
-        <Link href={a.href} className={`${a.className} relative group md:text-2xl  lg:text-4xl `} style=  {myfont.style} >
+        <Link href={a.href} className={`${a.className} relative group md:text-2xl  lg:text-3xl `} style=  {myfont.style} >
             {a.title}
 
             <span className={`h-[2px] inline-block  w-0 bg-[#ffd646] absolute -bottom-0.5 left-[50%] translate-x-[-50%]
