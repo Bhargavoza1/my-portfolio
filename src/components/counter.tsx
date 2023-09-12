@@ -89,7 +89,7 @@ function Tick({ className ,text, delay  }) {
         < >
             <span className={`${ className}  `}>{currentText}</span>
             <span
-                 className=" box-border inline-block w-0.5 md:w-1  h-7 ml-1 -mb-2 bg-[#1b96f3] md:-mb-4 md:h-16   animate-typing will-change-transform  "
+                 className=" box-border inline-block w-0.5 md:w-1  h-7     md:ml-1 -mb-1.5 bg-[#1b96f3] md:-mb-4 md:h-16   animate-typing will-change-transform  "
              ></span>
         </ >
        );

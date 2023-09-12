@@ -5,7 +5,7 @@ import React from "react";
 import localFont from "next/font/local";
 const myfont = localFont({src:"../../components/fonts/ron-ron-regular-400.ttf"})
 
-//const myfont = localFont({src:"../../components/fonts/OTF/Satoshi-Bold.otf"})
+//const myfont = localFont({src:"../../components/fonts/OTF/Satoshi-Black.otf"})
 
 
 
@@ -34,10 +34,10 @@ export default function Home() {
 
     <div className=' px-5 2xl:px-[300px]  pt-[60px] myimg:pt-0 text-justify   grid  space-y-8 md:space-y-12 '   >
       <h1   className='  text-xl md:text-5xl   ' style=  {myfont.style}>
-        I am&nbsp;
-        <Tick className='text-[#1b96f3]  ' text="Bhargav Oza,Hardcore programmer,Hardcore gamer,Explorer" delay={200}  />
+        I AM&nbsp;
+        <Tick className='text-[#1b96f3]  ' text="BHARGAV OZA,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER" delay={200}  />
         </h1>
-      <p className=' max-w-[1000px] text-xl md:text-4xl   ' style=  {myfont.style}>I convert code into innovation and bring virtual world into existence </p>
+      <p className='  max-w-[1100px] text-lg   md:text-3xl   ' style=  {myfont.style}>I convert code into innovation and bring virtual world into existence </p>
     </div>
   </div>
   )
