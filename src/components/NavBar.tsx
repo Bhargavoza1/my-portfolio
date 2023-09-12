@@ -29,11 +29,11 @@ function NavBar() {
 
            <div>
                 <nav  className="hidden  myimg:px-32 py-[40px]   md:flex md:w-full        ">
-                    <MyLink href="/" title="Home" className='lg:mr-6 sm:mr-3'/>
-                    <MyLink href="/about" title="About" className='lg:mx-6 sm:mx-3'/>
-                    <MyLink href="/projects" title="Projects" className='lg:mx-6 sm:mx-3 '/>
-                    <MyLink href="/blogs" title="Blogs" className='lg:mx-6 sm:mx-4'/>
-                    <MyLink href="/hireme" title="Hire&nbsp;Me" className='lg:ml-6 sm:ml-3'/>
+                    <MyLink href="/" title="Home" className='lg:mr-6 sm:mr-3.5'/>
+                    <MyLink href="/about" title="About" className='lg:mx-6 sm:mx-3.5'/>
+                    <MyLink href="/projects" title="Projects" className='lg:mx-6 sm:mx-3.5 '/>
+                    <MyLink href="/blogs" title="Blogs" className='lg:mx-6 sm:mx-3.5'/>
+                    <MyLink href="/hireme" title="Hire&nbsp;Me" className='lg:ml-6 sm:ml-3.5'/>
                 </nav>
             </div>
 

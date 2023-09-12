@@ -13,7 +13,7 @@ export default function Home() {
  
   return (
 
-  <div className=' min-h-[65vh] myimg:min-h-[80vh] pt-0   md:container md:mx-auto myimg:flex content-center   items-center justify-center grid     place-items-center '>
+  <div className=' min-h-[65vh] myimg:min-h-[80vh]  pt-0   md:container md:mx-auto myimg:flex content-center   items-center justify-center grid     place-items-center '>
 
 {/*    <div className='  myimg:ml-[5%]  min-w-[400px]  place-items-center  ' style={{ borderRadius: '50%', overflow: 'hidden', width: '400px', height: '400px' , position:'relative'}}>
       <Image
@@ -32,15 +32,13 @@ export default function Home() {
 
 
 
-    <div className=' px-5 2xl:px-[300px]  pt-[60px] myimg:pt-0 text-justify   grid   space-y-10 '   >
-      <h1   className='      text-xl md:text-5xl   ' style=  {myfont.style}>
+    <div className=' px-5 2xl:px-[300px]  pt-[60px] myimg:pt-0 text-justify   grid  space-y-8 md:space-y-12 '   >
+      <h1   className='  text-xl md:text-5xl   ' style=  {myfont.style}>
         I am&nbsp;
-        <span className='text-[#1b96f3] ' >
-        <Tick text="Bhargav Oza,Hardcore programmer,Hardcore gamer,Explorer" delay={200}  />
-      </span>  </h1>
-      <p className='    text-xl md:text-4xl   ' style=  {myfont.style}>I convert code into innovation and bring virtual world into existence </p>
+        <Tick className='text-[#1b96f3]  ' text="Bhargav Oza,Hardcore programmer,Hardcore gamer,Explorer" delay={200}  />
+        </h1>
+      <p className=' max-w-[1000px] text-xl md:text-4xl   ' style=  {myfont.style}>I convert code into innovation and bring virtual world into existence </p>
     </div>
-
   </div>
   )
 }
