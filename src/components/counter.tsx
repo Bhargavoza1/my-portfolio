@@ -68,7 +68,7 @@ function Tick({ text, delay  }) {
 
                 }
                 else {
-                    setcurrentSentenceindex(1);
+                    setcurrentSentenceindex(0);
                     setcurrentWord(  result[0] );
                     //console.log('currentSentenceindex' ,currentSentenceindex)
                 }
