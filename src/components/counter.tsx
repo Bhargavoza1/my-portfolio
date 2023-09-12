@@ -6,12 +6,31 @@ function Tick({ text, delay  }) {
     const [currentText, setCurrentText] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentOrder, setcurrentOrder] = useState(false);
+
     const [currentWord, setcurrentWord] = useState('');
     const [currentSentenceindex, setcurrentSentenceindex] = useState( 0);
+
+    const [firstInit, setcfirstInit] = useState(false);
 
 
     useEffect(() => {
         let timeout;
+        if(!firstInit){
+            var result = text.split(",").map(function (value) {
+                return value.trim();
+            });
+
+
+                setcurrentSentenceindex(1);
+                setcurrentWord(  result[0] );
+                //console.log('currentSentenceindex' ,currentSentenceindex)
+
+
+
+            setcfirstInit(true);
+
+        }
+
 
         if (currentIndex <  currentWord.length && !currentOrder) {
 
