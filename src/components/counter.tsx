@@ -1,3 +1,5 @@
+// tried to use typewriter-effect but giving me errors
+// right now this will work for me
 'use client'
 
 import React, { useState, useEffect } from 'react';
