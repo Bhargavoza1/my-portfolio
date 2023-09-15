@@ -38,7 +38,7 @@ export default function Home() {
             <div className=' px-5 2xl:px-[300px]  pt-[60px] myimg:pt-0 text-justify   grid  space-y-8 md:space-y-12 '>
                 <h1 className='  text-xl md:text-5xl   ' style={myfont.style}>
                     I AM&nbsp;
-                    <Typewriter className='text-[#1b96f3]  '
+                    <Typewriter textclass='text-[#1b96f3]' cursorclass='bg-[#1b96f3]'
                                 text="BHARGAV OZA,EXPLORER,HARDCORE PROGRAMMER,HARDCORE GAMER"
                                 writeDelay={120} readDelay={1000} eraseDelay={70}/>
                 </h1>

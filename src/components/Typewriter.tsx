@@ -5,13 +5,15 @@
 import React, {useState, useEffect, useRef} from 'react';
 
 function Typewriter({
-                        className,
+                        textclass,
+                        cursorclass,
                         text = "HELLO,WORLD",
                         writeDelay = 100,
                         readDelay = 1000,
                         eraseDelay = 70,
                     }: {
-    className: string;
+    textclass: string;
+    cursorclass: string;
     text: string;
     writeDelay: number;
     readDelay: number;
@@ -29,21 +31,21 @@ function Typewriter({
 
         const typeNextCharacter = () => {
             if (isTyping) {
-                if (charIndex < sentences[sentenceIndex.current].length) {
+                if (charIndex < sentences[sentenceIndex.current].length) {//write character per delay
                     setCurrentText((prevText) => prevText + sentences[sentenceIndex.current][charIndex]);
                     setCharIndex((prevCharIndex) => prevCharIndex + 1);
-                } else {
+                } else {//wait for some delay for ppl to read it.then it will start revers order
                     timeout = setTimeout(() => {
                         setIsTyping(false);
                     }, readDelay);
                 }
             } else {
-                if (currentText.length > 0) {
+                if (currentText.length > 0) {//reverse. erasing one character per delay
                     setCurrentText((prevText) => prevText.slice(0, -1));
-                } else {
+                } else {// reset or pick next sentence
                     setIsTyping(true);
                     setCharIndex(0);
-                    sentenceIndex.current =(sentenceIndex.current + 1) % sentences.length;
+                    sentenceIndex.current =(sentenceIndex.current + 1) % sentences.length; //this will help not to use one more if else
                     setCurrentText('');
                 }
             }
@@ -52,13 +54,13 @@ function Typewriter({
         timeout = setTimeout(typeNextCharacter, isTyping ? writeDelay : eraseDelay);
 
         return () => clearTimeout(timeout);
-    }, [currentText, isTyping ]);
+    }, [currentText, isTyping]);
 
     return (
         <>
-            <span className={`${className}`}>{currentText}</span>
+            <span className={`${textclass}`}>{currentText}</span>
             <span
-                className= "box-border inline-block w-0.5 md:w-1 h-7 md:ml-1 -mb-1.5 bg-[#1b96f3] md:-mb-4 md:h-16 animate-typing will-change-transform"
+                className={`${cursorclass } box-border inline-block w-0.5 md:w-1 h-7 md:ml-1 -mb-1.5 md:-mb-4 md:h-16 animate-typing will-change-transform`}
             ></span>
         </>
     );
