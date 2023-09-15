@@ -1,8 +1,11 @@
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
-const  Tick = dynamic(() => import('../../components/counter'), { ssr: false })
+
 import React from "react";
 import localFont from "next/font/local";
+
+import dynamic from 'next/dynamic'
+const  Typewriter = dynamic(() => import('../../components/Typewriter'), { ssr: false })
+
 const myfont = localFont({src:"../../components/fonts/ron-ron-regular-400.ttf"})
 
 //const myfont = localFont({src:"../../components/fonts/OTF/Satoshi-Black.otf"})
@@ -35,7 +38,7 @@ export default function Home() {
     <div className=' px-5 2xl:px-[300px]  pt-[60px] myimg:pt-0 text-justify   grid  space-y-8 md:space-y-12 '   >
       <h1   className='  text-xl md:text-5xl   ' style=  {myfont.style}>
         I AM&nbsp;
-        <Tick className='text-[#1b96f3]  ' text="BHARGAV OZA,EXPLORER,HARDCORE PROGRAMMER,HARDCORE GAMER" WritingDelay={150} EraseDelay={80} ReadingDelay={1000} />
+        <Typewriter className='text-[#1b96f3]  ' text="BHARGAV OZA,EXPLORER,HARDCORE PROGRAMMER,HARDCORE GAMER" WriteDelay={150} EraseDelay={80} ReadDelay={1000} />
         </h1>
       <p className='  max-w-[1100px] text-lg   md:text-3xl   ' style=  {myfont.style}>I convert code into innovation and bring virtual world into existence </p>
     </div>

@@ -4,14 +4,20 @@
 
 import React, {useState, useEffect, useRef} from 'react';
 
-function Tick( {className, text, WritingDelay,ReadingDelay,EraseDelay}:{className:string, text:string, WritingDelay:number,ReadingDelay:number,EraseDelay:number}) {
+function Typewriter({className, text = "HELLO,WORLD", WriteDelay = 100, ReadDelay = 700, EraseDelay = 70}: {
+    className: string,
+    text: string,
+    WriteDelay: number,
+    ReadDelay: number,
+    EraseDelay: number
+}) {
 
 
     const TotalSentence = text.split(",").map(function (value: string) {
         return value.trim();
     });
 
-    const  currentSentence  = useRef('');
+    const currentSentence = useRef('');
     const currentSentenceindex = useRef(0);
 
     const [currentText, setCurrentText] = useState('');
@@ -21,7 +27,7 @@ function Tick( {className, text, WritingDelay,ReadingDelay,EraseDelay}:{classNam
 
 
     useEffect(() => {
-        let timeout:NodeJS.Timeout;
+        let timeout: NodeJS.Timeout;
 
 
         if (!Isreverse) {
@@ -31,13 +37,13 @@ function Tick( {className, text, WritingDelay,ReadingDelay,EraseDelay}:{classNam
 
                     setCurrentText(prevText => prevText + currentSentence.current[currentTextIndex.current - 1]);
                     currentTextIndex.current += 1;
-                }, WritingDelay);
+                }, WriteDelay);
 
 
             } else { // ADD THIS CHECK
                 timeout = setTimeout(() => {
                     setIsreverse(true);
-                }, ReadingDelay);
+                }, ReadDelay);
 
 
             }
@@ -51,9 +57,9 @@ function Tick( {className, text, WritingDelay,ReadingDelay,EraseDelay}:{classNam
             } else {
 
 
-                currentSentence.current = TotalSentence.length  > currentSentenceindex.current ?
-                                          TotalSentence[currentSentenceindex.current] :
-                                          TotalSentence[currentSentenceindex.current = currentSentenceindex.current - currentSentenceindex.current];
+                currentSentence.current = TotalSentence.length > currentSentenceindex.current ?
+                    TotalSentence[currentSentenceindex.current] :
+                    TotalSentence[currentSentenceindex.current = currentSentenceindex.current - currentSentenceindex.current];
                 currentSentenceindex.current += 1;
 
 
@@ -65,7 +71,7 @@ function Tick( {className, text, WritingDelay,ReadingDelay,EraseDelay}:{classNam
 
 
         return () => clearTimeout(timeout);
-    }, [ Isreverse, currentText]);
+    }, [Isreverse, currentText]);
 
 
     // Typing logic goes here
@@ -81,4 +87,4 @@ function Tick( {className, text, WritingDelay,ReadingDelay,EraseDelay}:{classNam
     );
 }
 
-export default Tick;
+export default Typewriter;
