@@ -35,7 +35,7 @@ export default function Home() {
     <div className=' px-5 2xl:px-[300px]  pt-[60px] myimg:pt-0 text-justify   grid  space-y-8 md:space-y-12 '   >
       <h1   className='  text-xl md:text-5xl   ' style=  {myfont.style}>
         I AM&nbsp;
-        <Tick className='text-[#1b96f3]  ' text="BHARGAV OZA,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER" delay={200}  />
+        <Tick className='text-[#1b96f3]  ' text="BHARGAV OZA,EXPLORER,HARDCORE PROGRAMMER,HARDCORE GAMER" WritingDelay={150} EraseDelay={80} ReadingDelay={1000} />
         </h1>
       <p className='  max-w-[1100px] text-lg   md:text-3xl   ' style=  {myfont.style}>I convert code into innovation and bring virtual world into existence </p>
     </div>
