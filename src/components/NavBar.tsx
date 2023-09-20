@@ -2,9 +2,10 @@
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {Button} from "@/components/ui/button";
-import {Menu} from "lucide-react";
+import {Menu ,Github, Linkedin, Youtube , Instagram} from "lucide-react";
 import {Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import localFont from "next/font/local";
+
 
 const myfont = localFont({src: "./fonts/cyber.bold-book.ttf"})
 //const myfont = localFont({src:"./fonts/OTF/Satoshi-Black.otf"})
@@ -27,7 +28,21 @@ const MyLink = ({href, title, className, spanclass = ' '}: {
     )
 }
 
+const ChildComp: React.FC = () => <div className="flex  h-screen">
+    <div className="flex justify-center w-1/4  items-end mb-20">
+        <div className="flex flex-col space-y-8 items-center">
+            <Link href='https://www.linkedin.com/in/bhargav-oza-549072100/'><Linkedin  color='#1a1a1f' /></Link>
+            <Link href='https://github.com/Bhargavoza1'><Github  color='#1a1a1f' /></Link>
+            <Link href='https://www.youtube.com/channel/UCMbi7404LA6itxNfG08Cr7w'><Youtube  color='#1a1a1f' /></Link>
+            <Link href='https://www.instagram.com/troniq_777/'><Instagram  color='#1a1a1f' /></Link>
+
+        </div>
+
+    </div>
+</div>
 function NavBar() {
+
+
     return (
 
         <header
@@ -52,9 +67,10 @@ function NavBar() {
 
                     </SheetTrigger>
                     <SheetContent side='right'
-                                  className='bg-[#ffd646]  p-0 border-0  data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right'>
+                                  className='  p-0 border-0  data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right' overlayclass='bg-[#ffd646]' overlaychild ={<ChildComp/>} >
+
                         <div className='bg-[#1b96f3]     h-full text-[#1a1a1f] p-0'>
-                            <div className='   flex pt-[100px] items-center '>
+                            <div className='   flex pt-[70px] items-center '>
                                 <nav className="grid   w-[10px]  space-y-10    ">
                                     <MyLink href="/" title="Home" className='text-4xl  w-fit pl-1'
                                             spanclass='left-[0] translate-x-[0]'/>
