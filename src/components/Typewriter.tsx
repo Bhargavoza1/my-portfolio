@@ -60,7 +60,7 @@ function Typewriter({
         <>
             <span className={`${textclass}`}>{currentText}</span>
             <span
-                className={`${cursorclass } box-border inline-block w-0.5 md:w-1 h-7 md:ml-1 -mb-1.5 md:-mb-4 md:h-16 animate-typing will-change-transform`}
+                className={`${cursorclass } box-border inline-block w-0.5 lg:w-1  md:ml-1 -mb-1.5 md:-mb-2.5 lg:-mb-3.5  h-7 md:h-9 lg:h-16 animate-typing will-change-transform`}
             ></span>
         </>
     );

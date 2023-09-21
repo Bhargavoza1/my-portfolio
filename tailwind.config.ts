@@ -37,6 +37,9 @@ module.exports = {
         'myimg': '1300px' ,
         'navcenter': {'min': '768px', 'max': '1300px'},
       },
+      height:{
+        'mportrait' : '512px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

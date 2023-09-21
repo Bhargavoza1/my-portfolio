@@ -4,6 +4,7 @@ import React from "react";
 import localFont from "next/font/local";
 
 import dynamic from 'next/dynamic'
+import Footer from "@/components/Footer";
 
 const Typewriter = dynamic(() => import('../../components/Typewriter'), {ssr: false})
 
@@ -35,16 +36,22 @@ export default function Home() {
     </div>*/}
 
 
-            <div className=' px-5 2xl:px-[300px]  pt-[60px] myimg:pt-0 text-justify   grid  space-y-8 md:space-y-12 '>
-                <h1 className='  text-xl md:text-5xl   ' style={myfont.style}>
+            <div className=' px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0 text-justify   grid  space-y-8 lg:space-y-12 '>
+                <h1 className='  text-xl lg:text-5xl md:text-3xl ' style={myfont.style}>
                     I AM&nbsp;
                     <Typewriter textclass='text-[#1b96f3]' cursorclass='bg-[#1b96f3]'
                                 text="BHARGAV OZA,EXPLORER,HARDCORE PROGRAMMER,HARDCORE GAMER"
                                 writeDelay={120} readDelay={1000} eraseDelay={70}/>
                 </h1>
-                <p className='  max-w-[1100px] text-lg   md:text-3xl   ' style={myfont.style}>I convert code into
+                <p className='  max-w-[1100px] text-lg   lg:text-3xl  md:text-xl  ' style={myfont.style}>I convert code into
                     innovation and bring virtual world into existence </p>
+
+
+              <Footer/>
             </div>
+
+
+
         </div>
     )
 }
