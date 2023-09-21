@@ -5,7 +5,7 @@ import { Github, Linkedin, Youtube , Instagram } from "lucide-react";
 
 
 
-const Footer = () => {
+const SocialMedia = () => {
     return (
         <footer>
                 <div  className='  flex  content-center   items-center  justify-end navcenter:justify-evenly       place-items-center   ' >
@@ -20,4 +20,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default SocialMedia;

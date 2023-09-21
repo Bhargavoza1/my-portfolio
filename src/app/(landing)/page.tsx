@@ -4,7 +4,7 @@ import React from "react";
 import localFont from "next/font/local";
 
 import dynamic from 'next/dynamic'
-import Footer from "@/components/Footer";
+import SocialMedia from "@/components/SocialMedia";
 
 const Typewriter = dynamic(() => import('../../components/Typewriter'), {ssr: false})
 
@@ -47,7 +47,7 @@ export default function Home() {
                     innovation and bring virtual world into existence </p>
 
 
-              <Footer/>
+              <SocialMedia/>
             </div>
 
 

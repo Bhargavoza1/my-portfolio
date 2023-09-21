@@ -17,7 +17,7 @@ const MyLink = ({href, title, className, spanclass = ' '}: {
 }) => {
     const router: string = usePathname();
     return (
-        <Link href={href} className={`${className}  relative group md:text-2xl  lg:text-3xl `} style={myfont.style}>
+        <Link href={href} className={`${className}  relative group md:text-[1.77rem]  lg:text-3xl `} style={myfont.style}>
             {title}
 
             <span className={`${spanclass} h-[2px] inline-block  w-0 bg-[#ffd646] absolute -bottom-0.5 
