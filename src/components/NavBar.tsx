@@ -7,8 +7,8 @@ import {Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import localFont from "next/font/local";
 
 
-const myfont = localFont({src: "./fonts/cyber.bold-book.ttf"})
-//const myfont = localFont({src:"./fonts/OTF/Satoshi-Black.otf"})
+//const myfont = localFont({src: "./fonts/cyber.bold-book.ttf"})
+const myfont = localFont({src:"./fonts/OTF/Satoshi-Regular.otf"})
 const MyLink = ({href, title, className, spanclass = ' '}: {
     href: string,
     title: string,
@@ -51,11 +51,11 @@ function NavBar() {
 
             <div>
                 <nav className="hidden  myimg:px-32 py-[40px]   md:flex md:w-full        ">
-                    <MyLink href="/" title="Home" className='lg:mr-6 sm:mr-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
-                    <MyLink href="/about" title="About" className='lg:mx-6 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/projects" title="Projects" className='lg:mx-6 sm:mx-3.5 ' spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/blogs" title="Blogs" className='lg:mx-6 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/hireme" title="Hire&nbsp;Me" className='lg:ml-6 sm:ml-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
+                    <MyLink href="/" title="HOME" className='lg:mr-6 sm:mr-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
+                    <MyLink href="/about" title="ABOUT" className='lg:mx-6 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
+                    <MyLink href="/projects" title="PROJECETS" className='lg:mx-6 sm:mx-3.5 ' spanclass='left-[50%] translate-x-[-50%] '/>
+                    <MyLink href="/blogs" title="BLOGS" className='lg:mx-6 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
+                    <MyLink href="/hireme" title="HIRE&nbsp;ME" className='lg:ml-6 sm:ml-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
                 </nav>
             </div>
 
@@ -72,15 +72,15 @@ function NavBar() {
                         <div className='bg-[#1b96f3]     h-full text-[#1a1a1f] p-0'>
                             <div className='   flex pt-[70px] items-center '>
                                 <nav className="grid   w-[10px]  space-y-10    ">
-                                    <MyLink href="/" title="Home" className='text-4xl  w-fit pl-1'
+                                    <MyLink href="/" title="HOME" className='text-4xl  w-fit pl-1'
                                             spanclass='left-[0] translate-x-[0]'/>
-                                    <MyLink href="/about" title="About" className='text-4xl w-fit pl-1'
+                                    <MyLink href="/about" title="ABOUT" className='text-4xl w-fit pl-1'
                                             spanclass='left-[0] translate-x-[0]'/>
-                                    <MyLink href="/projects" title="Projects" className='text-4xl w-fit pl-1'
+                                    <MyLink href="/projects" title="PROJECTS" className='text-4xl w-fit pl-1'
                                             spanclass='left-[0] translate-x-[0]'/>
-                                    <MyLink href="/blogs" title="Blogs" className='text-4xl w-fit pl-1'
+                                    <MyLink href="/blogs" title="BLOGS" className='text-4xl w-fit pl-1'
                                             spanclass='left-[0] translate-x-[0]'/>
-                                    <MyLink href="/hireme" title="Hire&nbsp;Me" className='text-4xl w-fit pl-1'
+                                    <MyLink href="/hireme" title="HIRE&nbsp;ME" className='text-4xl w-fit pl-1'
                                             spanclass='left-[0] translate-x-[0]'/>
                                 </nav>
                             </div>

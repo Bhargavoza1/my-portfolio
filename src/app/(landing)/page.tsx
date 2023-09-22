@@ -8,9 +8,9 @@ import SocialMedia from "@/components/SocialMedia";
 
 const Typewriter = dynamic(() => import('../../components/Typewriter'), {ssr: false})
 
-const myfont = localFont({src: "../../components/fonts/ron-ron-regular-400.ttf"})
+//const myfont = localFont({src: "../../components/fonts/ron-ron-regular-400.ttf"})
 
-//const myfont = localFont({src:"../../components/fonts/OTF/Satoshi-Black.otf"})
+const myfont = localFont({src:"../../components/fonts/OTF/Satoshi-Bold.otf"})
 
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
     </div>*/}
 
 
-            <div className=' px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0 text-justify   grid  space-y-8 lg:space-y-12 '>
+            <div className=' px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid  space-y-8 lg:space-y-12 '>
                 <h1 className='  text-xl lg:text-5xl md:text-3xl ' style={myfont.style}>
                     I AM&nbsp;
                     <Typewriter textclass='text-[#ffd646]' cursorclass='bg-[#ffd646]'
@@ -44,7 +44,7 @@ export default function Home() {
                                 writeDelay={120} readDelay={1000} eraseDelay={70}/>
                 </h1>
                 <p className='  max-w-[1100px] text-lg   lg:text-3xl  md:text-xl  ' style={myfont.style}>I convert code into
-                    innovation and bring virtual world into existence </p>
+                    innovation and bring virtual world into existence. </p>
 
 
               <SocialMedia/>
