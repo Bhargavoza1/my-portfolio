@@ -8,7 +8,7 @@ import localFont from "next/font/local";
 
 
 //const myfont = localFont({src: "./fonts/cyber.bold-book.ttf"})
-const myfont = localFont({src:"./fonts/OTF/Satoshi-Regular.otf"})
+const myfont = localFont({src:"./fonts/OTF/Satoshi-Bold.otf"})
 const MyLink = ({href, title, className, spanclass = ' '}: {
     href: string,
     title: string,
@@ -17,10 +17,10 @@ const MyLink = ({href, title, className, spanclass = ' '}: {
 }) => {
     const router: string = usePathname();
     return (
-        <Link href={href} className={`${className}  relative group md:text-[1.77rem]  lg:text-3xl `} style={myfont.style}>
+        <Link href={href} className={`${className}  relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
             {title}
 
-            <span className={`${spanclass} h-[2px] inline-block  w-0 bg-[#ffd646] absolute -bottom-0.5 
+            <span className={`${spanclass} h-[2px] inline-block  w-0 bg-[#ffd646] absolute -bottom-1
                 group-hover:w-full transition-all ease duration-300  ${router === href ? 'w-full' : 'w-0'} `}>
                 &nbsp;
             </span>
@@ -50,7 +50,7 @@ function NavBar() {
 
 
             <div>
-                <nav className="hidden  myimg:px-32 py-[40px]   md:flex md:w-full        ">
+                <nav className="hidden  myimg:px-32 py-[45px]   md:flex md:w-full        ">
                     <MyLink href="/" title="HOME" className='lg:mr-6 sm:mr-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
                     <MyLink href="/about" title="ABOUT" className='lg:mx-6 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
                     <MyLink href="/projects" title="PROJECETS" className='lg:mx-6 sm:mx-3.5 ' spanclass='left-[50%] translate-x-[-50%] '/>

@@ -5,16 +5,18 @@ import styles from "./page.module.css";
 function About( ):React.JSX.Element {
     return (
 
-        <div id="about" className="flex flex-col justify-center  ">
+        <div   className="flex flex-col justify-center  ">
             <div className="mt-10  max-w-full flex justify-center px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8  ">
-                <div className="h-64 w-64 lg:h-72 lg:w-72  relative ">
+                <div className="h-64 w-64 lg:h-72 lg:w-72  relative  ">
                 <Image
-                    className='shadow rounded-full max-w-full h-auto align-middle border-[#1b96f3] border-8'
+                    className='shadow   max-w-full h-auto align-middle border-[#1b96f3] z-10'
                     src="/Bhargav.jpg"
                     layout="fill" // required
                     alt="Picture of the author"
                 />
+                    <div className={`${styles.imageva} h-64 w-64 lg:h-72 lg:w-72 top-12 left-12 `}></div>
             </div>
+
             </div>
 
             <div className="  flex justify-center ">
