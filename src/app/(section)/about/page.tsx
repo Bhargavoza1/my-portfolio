@@ -6,16 +6,16 @@ function About( ):React.JSX.Element {
     return (
 
 
-            <div className='  lg:flex lg:flex-row grid grid-cols-1     w-[100%]  items-center  justify-center lg:h-[75vh]  '>
+            <div className='  xl:flex xl:flex-row grid grid-cols-1     w-[100%]  items-center  justify-center lg:h-[75vh]  '>
                 <div className="mt-10  max-w-full flex justify-center   sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8  pb-7 ">
-                    <div className="h-64 w-64 2xl:h-[500px] 2xl:w-[500px] relative  ">
+                    <div className="  h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] relative  ">
                         <Image
                             className='shadow   max-w-full h-auto align-middle border-[#1b96f3] z-10'
                             src="/Bhargav.jpg"
                             layout="fill" // required
                             alt="Picture of the author"
                         />
-                        <div className={`${styles.imageva} h-64 w-64 2xl:h-[500px] 2xl:w-[500px] top-12 left-12 `}></div>
+                        <div className={`${styles.imageva}     h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] top-12 left-12 `}></div>
                     </div>
                 </div>
 
