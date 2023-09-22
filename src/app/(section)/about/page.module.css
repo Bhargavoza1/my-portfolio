@@ -1,0 +1,5 @@
+.thickline {
+  padding: 0 10px;
+  box-shadow: inset 0 -0.4em 0 0 #1b96f3;
+  width: fit-content;
+}
