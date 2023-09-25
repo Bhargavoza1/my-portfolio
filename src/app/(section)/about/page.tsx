@@ -25,7 +25,7 @@ function About( ):React.JSX.Element {
 
 
 
-                    <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-48 2xl:mt-28">
                         <div className="sm:text-center lg:pl-20 lg:text-left">
                             <h2 className={` ${styles.thickline} my-6 text-2xl tracking-tight font-extrabold   sm:text-3xl md:text-4xl  `}>
                                 About me
@@ -46,6 +46,7 @@ function About( ):React.JSX.Element {
                 </div>
                 </div>
             </div>
+
 
     );
 }
