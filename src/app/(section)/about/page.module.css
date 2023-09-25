@@ -9,3 +9,9 @@
   position: absolute;
   z-index: 1;
 }
+
+.hr {
+  height: 5px;
+  border: 0;
+
+}

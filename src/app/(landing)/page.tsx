@@ -40,7 +40,7 @@ export default function Home() {
                 <h1 className='  text-xl lg:text-5xl md:text-3xl ' style={myfont.style}>
                     I AM&nbsp;
                     <Typewriter textclass='text-[#ffd646]' cursorclass='bg-[#ffd646]'
-                                text="BHARGAV OZA,EXPLORER,HARDCORE PROGRAMMER,HARDCORE GAMER"
+                                text="BHARGAV OZA,COMPUTER ENGINEER,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER"
                                 writeDelay={120} readDelay={1000} eraseDelay={70}/>
                 </h1>
                 <p className='  max-w-[1100px] text-lg   lg:text-3xl  md:text-xl  ' style={myfont.style}>I convert code into
