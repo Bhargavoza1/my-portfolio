@@ -51,11 +51,11 @@ function NavBar() {
 
             <div>
                 <nav className="hidden  myimg:px-32 py-[45px]   md:flex md:w-full        ">
-                    <MyLink href="/" title="HOME" className='lg:mr-6 sm:mr-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
-                    <MyLink href="/about" title="ABOUT" className='lg:mx-6 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/projects" title="PROJECETS" className='lg:mx-6 sm:mx-3.5 ' spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/blogs" title="BLOGS" className='lg:mx-6 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/hireme" title="HIRE&nbsp;ME" className='lg:ml-6 sm:ml-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
+                    <MyLink href="/" title="HOME" className='lg:mr-8 sm:mr-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
+                    <MyLink href="/about" title="ABOUT" className='lg:mx-8 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
+                    <MyLink href="/projects" title="PROJECETS" className='lg:mx-8 sm:mx-3.5 ' spanclass='left-[50%] translate-x-[-50%] '/>
+                    <MyLink href="/blogs" title="BLOGS" className='lg:mx-8 sm:mx-3.5' spanclass='left-[50%] translate-x-[-50%] '/>
+                    <MyLink href="/hireme" title="HIRE&nbsp;ME" className='lg:ml-8 sm:ml-3.5' spanclass=' left-[50%] translate-x-[-50%]'/>
                 </nav>
             </div>
 
