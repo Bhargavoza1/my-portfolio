@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -8,6 +10,15 @@ module.exports = {
     './src/**/*.{ts,tsx}',
 	],
   theme: {
+    colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        gray: colors.slate,
+        white: colors.white,
+       'MyBlue': '#58cee3',
+       'MyYellow': '#ffd646',
+        'MyRed': '#d43256',
+    },
     extend: {
       keyframes: {
         "accordion-down": {

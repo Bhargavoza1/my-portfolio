@@ -37,17 +37,17 @@ function About(): React.JSX.Element {
                                 About&nbsp;me
                             </h1>
                             <h2 className='list-disc pt-3 pb-3   md:flex grid justify-start font-extrabold '>
-                                <div className='flex '><span className=' md:pr-6 pr-3 flex text-[#1b96f3]'>•</span>
-                                    <div className='text-[#ffd646]'> GAME
+                                <div className='flex '><span className=' md:pr-6 pr-3 flex text-MyBlue'>•</span>
+                                    <div className='text-MyRed'> GAME
                                         DEVELOPER
                                     </div>
                                 </div>
-                                <div className='flex'><span className=' md:px-6 pr-3 flex text-[#1b96f3]'>•</span>
-                                    <div className='text-[#ffd646]'>ML/DL ENGINEER
+                                <div className='flex'><span className=' md:px-6 pr-3 flex text-MyBlue'>•</span>
+                                    <div className='text-MyRed'>ML/DL ENGINEER
                                     </div>
                                 </div>
-                                <div className='flex'><span className='  md:px-6 pr-3 flex text-[#1b96f3]'>•</span>
-                                    <div className='text-[#ffd646]'>BACK END DEVELOPER
+                                <div className='flex'><span className='  md:px-6 pr-3 flex text-MyBlue'>•</span>
+                                    <div className='text-MyRed'>BACK END DEVELOPER
                                     </div>
                                 </div>
                             </h2>
@@ -67,7 +67,7 @@ function About(): React.JSX.Element {
 
 
 
-                            <div className={` ${styles.hr} w-28 bg-[#ffd646]`}></div>
+                            <div className={` ${styles.hr} w-28 bg-MyRed`}></div>
                         </div>
                         {/* skills*/}
                         <div className="sm:text-center lg:pl-20  space-y-6  lg:text-left">
@@ -76,14 +76,24 @@ function About(): React.JSX.Element {
                                 Skills
                             </h1>
                             <p className='pb-3 text-gray-400 '>
-                                In the past decade, I have honed lots of technical skills(only technical skills).
+                                In the past decade, I have pulled lots of technical skills(only technical skills).
                                </p>
- 
+                            <ul className='list-disc text-lg pl-5 grid-cols-2 md:grid-cols-3 grid '>
+                                <li  >JavaScript (ES7)</li>
 
-                            <div className={` ${styles.hr} w-28 bg-[#ffd646]`}></div>
+                                <li>Angular (2+)</li>
+                                <li>React</li>
+                                <li>NestJS</li>
+                                <li>GraphQL</li>
+                                <li>WebSockets</li>
+                                <li>Flutter</li>
+                                <li>PostgreSQL</li>
+                            </ul>
+
+                            <div className={` ${styles.hr} w-28 bg-MyRed`}></div>
                         </div>
                         {/* skills*/}
-                        <div className="sm:text-center lg:pl-20  space-y-6 lg:text-left">
+                        <div className="sm:text-center lg:pl-20  pb-10 space-y-6 lg:text-left">
 
                             <h1 className={` ${styles.thickline} mt-8 my-3 text-5xl tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
                                 Bucket&nbsp;list
@@ -91,14 +101,14 @@ function About(): React.JSX.Element {
                             <p className='pb-3 text-gray-400'>
                                 Here are things I want to learn or achieve.
                             </p>
-                            <ul className='list-disc text-lg pl-5 grid-cols-1   grid'>
+                            <ul className='list-disc text-lg pl-5 grid-cols-1  text-gray-400 grid '>
                                 <li>I have to gain weight, so I can ride my dream bike(ADV).</li>
                                 <li>I want to learn snowboarding</li>
                                 <li>I want to learn water surfing</li>
                                 <li>I want to learn quantum physics and quantum mechanics(i have 0.0% of knowledge of it)</li>
 
                             </ul>
-                            <div className={` ${styles.hr} w-28 bg-[#ffd646]`}></div>
+                             <div className={` ${styles.hr} w-28 bg-MyRed `}></div>
                         </div>
 
                     </main>

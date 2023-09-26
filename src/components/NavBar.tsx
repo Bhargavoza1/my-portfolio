@@ -20,7 +20,7 @@ const MyLink = ({href, title, className, spanclass = ' '}: {
         <Link href={href} className={`${className}  relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
             {title}
 
-            <span className={`${spanclass} h-[2px] inline-block  w-0 bg-[#ffd646] absolute -bottom-1
+            <span className={`${spanclass} h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
                 group-hover:w-full transition-all ease duration-300  ${router === href ? 'w-full' : 'w-0'} `}>
                 &nbsp;
             </span>
@@ -67,9 +67,9 @@ function NavBar() {
 
                     </SheetTrigger>
                     <SheetContent side='right'
-                                  className='  p-0 border-0  data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right' overlayclass='bg-[#ffd646]' overlaychild ={<ChildComp/>} >
+                                  className='  p-0 border-0  data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right' overlayclass='bg-MyRed' overlaychild ={<ChildComp/>} >
 
-                        <div className='bg-[#1b96f3]     h-full text-[#1a1a1f] p-0'>
+                        <div className='bg-MyBlue     h-full text-[#1a1a1f] p-0'>
                             <div className='   flex pt-[70px] items-center '>
                                 <nav className="grid   w-[10px]  space-y-10    ">
                                     <MyLink href="/" title="HOME" className='text-4xl  w-fit pl-1'

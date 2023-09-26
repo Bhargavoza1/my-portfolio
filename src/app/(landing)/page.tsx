@@ -31,15 +31,15 @@ export default function Home() {
 
 
     <div className='myimg:ml-[10%] px-5 myimg:px-10  pt-[60px] myimg:pt-0 text-justify   grid   space-y-10 '   >
-      <h1 className='  text-center md:text-left text-3xl md:text-5xl   ' style=  {myfont.style}>Hello, My name is <span className='text-[#1b96f3] ' >Bhargav Oza.</span></h1>
-      <h1 className='   text-2xl md:text-4xl   ' style=  {myfont.style}>Hello, I am <span className='text-[#1b96f3] ' >Bhargav Oza as d asd asd asd .</span></h1>
+      <h1 className='  text-center md:text-left text-3xl md:text-5xl   ' style=  {myfont.style}>Hello, My name is <span className='text-MyBlue ' >Bhargav Oza.</span></h1>
+      <h1 className='   text-2xl md:text-4xl   ' style=  {myfont.style}>Hello, I am <span className='text-MyBlue ' >Bhargav Oza as d asd asd asd .</span></h1>
     </div>*/}
 
 
             <div className=' px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid  space-y-8 lg:space-y-12 '>
                 <h1 className='  text-xl lg:text-5xl md:text-3xl ' style={myfont.style}>
                     I AM&nbsp;
-                    <Typewriter textclass='text-[#ffd646]' cursorclass='bg-[#ffd646]'
+                    <Typewriter textclass='text-MyRed' cursorclass='bg-MyRed'
                                 text="BHARGAV OZA,COMPUTER ENGINEER,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER"
                                 writeDelay={120} readDelay={1000} eraseDelay={70}/>
                 </h1>

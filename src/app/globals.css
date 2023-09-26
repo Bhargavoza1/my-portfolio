@@ -5,8 +5,30 @@
 
 body {
   background: #1a1a1f ;
+  /* near to blue #091f39 */
   /* near to blue #4F8A8B */
   /* back ground #1a1a1f*/
   color: #F4F6FF ;
   font-size: x-large;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4a4a4f;
+  border-radius: 1px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
