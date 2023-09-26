@@ -15,9 +15,9 @@ module.exports = {
         current: 'currentColor',
         gray: colors.slate,
         white: colors.white,
-       'MyBlue': '#58cee3',
+       'MyBlue': '#ea00d9',
        'MyYellow': '#ffd646',
-        'MyRed': '#d43256',
+        'MyRed': '#0abdc6',
     },
     extend: {
       keyframes: {

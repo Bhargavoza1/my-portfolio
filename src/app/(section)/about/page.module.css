@@ -1,11 +1,11 @@
 .thickline {
   padding: 0 10px;
-  box-shadow: inset 0 -0.4em 0 0 #58cee3;
+  box-shadow: inset 0 -0.4em 0 0 #ea00d9;
   width: 7rem;
 }
 
 .imageva {
-  background:#081856;
+  background:#133e7c;
   position: absolute;
   z-index: 1;
 }
