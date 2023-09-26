@@ -2,13 +2,14 @@ import React from 'react';
 import SocialMedia from "@/components/SocialMedia";
 import Image from 'next/image'
 import styles from "./page.module.css";
+import ScrollToTopButton from "@/components/BacktoTop";
 
 function About(): React.JSX.Element {
     return (
 
 
         <div
-            className='  xl:flex xl:flex-row grid grid-cols-1   md:pt-20  w-[100%]     justify-center lg:h-[75vh]  '>
+            className='  xl:flex xl:flex-row grid grid-cols-1   xl:pt-20  w-[100%]     justify-center lg:h-[75vh]  '>
             {/* image*/}
             <div className='grid'>
                 <div className="  mt-10  max-w-full flex justify-center   sm:mt-12 sm:px-6 md:mt-16 lg:mt-20   lg:px-8  pb-7 ">
@@ -23,7 +24,7 @@ function About(): React.JSX.Element {
                     </div>
 
                 </div>
-                <div className='hidden  mt-10  max-w-full xl:flex justify-center  sm:pl-18 pb-7 ' >  <SocialMedia  /></div>
+
 
             </div>
             {/* text*/}
@@ -186,6 +187,7 @@ function About(): React.JSX.Element {
                         </div>
 
                         <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 ' >  <SocialMedia  /></div>
+                        <ScrollToTopButton />
                     </main>
                 </div>
             </div>
