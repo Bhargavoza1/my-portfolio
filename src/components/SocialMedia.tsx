@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 
-import { Github, Linkedin, Youtube , Instagram } from "lucide-react";
+import { Github, Linkedin, Youtube , Instagram , } from "lucide-react";
 
 
 
