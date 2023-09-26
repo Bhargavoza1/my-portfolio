@@ -20,7 +20,7 @@ function About(): React.JSX.Element {
                             layout="fill" // required
                             alt="Picture of the author"
                         />
-                        <div className={`${styles.imageva}     h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] top-12 left-12 `}></div>
+                        <div  className={`${styles.imageva}     h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px]  top-8  left-8 2xl:top-12 2xl:left-12 `}></div>
                     </div>
 
                 </div>
