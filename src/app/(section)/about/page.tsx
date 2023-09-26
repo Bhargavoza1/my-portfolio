@@ -10,26 +10,30 @@ function About(): React.JSX.Element {
         <div
             className='  xl:flex xl:flex-row grid grid-cols-1   md:pt-20  w-[100%]     justify-center lg:h-[75vh]  '>
             {/* image*/}
-            <div
-                className="  mt-10  max-w-full flex justify-center   sm:mt-12 sm:px-6 md:mt-16 lg:mt-20   lg:px-8  pb-7 ">
-                <div className="  h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] relative  ">
-                    <Image
-                        className='shadow   max-w-full h-auto align-middle border-[#1b96f3] z-10'
-                        src="/Bhargav.jpg"
-                        layout="fill" // required
-                        alt="Picture of the author"
-                    />
-                    <div
-                        className={`${styles.imageva}     h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] top-12 left-12 `}></div>
+            <div className='grid'>
+                <div className="  mt-10  max-w-full flex justify-center   sm:mt-12 sm:px-6 md:mt-16 lg:mt-20   lg:px-8  pb-7 ">
+                    <div className="  h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] relative  ">
+                        <Image
+                            className='shadow   max-w-full h-auto align-middle border-[#1b96f3] z-10'
+                            src="/Bhargav.jpg"
+                            layout="fill" // required
+                            alt="Picture of the author"
+                        />
+                        <div className={`${styles.imageva}     h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] top-12 left-12 `}></div>
+                    </div>
+
                 </div>
+                <div className='hidden  mt-10  max-w-full xl:flex justify-center  sm:pl-18 pb-7 ' >  <SocialMedia  /></div>
+
             </div>
             {/* text*/}
+
             <div className="  flex justify-start    ">
                 <div className="relative z-10     lg:w-full  ">
 
 
                     <main
-                        className="  mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8   2xl:mt-28    ">
+                        className="  mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8   2xl:mt-16    ">
                         {/* about*/}
                         <div className=" lg:pl-20  space-y-6 lg:text-left">
 
@@ -91,7 +95,7 @@ function About(): React.JSX.Element {
                                 <li className='mb-5 text-MyBlue' >
                                     Game&nbsp;development
                                     <ol className="text-gray-400  pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                        <li>Unreal engine 5</li>
+                                        <li>Unreal engine 4-5</li>
                                         <li>Unity</li>
                                         <li>Blender(basic)</li>
                                         <li>Maya(basic)</li>
@@ -136,14 +140,14 @@ function About(): React.JSX.Element {
                                         <li>React Redux</li>
                                         <li>Next.js</li>
                                         <li>Node.js</li>
-                                        <li>flask</li>
+                                        <li>Flask</li>
                                         <li>FastApi</li>
                                     </ul>
                                 </li>
                                 <li className='mb-5 text-MyBlue'>
                                     Robotics
                                     <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                        <li>ROS1-2</li>
+                                        <li>ROS 1-2</li>
                                         <li>Raspberry Pi</li>
                                         <li>Jetson nano</li>
                                         <li>Arduino</li>
@@ -162,7 +166,7 @@ function About(): React.JSX.Element {
 
                             <div className={` ${styles.hr} w-28 bg-MyRed`}></div>
                         </div>
-                        {/* skills*/}
+                        {/* Bucket list*/}
                         <div className="  lg:pl-20  pb-10 space-y-6 lg:text-left">
 
                             <h1 className={` ${styles.thickline} mt-8 my-3 text-5xl tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
@@ -181,6 +185,7 @@ function About(): React.JSX.Element {
                              <div className={` ${styles.hr} w-28 bg-MyRed `}></div>
                         </div>
 
+                        <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 ' >  <SocialMedia  /></div>
                     </main>
                 </div>
             </div>
