@@ -12,7 +12,8 @@ function About(): React.JSX.Element {
             className='  xl:flex xl:flex-row grid grid-cols-1   xl:pt-20  w-[100%]     justify-center lg:h-[75vh]  '>
             {/* image*/}
             <div className='grid'>
-                <div className="  mt-10  max-w-full flex justify-center   sm:mt-12 sm:px-6 md:mt-16 lg:mt-20   lg:px-8  pb-7 ">
+                <div
+                    className="  mt-10  max-w-full flex justify-center   sm:mt-12 sm:px-6 md:mt-16 lg:mt-20   lg:px-8  pb-7 ">
                     <div className="  h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] relative  ">
                         <Image
                             className='shadow   max-w-full h-auto align-middle border-[#1b96f3] z-10'
@@ -20,7 +21,8 @@ function About(): React.JSX.Element {
                             layout="fill" // required
                             alt="Picture of the author"
                         />
-                        <div className={`${styles.imageva}     h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] top-12 left-12 `}></div>
+                        <div
+                            className={`${styles.imageva}     h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px]  top-8  left-8 2xl:top-12 2xl:left-12 `}></div>
                     </div>
 
                 </div>
@@ -66,10 +68,10 @@ function About(): React.JSX.Element {
                                 I'm a very curious person, who's passionate about coding, our cosmos, and quantum
                                 computing. I always learning new technology and try to keep up to date.</p>
                             <p className='pb-3 text-gray-400 '>
-                                I love listening to synth waves, chill waves, and ambient music. In my free time, I watch anime or read manga.</p>
-                                <p className='pb-3 text-gray-400 '>
-                                    you can say I have an immense hunger for KNOWLEDGE(Which has its own two sides).</p>
-
+                                I love listening to synth waves, chill waves, and ambient music. In my free time, I
+                                watch anime or read manga.</p>
+                            <p className='pb-3 text-gray-400 '>
+                                you can say I have an immense hunger for KNOWLEDGE(Which has its own two sides).</p>
 
 
                             <div className={` ${styles.hr} w-28 bg-MyRed`}></div>
@@ -82,9 +84,9 @@ function About(): React.JSX.Element {
                             </h1>
                             <p className='pb-3 text-gray-400 '>
                                 In the past decade, I have pulled lots of technical skills(only technical skills).
-                               </p>
+                            </p>
                             <ul className="   grid  grid-cols-1 md:grid-cols-2 skillspacing:grid-cols-3  text-xl text-gray-400  list-disc list-inside align-top  ">
-                                <li className='mb-5 text-MyBlue' >Programming&nbsp;Languages
+                                <li className='mb-5 text-MyBlue'>Programming&nbsp;Languages
                                     <ol className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                         <li>C++</li>
                                         <li>C#</li>
@@ -93,7 +95,7 @@ function About(): React.JSX.Element {
                                         <li>typescript</li>
                                     </ol>
                                 </li>
-                                <li className='mb-5 text-MyBlue' >
+                                <li className='mb-5 text-MyBlue'>
                                     Game&nbsp;development
                                     <ol className="text-gray-400  pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                         <li>Unreal engine 4-5</li>
@@ -111,7 +113,7 @@ function About(): React.JSX.Element {
                                     </ul>
                                 </li>
                                 <li className='mb-5 text-MyBlue'>
-                                   ML/DL
+                                    ML/DL
                                     <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                         <li>Pytorch</li>
                                         <li>Tensorflow</li>
@@ -180,14 +182,16 @@ function About(): React.JSX.Element {
                                 <li>I have to gain weight, so I can ride my dream bike(ADV).</li>
                                 <li>I want to learn snowboarding</li>
                                 <li>I want to learn water surfing</li>
-                                <li>I want to learn quantum physics and quantum mechanics(i have 0.0% of knowledge of it)</li>
+                                <li>I want to learn quantum physics and quantum mechanics(i have 0.0% of knowledge of
+                                    it)
+                                </li>
 
                             </ul>
-                             <div className={` ${styles.hr} w-28 bg-MyRed `}></div>
+                            <div className={` ${styles.hr} w-28 bg-MyRed `}></div>
                         </div>
 
-                        <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 ' >  <SocialMedia  /></div>
-                        <ScrollToTopButton />
+                        <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 '><SocialMedia/></div>
+                        <ScrollToTopButton/>
                     </main>
                 </div>
             </div>
