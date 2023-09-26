@@ -49,6 +49,7 @@ module.exports = {
         '3xl': '2000px',
         'myimg': '1300px' ,
         'navcenter': {'min': '768px', 'max': '1300px'},
+        'skillspacing': '1560px',
       },
       height:{
         'mportrait' : '512px',
