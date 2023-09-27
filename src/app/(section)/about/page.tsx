@@ -132,8 +132,7 @@ function About(): React.JSX.Element {
                                     DevOps
                                     <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                         <li>Docker</li>
-                                        <li>Kubernetes</li>
-                                        <li>Kafka</li>
+                                        <li>Kubernetes</li> 
                                     </ul>
                                 </li>
                                 <li className='mb-5 text-MyBlue'>
