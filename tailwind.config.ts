@@ -47,6 +47,7 @@ module.exports = {
         '3xl': '2000px',
         'myimg': '1300px' ,
         'navcenter': {'min': '768px', 'max': '1300px'},
+        'belowmd': {'max': '768px' },
         'skillspacing': '1560px',
       },
       height:{
