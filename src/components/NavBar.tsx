@@ -51,7 +51,7 @@ function NavBar() {
 
 
             <div className='hidden 2xl:flex belowmd:flex 2xl:pt-4 px-24 belowmd:px-5'><Link href='/'> <Hash
-                className=' w-14 h-14 belowmd:w-8 belowmd:h-8' color='#d43256'/></Link></div>
+                className=' w-14 h-14 belowmd:w-8 belowmd:h-8' color='#ffd646'/></Link></div>
             <div>
                 <nav className="hidden  myimg:px-32 py-[45px]   md:flex md:w-full        ">
                     <MyLink href="/" title="HOME" className='lg:mr-8 sm:mr-3.5'
