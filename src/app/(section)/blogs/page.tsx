@@ -1,8 +1,12 @@
 import React from 'react';
+import Posts from "@/components/Posts";
 
 function About( ):React.JSX.Element {
     return (
-        <div>blogs</div>
+        <div className='{}'>blogs
+            <Posts />
+        </div>
+
     );
 }
 
