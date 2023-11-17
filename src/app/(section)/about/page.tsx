@@ -65,7 +65,7 @@ function About(): React.JSX.Element {
                                 Contributing to open source, Sometimes playing with robots(IoT), Or Playing video games
                                 with or without my discord gang.</p>
                             <p className='pb-3 text-gray-400 '>
-                                I'm a very curious person, who's passionate about coding, our cosmos, and quantum
+                                I&aposm a very curious person, who&aposs passionate about coding, our cosmos, and quantum
                                 computing. I always learning new technology and try to keep up to date.</p>
                             <p className='pb-3 text-gray-400 '>
                                 I love listening to synth waves, chill waves, and ambient music. In my free time, I

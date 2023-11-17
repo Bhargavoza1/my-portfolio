@@ -1,8 +1,9 @@
 import { getProjectPostsMeta} from "@/lib/posts"
-import {ListBlogsItem, ListProjectsItem} from "./ListItem"
+import {  ListProjectsItem} from "./ListItem"
 
-export default async function projectPosts() {
+export default async function ProjectPosts() {
     const posts = await getProjectPostsMeta()
+    console.log(posts)
 
     if (!posts) {
         return <p className="mt-10 text-center">Sorry, no posts available.</p>
@@ -10,7 +11,7 @@ export default async function projectPosts() {
 
     return (
         <section className="mt-6 mx-auto max-w-2xl">
-            <h2 className="text-4xl font-bold dark:text-white/90">Blog</h2>
+            <h2 className="text-4xl font-bold dark:text-white/90">Projects</h2>
             <ul className="w-full list-none p-0">
                 {posts.map(post => (
                     <ListProjectsItem key={post.id} post={post} />
