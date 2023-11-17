@@ -13,7 +13,7 @@ type Filetree = {
     ]
 }
 
-export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
+export async function getBlogPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/test-blogposts-main/main/${fileName}`, {
         headers: {
             Accept: 'application/vnd.github+json',
@@ -28,6 +28,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 
     if (rawMDX === '404: Not Found') return undefined
 
+
     const { frontmatter, content } = await compileMDX<{ title: string, date: string, tags: string[] }>({
         source: rawMDX,
         components: {
@@ -38,6 +39,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
             parseFrontmatter: true,
             mdxOptions: {
                 rehypePlugins: [
+                    // @ts-ignore
                     rehypeHighlight,
                     rehypeSlug,
                     [rehypeAutolinkHeadings, {
@@ -55,7 +57,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
     return blogPostObj
 }
 
-export async function getPostsMeta(): Promise<Meta[] | undefined> {
+export async function getBlogPostsMeta(): Promise<Meta[] | undefined> {
     const res = await fetch('https://api.github.com/repos/Bhargavoza1/test-blogposts-main/git/trees/main?recursive=1', {
         headers: {
             Accept: 'application/vnd.github+json',
@@ -73,7 +75,81 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
     const posts: Meta[] = []
 
     for (const file of filesArray) {
-        const post = await getPostByName(file)
+        const post = await getBlogPostByName(file)
+        if (post) {
+            const { meta } = post
+            posts.push(meta)
+        }
+    }
+
+    return posts.sort((a, b) => a.date < b.date ? 1 : -1)
+}
+
+
+
+export async function getProjectPostByName(fileName: string): Promise<BlogPost | undefined> {
+    const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/projects/main/${fileName}`, {
+        headers: {
+            Accept: 'application/vnd.github+json',
+            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+            'X-GitHub-Api-Version': '2022-11-28',
+        }
+    })
+
+    if (!res.ok) return undefined
+
+    const rawMDX = await res.text()
+
+    if (rawMDX === '404: Not Found') return undefined
+
+
+    const { frontmatter, content } = await compileMDX<{ title: string, date: string, tags: string[] }>({
+        source: rawMDX,
+        components: {
+            Video,
+            CustomImage,
+        },
+        options: {
+            parseFrontmatter: true,
+            mdxOptions: {
+                rehypePlugins: [
+                    // @ts-ignore
+                    rehypeHighlight,
+                    rehypeSlug,
+                    [rehypeAutolinkHeadings, {
+                        behavior: 'wrap'
+                    }],
+                ],
+            },
+        }
+    })
+
+    const id = fileName.replace(/\.mdx$/, '')
+
+    const blogPostObj: BlogPost = { meta: { id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags }, content }
+
+    return blogPostObj
+}
+
+export async function getProjectPostsMeta(): Promise<Meta[] | undefined> {
+    const res = await fetch('https://api.github.com/repos/Bhargavoza1/projects/git/trees/main?recursive=1', {
+        headers: {
+            Accept: 'application/vnd.github+json',
+            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+            'X-GitHub-Api-Version': '2022-11-28',
+        }
+    })
+
+    if (!res.ok) return undefined
+
+    const repoFiletree: Filetree = await res.json()
+
+    const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
+
+    const posts: Meta[] = []
+
+    for (const file of filesArray) {
+        const post = await getProjectPostByName(file)
         if (post) {
             const { meta } = post
             posts.push(meta)

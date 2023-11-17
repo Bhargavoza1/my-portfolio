@@ -1,10 +1,10 @@
 import React from 'react';
-import Posts from "@/components/Posts";
+import BlogPosts from "@/components/BlogPosts";
 
 function About( ):React.JSX.Element {
     return (
         <div className='{}'>blogs
-            <Posts />
+            <BlogPosts />
         </div>
 
     );

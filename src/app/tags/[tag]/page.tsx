@@ -1,5 +1,5 @@
-import { getPostsMeta } from "@/lib/posts"
-import ListItem from "@/app/components/ListItem"
+import {getBlogPostsMeta, getPostsMeta} from "@/lib/posts"
+// import ListItem from "@/app/components/ListItem"
 import Link from "next/link"
 
 export const revalidate = 86400
@@ -11,7 +11,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-    const posts = await getPostsMeta() //deduped!
+    const posts = await getBlogPostsMeta() //deduped!
 
     if (!posts) return []
 
@@ -28,7 +28,7 @@ export function generateMetadata({ params: { tag } }: Props) {
 }
 
 export default async function TagPostList({ params: { tag } }: Props) {
-    const posts = await getPostsMeta() //deduped!
+    const posts = await getBlogPostsMeta() //deduped!
 
     if (!posts) return <p className="mt-10 text-center">Sorry, no posts available.</p>
 
@@ -47,11 +47,11 @@ export default async function TagPostList({ params: { tag } }: Props) {
         <>
             <h2 className="text-3xl mt-4 mb-0">Results for: #{tag}</h2>
             <section className="mt-6 mx-auto max-w-2xl">
-                <ul className="w-full list-none p-0">
-                    {tagPosts.map(post => (
-                        <ListItem key={post.id} post={post} />
-                    ))}
-                </ul>
+                {/*<ul className="w-full list-none p-0">*/}
+                {/*    {tagPosts.map(post => (*/}
+                {/*        <ListItem key={post.id} post={post} />*/}
+                {/*    ))}*/}
+                {/*</ul>*/}
             </section>
         </>
     )
