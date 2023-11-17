@@ -3,7 +3,6 @@ import {  ListProjectsItem} from "./ListItem"
 
 export default async function ProjectPosts() {
     const posts = await getProjectPostsMeta()
-    console.log(posts)
 
     if (!posts) {
         return <p className="mt-10 text-center">Sorry, no posts available.</p>

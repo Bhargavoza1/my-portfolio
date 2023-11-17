@@ -1,11 +1,10 @@
 import getFormattedDate from "@/lib/getFormattedDate"
-import {  getBlogPostByName , getBlogPostsMeta} from "@/lib/posts"
+import {  getProjectPostByName , getProjectPostsMeta} from "@/lib/posts"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import 'highlight.js/styles/github-dark.css'
 
-
-export const revalidate = 1
+export const revalidate = 2
 
 type Props = {
     params: {
@@ -14,7 +13,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-    const posts = await getBlogPostsMeta() //deduped!
+    const posts = await getProjectPostsMeta() //deduped!
 
     if (!posts) return []
 
@@ -25,7 +24,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params: { postId } }: Props) {
 
-    const post = await getBlogPostByName(`${postId}.mdx`) //deduped!
+    const post = await getProjectPostByName(`${postId}.mdx`) //deduped!
 
     if (!post) {
         return {
@@ -40,7 +39,7 @@ export async function generateMetadata({ params: { postId } }: Props) {
 
 export default async function Post({ params: { postId } }: Props) {
 
-    const post = await getBlogPostByName(`${postId}.mdx`) //deduped!
+    const post = await getProjectPostByName(`${postId}.mdx`) //deduped!
 
     if (!post) notFound()
 

@@ -12,7 +12,7 @@ const Typewriter = dynamic(() => import('../../components/Typewriter'), {ssr: fa
 
 const myfont = localFont({src:"../../components/fonts/OTF/Satoshi-Bold.otf"})
 
-
+export const revalidate = 1
 export default function Home() {
 
     return (
