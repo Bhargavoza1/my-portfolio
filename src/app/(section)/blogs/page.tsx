@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogPosts from "@/components/BlogPosts";
 
-export const revalidate = 1
+export const revalidate = 10
 function About( ):React.JSX.Element {
     return (
         <div className='{}'>blogs
