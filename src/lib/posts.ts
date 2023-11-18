@@ -19,7 +19,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }
+        },  next: { revalidate: 1}
     })
 
     if (!res.ok) return undefined
@@ -63,7 +63,7 @@ export async function getBlogPostsMeta(): Promise<Meta[] | undefined> {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }
+        },  next: { revalidate: 1}
     })
 
     if (!res.ok) return undefined
@@ -93,7 +93,7 @@ export async function getProjectPostByName(fileName: string): Promise<BlogPost |
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }
+        },  next: { revalidate: 1}
     })
 
     if (!res.ok) return undefined
@@ -137,7 +137,7 @@ export async function getProjectPostsMeta(): Promise<Meta[] | undefined> {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }
+        },  next: { revalidate: 1}
     })
 
     if (!res.ok) return undefined
@@ -150,6 +150,7 @@ export async function getProjectPostsMeta(): Promise<Meta[] | undefined> {
 
     for (const file of filesArray) {
         const post = await getProjectPostByName(file)
+
         if (post) {
             const { meta } = post
             posts.push(meta)
