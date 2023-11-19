@@ -3,7 +3,7 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {Button} from "@/components/ui/button";
 import {Menu, Github, Linkedin, Youtube, Instagram, Hash} from "lucide-react";
-import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
+import {Sheet, SheetClose, SheetContent, SheetTrigger} from "@/components/ui/sheet"
 import localFont from "next/font/local";
 
 
@@ -35,7 +35,6 @@ const ChildComp: React.FC = () => <div className="flex  h-screen">
             <Link href='https://github.com/Bhargavoza1'><Github color='#1a1a1f'/></Link>
             <Link href='https://www.youtube.com/channel/UCMbi7404LA6itxNfG08Cr7w'><Youtube color='#1a1a1f'/></Link>
             <Link href='https://www.instagram.com/troniq_777/'><Instagram color='#1a1a1f'/></Link>
-
         </div>
 
     </div>
@@ -43,7 +42,7 @@ const ChildComp: React.FC = () => <div className="flex  h-screen">
 
 function NavBar() {
 
-
+    const router: string = usePathname();
     return (
 
         <header
@@ -80,18 +79,74 @@ function NavBar() {
 
                         <div className='bg-MyBlue     h-full text-[#1a1a1f] p-0'>
                             <div className='   flex pt-[70px] items-center '>
+
                                 <nav className="grid   w-[10px]  space-y-10    ">
-                                    <MyLink href="/" title="HOME" className='text-4xl  w-fit pl-1'
-                                            spanclass='left-[0] translate-x-[0]'/>
-                                    <MyLink href="/about" title="ABOUT" className='text-4xl w-fit pl-1'
-                                            spanclass='left-[0] translate-x-[0]'/>
-                                    <MyLink href="/projects" title="PROJECTS" className='text-4xl w-fit pl-1'
-                                            spanclass='left-[0] translate-x-[0]'/>
-                                    <MyLink href="/blogs" title="BLOGS" className='text-4xl w-fit pl-1'
-                                            spanclass='left-[0] translate-x-[0]'/>
-                                    <MyLink href="/hireme" title="HIRE&nbsp;ME" className='text-4xl w-fit pl-1'
-                                            spanclass='left-[0] translate-x-[0]'/>
+                                    <SheetClose asChild>
+
+                                        <Link href="/" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
+                                            HOME
+
+                                            <span className={`left-[0] translate-x-[0] h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
+                                            group-hover:w-full transition-all ease duration-300  ${router === "/" ? 'w-full' : 'w-0'} `}>
+                                            &nbsp;
+                                            </span>
+                                        </Link>
+                                    </SheetClose>
+
+                                    <SheetClose asChild>
+
+                                        <Link href="/about" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
+                                            ABOUT
+
+                                            <span className={`left-[0] translate-x-[0] h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
+                                            group-hover:w-full transition-all ease duration-300  ${router === "/about" ? 'w-full' : 'w-0'} `}>
+                                            &nbsp;
+                                            </span>
+                                        </Link>
+                                    </SheetClose>
+
+                                    <SheetClose asChild>
+
+                                        <Link href="/projects" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
+                                            PROJECTS
+
+                                            <span className={`left-[0] translate-x-[0] h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
+                                            group-hover:w-full transition-all ease duration-300  ${router === "/projects" ? 'w-full' : 'w-0'} `}>
+                                            &nbsp;
+                                            </span>
+                                        </Link>
+                                    </SheetClose>
+
+
+                                    <SheetClose asChild>
+
+                                        <Link href="/blogs" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
+                                            BLOGS
+
+                                            <span className={`left-[0] translate-x-[0] h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
+                                            group-hover:w-full transition-all ease duration-300  ${router === "/blogs" ? 'w-full' : 'w-0'} `}>
+                                            &nbsp;
+                                            </span>
+                                        </Link>
+                                    </SheetClose>
+
+
+                                    <SheetClose asChild>
+
+                                        <Link href="/hireme" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
+                                            HIRE&nbsp;ME
+
+                                            <span className={`left-[0] translate-x-[0] h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
+                                            group-hover:w-full transition-all ease duration-300  ${router === "/hireme" ? 'w-full' : 'w-0'} `}>
+                                            &nbsp;
+                                            </span>
+                                        </Link>
+                                    </SheetClose>
+
+
+
                                 </nav>
+
                             </div>
 
                         </div>

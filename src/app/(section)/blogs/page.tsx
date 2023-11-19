@@ -4,7 +4,7 @@ import BlogPosts from "@/components/BlogPosts";
 export const revalidate = 10
 function About( ):React.JSX.Element {
     return (
-        <div className='{}'>blogs
+        <div className='{}'>
             <BlogPosts />
         </div>
 
