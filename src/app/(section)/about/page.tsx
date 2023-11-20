@@ -9,7 +9,7 @@ function About(): React.JSX.Element {
 
 
         <div
-            className='  xl:flex xl:flex-row grid grid-cols-1   xl:pt-20  w-[100%]     justify-center lg:h-[75vh]  '>
+            className='  xl:flex xl:flex-row grid grid-cols-1  pt-20 xl:pt-40  w-[100%]     justify-center lg:h-[100vh]  '>
             {/* image*/}
             <div className='grid'>
                 <div
