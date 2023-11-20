@@ -56,20 +56,20 @@ export default function Home() {
 
                 <div className='grid h-screen myimg:pt-[140px] place-items-center justify-center'>
                     <div className='  px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid   '>
-                        <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5' style={myfont.style}>
+                        <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5 landscape:pb-1 ' style={myfont.style}>
                             I AM&nbsp;
                             <Typewriter textclass='text-MyRed' cursorclass='bg-MyRed'
                                         text="BHARGAV OZA,COMPUTER ENGINEER,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER"
                                         writeDelay={120} readDelay={1000} eraseDelay={70}/>
                         </h1>
-                        <p className='  max-w-[1100px] text-lg   lg:text-2xl  md:text-xl text-gray-300 pb-12 md:pb-14'
+                        <p className='  max-w-[1100px] text-lg   lg:text-2xl  md:text-xl text-gray-300 pb-12 md:pb-14 landscape:pb-5'
                            style={myfont.style}>I convert code into
                             innovation and bring virtual world into existence. </p>
 
 
                         <SocialMedia/>
                         <Link href='#about'>
-                            <div className={`${styles.box} flex justify-center mt-[50px]  myimg:mb-[80px]`}>
+                            <div className={`${styles.box} flex justify-center mt-[50px]  myimg:mb-[80px] landscape:mt-0`}>
                                 <span></span>
                                 <span></span>
                                 <span></span>
