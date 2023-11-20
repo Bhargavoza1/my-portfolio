@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import SocialMedia from "@/components/SocialMedia";
 import styles from "@/app/(section)/about/page.module.css";
 import ScrollToTopButton from "@/components/BacktoTop";
+import Link from "next/link";
 
 const Typewriter = dynamic(() => import('../../components/Typewriter'), {ssr: false})
 
@@ -19,30 +20,71 @@ export default function Home() {
 
     return (
 
+        //
+        // <div className="flex flex-col h-screen">
+        //
+        //     <header className="h-10 bg-red-500">Header</header>
+        //     <div className="flex-grow place-content-center bg-green-500">
+        //         <h1>Content</h1>
+        //         <div className="grid h-full place-items-center justify-center">
+        //
+        //             <div className="grid gap-6 md:grid-cols-2 content-center">
+        //                 <div className="h-[200px] w-[300px] bg-yellow-500 flex flex-col items-center">
+        //                     Item 1
+        //                 </div>
+        //                 <div className="h-[200px]  w-[300px] bg-yellow-500 flex flex-col items-center">
+        //                     Item 2
+        //                 </div>
+        //                 <div className="h-[200px]  w-[300px] bg-yellow-500 flex flex-col items-center">
+        //                     Item 3
+        //                 </div>
+        //                 <div className="h-[200px]  w-[300px] bg-yellow-500 flex flex-col items-center">
+        //                     Item 4
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        //
+        //     <footer className=" w-full  h-10 bg-blue-500">Footer</footer>
+        // </div>
+
+
         <div>
+
             <div
-                className=' min-h-[90vh] myimg:min-h-[100vh]  pt-0   md:container md:mx-auto myimg:flex content-center   items-center justify-center grid     place-items-center  '>
+                className=' flex flex-col max-h-[100vh] myimg:max-h-[100vh]'>
 
-                <div className='  px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid   '>
-                    <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5' style={myfont.style}>
-                        I AM&nbsp;
-                        <Typewriter textclass='text-MyRed' cursorclass='bg-MyRed'
-                                    text="BHARGAV OZA,COMPUTER ENGINEER,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER"
-                                    writeDelay={120} readDelay={1000} eraseDelay={70}/>
-                    </h1>
-                    <p className='  max-w-[1100px] text-lg   lg:text-2xl  md:text-xl text-gray-300 pb-12 md:pb-14'
-                       style={myfont.style}>I convert code into
-                        innovation and bring virtual world into existence. </p>
+                <div className='grid h-screen myimg:pt-[70px] place-items-center justify-center'>
+                    <div className='  px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid   '>
+                        <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5' style={myfont.style}>
+                            I AM&nbsp;
+                            <Typewriter textclass='text-MyRed' cursorclass='bg-MyRed'
+                                        text="BHARGAV OZA,COMPUTER ENGINEER,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER"
+                                        writeDelay={120} readDelay={1000} eraseDelay={70}/>
+                        </h1>
+                        <p className='  max-w-[1100px] text-lg   lg:text-2xl  md:text-xl text-gray-300 pb-12 md:pb-14'
+                           style={myfont.style}>I convert code into
+                            innovation and bring virtual world into existence. </p>
 
 
-                    <SocialMedia/>
+                        <SocialMedia/>
+                    </div>
+
                 </div>
-
+                <div className={`${styles.scrollDownAnimation}   mb-[70px] myimg:mb-[20px]`}>
+                    <Link href='#about'>
+                    <span className={`${styles.mouse} `}>
+                        <span className={`${styles.move} `}></span>
+                    </span>
+                    </Link>
+                </div>
 
             </div>
 
-            <div
-                className='  xl:flex xl:flex-row grid grid-cols-1   xl:pt-40  w-[100%]     justify-center lg:h-[100vh]  '>
+
+            {/* about*/}
+            <div id='about'
+                 className=' scroll-smooth xl:flex xl:flex-row grid grid-cols-1   xl:pt-40  w-[100%]     justify-center lg:h-[100vh]  '>
                 {/* image*/}
                 <div className='grid'>
                     <div
