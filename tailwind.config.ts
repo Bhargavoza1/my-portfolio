@@ -49,9 +49,7 @@ module.exports = {
         'navcenter': {'min': '768px', 'max': '1300px'},
         'belowmd': {'max': '768px' },
         'skillspacing': '1560px',
-      },
-      height:{
-        'mportrait' : '512px',
+        'mylandscape': { 'raw': '(max-height: 512px)' },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
