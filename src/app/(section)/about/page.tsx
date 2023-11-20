@@ -58,7 +58,7 @@ function About(): React.JSX.Element {
                                     </div>
                                 </div>
                             </h2>
-                            <p className='pb-3 text-gray-400 '>
+                            <p className='pb-3 text-gray-400  '>
                                 Hi, I am Bhargav Oza. I am a computer engineer from India(“<span
                                 className='font-extrabold text-white'>&nbsp;भारत&nbsp;</span>”). As a computer nerd, I
                                 am always in front of my computer. Building, Designing, Innovating something,

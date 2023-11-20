@@ -18,7 +18,7 @@ export default function Home() {
     return (
 
         <div
-            className=' min-h-[65vh] myimg:min-h-[80vh]  pt-0   md:container md:mx-auto myimg:flex content-center   items-center justify-center grid     place-items-center '>
+            className=' min-h-[65vh] myimg:min-h-[80vh]  pt-0   md:container md:mx-auto myimg:flex content-center   items-center justify-center grid     place-items-center  '>
 
             {/*    <div className='  myimg:ml-[5%]  min-w-[400px]  place-items-center  ' style={{ borderRadius: '50%', overflow: 'hidden', width: '400px', height: '400px' , position:'relative'}}>
       <Image
@@ -36,14 +36,14 @@ export default function Home() {
     </div>*/}
 
 
-            <div className=' px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid  space-y-8 lg:space-y-12 '>
-                <h1 className='  text-xl lg:text-5xl md:text-3xl ' style={myfont.style}>
+            <div className='  px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid   '>
+                <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5' style={myfont.style}>
                     I AM&nbsp;
                     <Typewriter textclass='text-MyRed' cursorclass='bg-MyRed'
                                 text="BHARGAV OZA,COMPUTER ENGINEER,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER"
                                 writeDelay={120} readDelay={1000} eraseDelay={70}/>
                 </h1>
-                <p className='  max-w-[1100px] text-lg   lg:text-3xl  md:text-xl  ' style={myfont.style}>I convert code into
+                <p className='  max-w-[1100px] text-lg   lg:text-2xl  md:text-xl text-gray-300 pb-12 md:pb-14' style={myfont.style}>I convert code into
                     innovation and bring virtual world into existence. </p>
 
 
