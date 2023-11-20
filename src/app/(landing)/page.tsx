@@ -54,7 +54,7 @@ export default function Home() {
             <div
                 className=' flex flex-col max-h-[100vh] myimg:max-h-[100vh]'>
 
-                <div className='grid h-screen myimg:pt-[70px] place-items-center justify-center'>
+                <div className='grid h-screen myimg:pt-[140px] place-items-center justify-center'>
                     <div className='  px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid   '>
                         <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5' style={myfont.style}>
                             I AM&nbsp;
@@ -68,16 +68,17 @@ export default function Home() {
 
 
                         <SocialMedia/>
+                        <Link href='#about'>
+                            <div className={`${styles.box} flex justify-center mt-[50px]  myimg:mb-[80px]`}>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </Link>
                     </div>
 
                 </div>
-                <div className={`${styles.scrollDownAnimation}   mb-[70px] myimg:mb-[20px]`}>
-                    <Link href='#about'>
-                    <span className={`${styles.mouse} `}>
-                        <span className={`${styles.move} `}></span>
-                    </span>
-                    </Link>
-                </div>
+
 
             </div>
 
