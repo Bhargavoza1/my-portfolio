@@ -68,7 +68,7 @@ export default function Home() {
 
 
                         <SocialMedia/>
-                        <Link href='#about'>
+                        <Link   href='#about'>
                             <div className={`${styles.box} flex justify-center mt-[50px]  myimg:mb-[80px] mylandscape:mt-0`}>
                                 <span></span>
                                 <span></span>
