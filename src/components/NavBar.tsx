@@ -71,15 +71,15 @@ function NavBar() {
                 className=' w-12 h-12  belowmd:w-8 belowmd:h-8' color='#d43256'/></Link></div>
             <div>
                 <nav className="hidden  myimg:px-32 py-[25px]   md:flex md:w-full        ">
-                    <MyLink href="/" title="HOME" className='lg:mr-8 sm:mr-3.5'
+                    <MyLink href="/" title="HOME" className=' mr-8 '
                             spanclass=' left-[50%] translate-x-[-50%]'/>
-                    <MyLink href="/about" title="ABOUT" className='lg:mx-8 sm:mx-3.5'
+                    <MyLink href="/about" title="ABOUT" className=' mx-8  '
                             spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/projects" title="PROJECETS" className='lg:mx-8 sm:mx-3.5 '
+                    <MyLink href="/projects" title="PROJECETS" className=' mx-8   '
                             spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/blogs" title="BLOGS" className='lg:mx-8 sm:mx-3.5'
+                    <MyLink href="/blogs" title="BLOGS" className=' mx-8  '
                             spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/hireme" title="HIRE&nbsp;ME" className='lg:ml-8 sm:ml-3.5'
+                    <MyLink href="/hireme" title="HIRE&nbsp;ME" className=' ml-8  '
                             spanclass=' left-[50%] translate-x-[-50%]'/>
                 </nav>
             </div>
