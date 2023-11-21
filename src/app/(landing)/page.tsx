@@ -87,11 +87,11 @@ export default function Home() {
 
             {/* about*/}
             <div id='about'
-                 className='   xl:flex xl:flex-row grid grid-cols-1  py-28    w-[100%]   place-items-center bg-gray-900  justify-center content-center   '>
+                 className='   xl:flex xl:flex-row grid grid-cols-1  py-36   w-[100%]   place-items-center bg-gray-900  justify-center content-center   '>
                 {/* image*/}
                 <div className='grid'>
                     <div
-                        className="  mt-10  max-w-full flex justify-center   sm:mt-12 sm:px-6 md:mt-16 lg:mt-20   lg:px-8  pb-7 ">
+                        className="     max-w-full flex justify-center    sm:px-6    lg:px-8  pb-7 ">
                         <div className="  h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] relative  ">
                             <Image
                                 className='shadow   max-w-full h-auto align-middle border-[#1b96f3] z-10'
@@ -114,7 +114,7 @@ export default function Home() {
 
 
                         <main
-                            className="  mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8   2xl:mt-16    ">
+                            className="   mx-auto max-w-7xl px-4   sm:px-6     lg:px-8       ">
                             {/* about*/}
                             <div className=" lg:pl-20  space-y-6 lg:text-left">
 
