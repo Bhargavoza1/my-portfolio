@@ -71,16 +71,16 @@ function NavBar() {
                 className=' w-12 h-12  belowmd:w-8 belowmd:h-8' color='#d43256'/></Link></div>
             <div>
                 <nav className="hidden  myimg:px-32 py-[25px] mylandscape:py-[15px]   md:flex md:w-full        ">
-                    <MyLink href="/#home" title="HOME" className=' mr-8 '
+                    <MyLink href="/" title="HOME" className=' mr-8 '
                             spanclass=' left-[50%] translate-x-[-50%]'/>
-                    <MyLink href="/#about" title="ABOUT" className=' mx-8  '
-                            spanclass='left-[50%] translate-x-[-50%] '/>
+                    {/*<MyLink href="/#about" title="ABOUT" className=' mx-8  '
+                            spanclass='left-[50%] translate-x-[-50%] '/>*/}
                     <MyLink href="/projects" title="PROJECETS" className=' mx-8   '
                             spanclass='left-[50%] translate-x-[-50%] '/>
                     <MyLink href="/blogs" title="BLOGS" className=' mx-8  '
                             spanclass='left-[50%] translate-x-[-50%] '/>
-                    <MyLink href="/#contact" title="CONTACT" className=' ml-8  '
-                            spanclass=' left-[50%] translate-x-[-50%]'/>
+                    {/*<MyLink href="/#contact" title="CONTACT" className=' ml-8  '
+                            spanclass=' left-[50%] translate-x-[-50%]'/>*/}
                 </nav>
             </div>
 
@@ -101,7 +101,7 @@ function NavBar() {
                                 <nav className="grid   w-[10px]  space-y-10    ">
                                     <SheetClose asChild>
 
-                                        <Link href="/#home" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
+                                        <Link href="/" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
                                             HOME
 
                                             <span className={`left-[0] translate-x-[0] h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
@@ -111,7 +111,7 @@ function NavBar() {
                                         </Link>
                                     </SheetClose>
 
-                                    <SheetClose asChild>
+                                    {/*<SheetClose asChild>
 
                                         <Link href="/#about" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
                                             ABOUT
@@ -121,7 +121,7 @@ function NavBar() {
                                             &nbsp;
                                             </span>
                                         </Link>
-                                    </SheetClose>
+                                    </SheetClose>*/}
 
                                     <SheetClose asChild>
 
@@ -149,7 +149,7 @@ function NavBar() {
                                     </SheetClose>
 
 
-                                    <SheetClose asChild>
+                                    {/*<SheetClose asChild>
 
                                         <Link href="/#contact" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
                                             CONTACT
@@ -159,7 +159,7 @@ function NavBar() {
                                             &nbsp;
                                             </span>
                                         </Link>
-                                    </SheetClose>
+                                    </SheetClose>*/}
 
 
 
