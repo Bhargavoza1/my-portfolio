@@ -51,6 +51,8 @@ export default function Home() {
 
         <div>
 
+
+            {/* landing page*/}
             <div id='home'
                  className=' flex flex-col max-h-[100vh] myimg:max-h-[100vh]'>
 
@@ -68,7 +70,7 @@ export default function Home() {
                             innovation and bring virtual world into existence. </p>
 
 
-                        <SocialMedia/>
+                        <SocialMedia MyColor={'#58cee3'}/>
                         <Link href='#about'>
                             <div
                                 className={`${styles.box} flex justify-center mt-[50px]  myimg:mb-[80px] mylandscape:mt-0`}>
@@ -110,7 +112,7 @@ export default function Home() {
                 {/* text*/}
 
                 <div className="  flex justify-start    ">
-                    <div className="relative z-10     lg:w-full  ">
+                    <div className="relative z-10  mt-14   lg:w-full  ">
 
 
                         <main
@@ -122,16 +124,19 @@ export default function Home() {
                                     About&nbsp;me
                                 </h1>
                                 <h2 className='list-disc pt-3 pb-3   md:flex grid justify-start font-extrabold '>
-                                    <div className='flex  '><span className='text-xl md:pr-6 pr-3 flex text-MyBlue'>•</span>
+                                    <div className='flex  '><span
+                                        className='text-xl md:pr-6 pr-3 flex text-MyBlue'>•</span>
                                         <div className='text-MyRed text-xl'> GAME
                                             DEVELOPER
                                         </div>
                                     </div>
-                                    <div className='flex'><span className='text-xl md:px-6 pr-3 flex text-MyBlue'>•</span>
+                                    <div className='flex'><span
+                                        className='text-xl md:px-6 pr-3 flex text-MyBlue'>•</span>
                                         <div className='text-MyRed text-xl'>ML/DL ENGINEER
                                         </div>
                                     </div>
-                                    <div className='flex'><span className='text-xl  md:px-6 pr-3 flex text-MyBlue'>•</span>
+                                    <div className='flex'><span
+                                        className='text-xl  md:px-6 pr-3 flex text-MyBlue'>•</span>
                                         <div className='text-MyRed text-xl'>BACK END DEVELOPER
                                         </div>
                                     </div>
@@ -159,112 +164,141 @@ export default function Home() {
                             </div>
 
 
-                            <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 '><SocialMedia/></div>
+                            <div className='z-50'>
                                 <Link href='#home'>
                                     <ScrollToTopButton/>
                                 </Link>
+                            </div>
                         </main>
                     </div>
                 </div>
             </div>
 
 
-
             {/*skills */}
-            <div className=' mx-auto max-w-[1900px] px-4 py-28  sm:px-6     lg:px-8   '>
-              <div className="  lg:pl-20    space-y-10  place-items-center  justify-center content-center  lg:text-left">
+            <div  className=' mx-auto max-w-[1900px] px-4 py-28  sm:px-6     lg:px-8   '>
+                <div
+                    className="  lg:pl-20    space-y-10  place-items-center  justify-center content-center  lg:text-left">
 
-                <h1 className={` ${styles.thickline2} mt-8 my-3 text-5xl tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
-                    Skills
-                </h1>
-                <p className='pb-3 text-gray-400 '>
-                    In the past decade, I have pulled lots of technical skills(only technical skills).
-                </p>
-                <ul className="   grid  grid-cols-1 md:grid-cols-2 skillspacing:grid-cols-4  text-xl text-gray-400  list-disc list-inside align-top  ">
-                    <li className='mb-5 text-MyBlue'>Programming&nbsp;Languages
-                        <ol className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>C++</li>
-                            <li>C#</li>
-                            <li>Python</li>
-                            <li>javascript</li>
-                            <li>typescript</li>
-                        </ol>
-                    </li>
-                    <li className='mb-5 text-MyBlue'>
-                        Game&nbsp;development
-                        <ol className="text-gray-400  pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>Unreal engine 4-5</li>
-                            <li>Unity</li>
-                            <li>Blender(basic)</li>
-                            <li>Maya(basic)</li>
-                            <li>Photoshop(basic)</li>
-                        </ol>
-                    </li>
-                    <li className='mb-5 text-MyBlue'>
-                        Game&nbsp;Engine&nbsp;Development
-                        <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>Directx 12</li>
-                            <li>OpenGL</li>
-                        </ul>
-                    </li>
-                    <li className='mb-5 text-MyBlue'>
-                        ML/DL
-                        <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>Pytorch</li>
-                            <li>Tensorflow</li>
-                            <li>Numpy</li>
-                        </ul>
-                    </li>
-                    <li className='mb-5 text-MyBlue'>
-                        Data&nbsp;Engineering
-                        <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>Apache Spark</li>
-                            <li>Airflow</li>
-                            <li>Kafka</li>
-                        </ul>
-                    </li>
-                    <li className='mb-5 text-MyBlue'>
-                        DevOps
-                        <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>Docker</li>
-                            <li>Kubernetes</li>
-                            <li>Kafka</li>
-                        </ul>
-                    </li>
+                    <h1 className={` ${styles.thickline2} mt-8 my-3 text-5xl tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
+                        Skills
+                    </h1>
+                    <p className='pb-3 text-gray-400 text-xl '>
+                        In the past decade, I have pulled lots of technical skills(only technical skills).
+                    </p>
+                    <ul className="   grid  grid-cols-1 md:grid-cols-2 skillspacing:grid-cols-4  text-xl text-gray-400  list-disc list-inside align-top  ">
+                        <li className='mb-5 text-MyBlue'>Programming&nbsp;Languages
+                            <ol className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>C++</li>
+                                <li>C#</li>
+                                <li>Python</li>
+                                <li>Javascript</li>
+                                <li>Typescript</li>
+                            </ol>
+                        </li>
+                        <li className='mb-5 text-MyBlue'>
+                            Game&nbsp;development
+                            <ol className="text-gray-400  pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>Unreal engine 4-5</li>
+                                <li>Unity</li>
+                                <li>Blender(basic)</li>
+                                <li>Maya(basic)</li>
+                                <li>Photoshop(basic)</li>
+                            </ol>
+                        </li>
+                        <li className='mb-5 text-MyBlue'>
+                            Game&nbsp;Engine&nbsp;Development
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>Directx 12</li>
+                                <li>OpenGL</li>
+                            </ul>
+                        </li>
+                        <li className='mb-5 text-MyBlue'>
+                            ML/DL
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>Pytorch</li>
+                                <li>Tensorflow</li>
+                                <li>Numpy</li>
+                            </ul>
+                        </li>
+                        <li className='mb-5 text-MyBlue'>
+                            Data&nbsp;Engineering
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>Apache Spark</li>
+                                <li>Airflow</li>
+                                <li>Kafka</li>
+                            </ul>
+                        </li>
+                        <li className='mb-5 text-MyBlue'>
+                            DevOps
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>Docker</li>
+                                <li>Kubernetes</li>
+                                <li>Kafka</li>
+                            </ul>
+                        </li>
 
-                    <li className='mb-5 text-MyBlue'>
-                        Robotics
-                        <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>ROS 1-2</li>
-                            <li>Raspberry Pi</li>
-                            <li>Jetson nano</li>
-                            <li>Arduino</li>
-                        </ul>
-                    </li>
-                    <li className='mb-5 text-MyBlue'>
-                        Database
-                        <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>MongoDB</li>
-                            <li>Redis</li>
-                            <li>PostgreSQL</li>
-                        </ul>
-                    </li>
-                    <li className='mb-5 text-MyBlue'>
-                        WebDev
-                        <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                            <li>React</li>
-                            <li>React Redux</li>
-                            <li>Next.js</li>
-                            <li>Node.js</li>
-                            <li>Flask</li>
-                            <li>FastApi</li>
-                        </ul>
-                    </li>
-                </ul>
+                        <li className='mb-5 text-MyBlue'>
+                            Robotics
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>ROS 1-2</li>
+                                <li>Raspberry Pi</li>
+                                <li>Jetson nano</li>
+                                <li>Arduino</li>
+                            </ul>
+                        </li>
+                        <li className='mb-5 text-MyBlue'>
+                            Database
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>MongoDB</li>
+                                <li>Redis</li>
+                                <li>PostgreSQL</li>
+                            </ul>
+                        </li>
+                        <li className='mb-5 text-MyBlue'>
+                            WebDev
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>React</li>
+                                <li>React Redux</li>
+                                <li>Next.js</li>
+                                <li>Node.js</li>
+                                <li>Flask</li>
+                                <li>FastApi</li>
+                            </ul>
+                        </li>
+                    </ul>
 
-                <div className={` ${styles.hr} w-28 bg-MyRed`}></div>
+                    <div className={` ${styles.hr} w-28 bg-MyRed`}></div>
+                </div>
             </div>
+
+            {/* contact*/}
+            <div id='contact' className='   bg-gray-900     '>
+
+                <div className='max-w-[1900px] mx-auto  px-4 pt-4 md:pb-4 sm:px-6  lg:px-8'>
+                    <div
+                        className="  lg:px-20   space-y-10  place-items-center  justify-center content-center  lg:text-left">
+
+
+                        <div
+                            className='md:flex   space-y-10 pl-3 text-xl  lg:px-40  lg:pr-96   place-content-around      '>
+
+                            <div>
+                                <h1 className={` ${styles.thickline} mt-8 my-3 text-5xl tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
+                                    Contact
+                                </h1>
+
+                            </div>
+                            <div className='text-gray-400'>
+                                <div className='pb-3'>ozabhargav41@gmail.com</div>
+                                <div className='pb-8'>+91 7567592803</div>
+                                <SocialMedia MyColor={'#d43256'}/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     )
 }
