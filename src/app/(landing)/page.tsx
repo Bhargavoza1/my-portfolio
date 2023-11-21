@@ -51,12 +51,13 @@ export default function Home() {
 
         <div>
 
-            <div
-                className=' flex flex-col max-h-[100vh] myimg:max-h-[100vh]'>
+            <div id='home'
+                 className=' flex flex-col max-h-[100vh] myimg:max-h-[100vh]'>
 
                 <div className='grid h-screen myimg:pt-[140px] place-items-center justify-center'>
                     <div className='  px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid   '>
-                        <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5 mylandscape:pb-1 ' style={myfont.style}>
+                        <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5 mylandscape:pb-1 '
+                            style={myfont.style}>
                             I AM&nbsp;
                             <Typewriter textclass='text-MyRed' cursorclass='bg-MyRed'
                                         text="BHARGAV OZA,COMPUTER ENGINEER,HARDCORE PROGRAMMER,HARDCORE GAMER,EXPLORER"
@@ -68,8 +69,9 @@ export default function Home() {
 
 
                         <SocialMedia/>
-                        <Link   href='#about'>
-                            <div className={`${styles.box} flex justify-center mt-[50px]  myimg:mb-[80px] mylandscape:mt-0`}>
+                        <Link href='#about'>
+                            <div
+                                className={`${styles.box} flex justify-center mt-[50px]  myimg:mb-[80px] mylandscape:mt-0`}>
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -271,7 +273,9 @@ export default function Home() {
                             </div>
 
                             <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 '><SocialMedia/></div>
-                            <ScrollToTopButton/>
+                                <Link href='#home'>
+                                    <ScrollToTopButton/>
+                                </Link>
                         </main>
                     </div>
                 </div>
