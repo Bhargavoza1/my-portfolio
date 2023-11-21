@@ -63,11 +63,11 @@ function NavBar() {
     return (
 
         <header
-            className={`  bg-[#091f39]  left-0 top-0 right-0 z-20 flex fixed w-full  content-center   items-center  justify-end 2xl:justify-between belowmd:justify-between navcenter:justify-evenly  
+            className={`  bg-[#091f39]  left-0 top-0 right-0 z-20 flex fixed w-full  content-center   items-center   justify-between  
                  place-items-center ${!top && ` shadow-2xl`}`}>
 
 
-            <div className='hidden 2xl:flex belowmd:flex 2xl:pt-4 px-24 belowmd:px-5'><Link href='/'> <Hash
+            <div className='  2xl:flex belowmd:flex 2xl:pt-4 px-24 belowmd:px-5'><Link href='/'> <Hash
                 className=' w-12 h-12  belowmd:w-8 belowmd:h-8' color='#d43256'/></Link></div>
             <div>
                 <nav className="hidden  myimg:px-32 py-[25px] mylandscape:py-[15px]   md:flex md:w-full        ">

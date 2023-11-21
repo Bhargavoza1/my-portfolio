@@ -190,7 +190,7 @@ function About(): React.JSX.Element {
                             <div className={` ${styles.hr} w-28 bg-MyRed `}></div>
                         </div>
 
-                        <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 '><SocialMedia/></div>
+                        <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 '><SocialMedia MyColor={'#111'}/></div>
                         <ScrollToTopButton/>
                     </main>
                 </div>
