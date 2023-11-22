@@ -2,7 +2,12 @@ import React from 'react';
 import ProjectPosts from "@/components/ProjectPosts";
 import styles from "@/app/(section)/about/page.module.css";
 import SocialMedia from "@/components/SocialMedia";
+import type { Metadata } from 'next'
 
+export const metadata: Metadata = {
+    title: "Bhargav's Projects",
+    description: 'hey you can check here what I have built so far',
+}
 
 export const revalidate = 10
 function About( ):React.JSX.Element {

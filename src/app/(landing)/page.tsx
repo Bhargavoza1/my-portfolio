@@ -15,6 +15,13 @@ const Typewriter = dynamic(() => import('../../components/Typewriter'), {ssr: fa
 
 const myfont = localFont({src: "../../components/fonts/OTF/Satoshi-Bold.otf"})
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Bhargav',
+    description: 'I am a computer engineer from India',
+}
+
 
 export default function Home() {
 

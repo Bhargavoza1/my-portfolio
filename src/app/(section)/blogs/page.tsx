@@ -5,6 +5,13 @@ import styles from "@/app/(section)/about/page.module.css";
 import Link from "next/link";
 
 export const revalidate = 10
+
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: "Bhargav's Blogs",
+    description: 'hey you can check here what i am exploring next ',
+}
 function About( ):React.JSX.Element {
     return (
         <div className='mt-20 md:mt-32'>
