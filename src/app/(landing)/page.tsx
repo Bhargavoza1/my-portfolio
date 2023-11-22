@@ -281,10 +281,10 @@ export default function Home() {
 
 
                         <div
-                            className='md:flex   space-y-10 pl-3 text-xl  lg:px-40  lg:pr-96   place-content-around      '>
+                            className='md:flex    space-y-10 pl-3 text-xl  lg:px-40     place-content-around      '>
 
-                            <div>
-                                <h1 className={` ${styles.thickline} mt-8 my-3 text-5xl tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
+                            <div className='md:min-w-[300px]'>
+                                <h1 className={` ${styles.thickline} mt-8 my-3 text-5xl  tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
                                     Contact
                                 </h1>
 
