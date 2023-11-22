@@ -52,7 +52,7 @@ export default async function Post({ params: { postId } }: Props) {
     ))
 
     return (
-        <main className='px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto'>
+        <main className='mt-20 md:mt-32 px-4 md:px-6 prose prose-xl prose-slate dark:prose-invert mx-auto'>
             <h2 className="text-3xl mt-4 mb-0">{meta.title}</h2>
             <p className="mt-0 text-sm">
                 {pubDate}

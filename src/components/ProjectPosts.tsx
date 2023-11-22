@@ -8,9 +8,9 @@ export default async function ProjectPosts() {
     }
 
     return (
-        <section className="mt-6 mx-auto max-w-2xl">
-            <h2 className="text-4xl font-bold dark:text-white/90">Projects</h2>
-            <ul className="w-full list-none p-0">
+        <section className="  mt-16 px-5 mx-auto max-w-2xl ">
+
+            <ul className="w-full list-none p-0  ">
                 {posts.map(post => (
                     <ListProjectsItem key={post.id} post={post} />
                 ))}

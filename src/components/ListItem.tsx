@@ -10,10 +10,13 @@ export   function ListBlogsItem({ post }: Props) {
     const formattedDate = getFormattedDate(date)
 
     return (
-        <li className="mt-4 text-2xl dark:text-white/90">
-            <Link className="underline hover:text-black/70 dark:hover:text-white" href={`/blogs/${id}`}>{title}</Link>
-            <br />
+        <li className="  text-2xl dark:text-white/90">
             <p className="text-sm mt-1">{formattedDate}</p>
+            <Link className="underline hover:text-black/70 dark:hover:text-white text-MyRed" href={`/blogs/${id}`}>{title}</Link>
+            <h2 className='text-xl text-gray-400'>short details</h2>
+
+            <br />
+
         </li>
     )
 }
@@ -23,10 +26,12 @@ export  function ListProjectsItem({ post }: Props) {
     const formattedDate = getFormattedDate(date)
 
     return (
-        <li className="mt-4 text-2xl dark:text-white/90">
-            <Link className="underline hover:text-black/70 dark:hover:text-white" href={`/projects/${id}`}>{title}</Link>
-            <br />
+        <li className="  text-2xl dark:text-white/90">
             <p className="text-sm mt-1">{formattedDate}</p>
+            <Link className="underline hover:text-black/70 dark:hover:text-white text-MyRed" href={`/projects/${id}`}>{title}</Link>
+            <h2 className='text-xl text-gray-400'>short details</h2>
+
+            <br />
         </li>
     )
 }
