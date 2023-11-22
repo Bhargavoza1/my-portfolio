@@ -68,7 +68,7 @@ export default async function Post({ params: { postId } }: Props) {
                 </div>
             </section>
             <p className="text-white mb-10">
-                <Link href="/">← Back to home</Link>
+                <Link href="/blogs">← Back to home</Link>
             </p>
         </main>
     )
