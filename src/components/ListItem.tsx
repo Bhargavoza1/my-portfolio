@@ -12,11 +12,11 @@ export function ListBlogsItem({post}: Props) {
     return (
         <li className="  text-2xl dark:text-white/90 ">
             <Link href={`/blogs/${id}`}>
-                <div className='md:flex md:space-x-8'>
-                    <div className="h-32 w-48 relative">
+                <div className='xl:flex xl:space-x-8  '>
+                    <div className="h-32 w-48 relative ">
                         <Image src={image} alt=" " layout="fill" objectFit="cover" className="rounded-xl"/>
                     </div>
-                    <div>
+                    <div className='xl:pt-0 pt-2'>
                         <p className="text-sm mt-1 pb-2">{formattedDate}</p>
                         <div className="underline hover:text-black/70 dark:hover:text-white text-MyRed ">{title}</div>
                         <h2 className='text-xl text-gray-400 pt-2'>{description}</h2>
@@ -41,11 +41,11 @@ export function ListProjectsItem({post}: Props) {
                   href={`/projects/${id}`}>
 
 
-                <div className='md:flex md:space-x-8'>
+                <div className='xl:flex xl:space-x-8'>
                     <div className="h-32 w-48 relative">
                         <Image src={image} alt=" " layout="fill" objectFit="cover" className="rounded-xl"/>
                     </div>
-                    <div>
+                    <div className='xl:pt-0 pt-2'>
                         <p className="text-sm mt-1 pb-2">{formattedDate}</p>
                         <div className="underline hover:text-black/70 dark:hover:text-white text-MyRed ">{title}</div>
                         <h2 className='text-xl text-gray-400 pt-2'>{description}</h2>

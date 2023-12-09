@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export const revalidate = 10
 function About( ):React.JSX.Element {
     return (
-        <div className=' mt-20 md:mt-32   '>
+        <div className=' mt-20 md:mt-40   '>
 
 
             <div   className='        '>
@@ -23,7 +23,7 @@ function About( ):React.JSX.Element {
 
 
                         <div
-                            className='     space-y-10 pl-3 text-xl  lg:px-40     place-content-around      '>
+                            className='     space-y-10 pl-3 text-xl       place-content-around      '>
 
                             <div className='md:min-w-[300px]'>
                                 <h1 className={` ${styles.thickline} mt-8 my-3 text-5xl  tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
