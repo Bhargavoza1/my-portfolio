@@ -29,7 +29,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
     if (rawMDX === '404: Not Found') return undefined
 
 
-    const { frontmatter, content } = await compileMDX<{ title: string, date: string, tags: string[] }>({
+    const { frontmatter, content } = await compileMDX<{ title: string, description:string, date: string, tags: string[] }>({
         source: rawMDX,
         components: {
             Video,
@@ -51,8 +51,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
     })
 
     const id = fileName.replace(/\.mdx$/, '')
-
-    const blogPostObj: BlogPost = { meta: { id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags }, content }
+    const blogPostObj: BlogPost = { meta: { id, title: frontmatter.title,description: frontmatter.description , date: frontmatter.date, tags: frontmatter.tags }, content }
 
     return blogPostObj
 }
@@ -103,7 +102,7 @@ export async function getProjectPostByName(fileName: string): Promise<BlogPost |
     if (rawMDX === '404: Not Found') return undefined
 
 
-    const { frontmatter, content } = await compileMDX<{ title: string, date: string, tags: string[] }>({
+    const { frontmatter, content } = await compileMDX<{ title: string, description: string , date: string, tags: string[] }>({
         source: rawMDX,
         components: {
             Video,
@@ -126,7 +125,7 @@ export async function getProjectPostByName(fileName: string): Promise<BlogPost |
 
     const id = fileName.replace(/\.mdx$/, '')
 
-    const blogPostObj: BlogPost = { meta: { id, title: frontmatter.title, date: frontmatter.date, tags: frontmatter.tags }, content }
+    const blogPostObj: BlogPost = { meta: { id, title: frontmatter.title,description: frontmatter.description , date: frontmatter.date, tags: frontmatter.tags }, content }
 
     return blogPostObj
 }
