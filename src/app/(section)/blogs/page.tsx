@@ -35,12 +35,16 @@ function About( ):React.JSX.Element {
                                 <div className='text-lg md:text-2xl text-gray-400' >Technology thoughts and stories.
                                 </div>
                             </div>
+                            <BlogPosts />
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
 
-            <BlogPosts />
+
 
         </div>
 

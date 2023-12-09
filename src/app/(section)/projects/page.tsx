@@ -35,12 +35,13 @@ function About( ):React.JSX.Element {
                                 <div className='text-lg md:text-2xl text-gray-400' >My main motive for making this website is to showcase my projects.
                                 </div>
                             </div>
+                            <ProjectPosts/>
                         </div>
                     </div>
                 </div>
             </div>
 
-                        <ProjectPosts/>
+
 
 
         </div>

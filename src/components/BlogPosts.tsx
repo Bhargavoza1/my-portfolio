@@ -10,7 +10,7 @@ export default async function BlogPosts() {
     }
 
     return (
-        <section className=" mt-16 px-5 mx-auto max-w-2xl">
+        <section className=" mt-16 px-5   ">
 
             <ul className="w-full list-none p-0">
                 {posts.map(post => (
