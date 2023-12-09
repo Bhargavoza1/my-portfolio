@@ -13,7 +13,7 @@ export function ListBlogsItem({post}: Props) {
         <li className="  text-2xl dark:text-white/90 ">
             <Link href={`/blogs/${id}`}>
                 <div className='xl:flex xl:space-x-8  '>
-                    <div className="h-32 w-48 relative ">
+                    <div className="xl:h-32 xl:w-48 h-28 w-auto relative ">
                         <Image src={image} alt=" " layout="fill" objectFit="cover" className="rounded-xl"/>
                     </div>
                     <div className='xl:pt-0 pt-2'>
@@ -42,7 +42,7 @@ export function ListProjectsItem({post}: Props) {
 
 
                 <div className='xl:flex xl:space-x-8'>
-                    <div className="h-32 w-48 relative">
+                    <div className="xl:h-32 xl:w-48 h-28 w-auto relative">
                         <Image src={image} alt=" " layout="fill" objectFit="cover" className="rounded-xl"/>
                     </div>
                     <div className='xl:pt-0 pt-2'>
