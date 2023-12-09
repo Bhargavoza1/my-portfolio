@@ -14,7 +14,7 @@ type Filetree = {
 }
 
 export async function getBlogPostByName(fileName: string): Promise<BlogPost | undefined> {
-    const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/test-blogposts-main/main/${fileName}`, {
+    const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/blogs/main/${fileName}`, {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -58,7 +58,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
 }
 
 export async function getBlogPostsMeta(): Promise<Meta[] | undefined> {
-    const res = await fetch('https://api.github.com/repos/Bhargavoza1/test-blogposts-main/git/trees/main?recursive=1', {
+    const res = await fetch('https://api.github.com/repos/Bhargavoza1/blogs/git/trees/main?recursive=1', {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
