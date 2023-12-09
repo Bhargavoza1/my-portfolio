@@ -35,6 +35,7 @@ export async function generateMetadata({ params: { postId } }: Props) {
 
     return {
         title: post.meta.title,
+        description: post.meta.description,
     }
 }
 
