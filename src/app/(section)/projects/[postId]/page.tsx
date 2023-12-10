@@ -3,6 +3,7 @@ import {  getProjectPostByName , getProjectPostsMeta} from "@/lib/posts"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import 'highlight.js/styles/github-dark.css'
+import styles from "@/app/(section)/about/page.module.css";
 
 export const revalidate = 10
 
@@ -49,26 +50,26 @@ export default async function Post({ params: { postId } }: Props) {
     const pubDate = getFormattedDate(meta.date)
 
     const tags = meta.tags.map((tag, i) => (
-        <Link key={i} href={`/tags/${tag}`}>{tag}</Link>
+        <Link className='text-gray-400 md:text-lg text-sm'  key={i} href={`/tags/${tag}`}>#{tag}</Link>
     ))
 
     return (
         <main className='mt-20 md:mt-32 px-4 md:px-6 prose  prose-invert prose-xl prose-slate dark:prose-invert mx-auto'>
-            <h2 className="text-3xl mt-4 mb-0">{meta.title}</h2>
-            <p className="mt-0 text-sm">
+            <h2 className={`  text-5xl   mt-4 mb-1 `}>{meta.title}</h2>
+            <p className={`${styles.thickline3} mt-0 text-sm  `}>
                 {pubDate}
             </p>
             <article>
                 {content}
             </article>
             <section>
-                <h3>Related:</h3>
+                <h3 className='text-gray-400'>Related:</h3>
                 <div className="flex flex-row gap-4">
                     {tags}
                 </div>
             </section>
             <p className="mb-10">
-                <Link href="/projects">← Back to home</Link>
+                <Link className='text-MyRed' href="/projects">← Back to home</Link>
             </p>
         </main>
     )
