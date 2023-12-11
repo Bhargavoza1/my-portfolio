@@ -34,7 +34,7 @@ const ScrollToTopButton = () => {
             className={`fixed bottom-4 right-4 rounded-full p-2 outline-none transition-opacity bg-MyRed duration-200  ${
                 isVisible ? "opacity-100" : "opacity-0"
             }`}
-
+            onClick={scrollToTop}
         >
             <ChevronUp />
         </button>

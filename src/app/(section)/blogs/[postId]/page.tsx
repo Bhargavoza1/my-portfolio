@@ -4,6 +4,8 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import 'highlight.js/styles/github-dark.css'
 import styles from "@/app/(section)/about/page.module.css";
+import ScrollToTopButton from "@/components/BacktoTop";
+import React from "react";
 
 export const revalidate = 10
 
@@ -56,6 +58,7 @@ export default async function Post({ params: { postId } }: Props) {
     return (
         <main className='mt-24 md:mt-40 px-4 md:px-6 prose  prose-invert prose-xl prose-slate dark:prose-invert mx-auto'>
             <h2 className={`  text-5xl   mt-4 mb-1 `}>{meta.title}</h2>
+            <ScrollToTopButton/>
             <p className= {`${styles.thickline3} mt-0 text-sm  `}>
                 {pubDate}
             </p>

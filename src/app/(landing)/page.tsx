@@ -172,9 +172,9 @@ export default function Home() {
 
 
                             <div className='z-50'>
-                                <Link href='#home'>
+
                                     <ScrollToTopButton/>
-                                </Link>
+
                             </div>
                         </main>
                     </div>
