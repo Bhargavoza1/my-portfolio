@@ -12,7 +12,7 @@ export default async function BlogPosts() {
     return (
         <section className=" mt-16 px-2   ">
 
-            <ul className="w-full list-none p-0">
+            <ul className="w-full list-none      shadow-[0.0px_2.0px_2.0px_2.0px_rgba(0,0,0,0.4)] bg-gray-900    ">
                 {posts.map(post => (
                     <ListBlogsItem key={post.id} post={post} />
                 ))}

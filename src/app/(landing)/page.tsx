@@ -63,7 +63,7 @@ export default function Home() {
             <div id='home'
                  className=' flex flex-col max-h-[100vh] myimg:max-h-[100vh]'>
 
-                <div className='grid h-screen myimg:pt-[140px] place-items-center justify-center'>
+                <div className='  grid h-screen myimg:pt-[140px] place-items-center justify-center'>
                     <div className='  px-5 2xl:px-[300px]  pt-[60px] landscape:pt-[20px]  myimg:pt-0     grid   '>
                         <h1 className='  text-xl lg:text-4xl md:text-3xl pb-4 md:pb-5 mylandscape:pb-1 '
                             style={myfont.style}>
@@ -98,7 +98,7 @@ export default function Home() {
             <div id='about'
                  className='   xl:flex xl:flex-row grid grid-cols-1  py-36   w-[100%]   place-items-center bg-gray-900  justify-center content-center   '>
                 {/* image*/}
-                <div className='grid'>
+                <div className='grid '>
                     <div
                         className="     max-w-full flex justify-center    sm:px-6    lg:px-8  pb-7 ">
                         <div className="  h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px] relative  ">
@@ -109,7 +109,7 @@ export default function Home() {
                                 alt="Picture of the author"
                             />
                             <div
-                                className={`${styles.imageva}     h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px]  top-8  left-8 2xl:top-12 2xl:left-12 `}></div>
+                                className={`${styles.imageva}  shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]  shadow-gray-950   h-[300px]  w-[300px] 2xl:h-[500px] 2xl:w-[500px]  top-8  left-8 2xl:top-12 2xl:left-12 `}></div>
                         </div>
 
                     </div>
@@ -173,7 +173,7 @@ export default function Home() {
 
                             <div className='z-50'>
 
-                                    <ScrollToTopButton/>
+
 
                             </div>
                         </main>
@@ -303,9 +303,11 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
+                </div>
+
+            </div>
+            <ScrollToTopButton/>
         </div>
     )
 }
