@@ -10,9 +10,10 @@ export default async function ProjectPosts() {
     return (
         <section className="  mt-16 px-2   ">
 
-            <ul className="w-full list-none p-0  ">
+            <ul className="w-full list-none     ">
                 {posts.map(post => (
-                    <ListProjectsItem key={post.id} post={post} />
+                    <ListProjectsItem  key={post.id} post={post} />
+
                 ))}
             </ul>
         </section>
