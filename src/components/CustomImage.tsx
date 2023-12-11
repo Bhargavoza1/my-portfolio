@@ -12,13 +12,15 @@ export default function CustomImage({ src, alt, priority }: Props) {
 
     return (
 
-        <div className="w-full h-full">
+        <div className="h-auto w-auto   ">
             <Image
                 className="rounded-lg mx-auto"
                 src={src}
                 alt={alt}
-                width={650}
-                height={650}
+                height={1000}
+                width={1000}
+                objectFit="cover"
+
                 priority={prty}
             />
         </div>
