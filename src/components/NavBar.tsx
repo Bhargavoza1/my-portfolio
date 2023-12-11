@@ -64,7 +64,7 @@ function NavBar() {
 
         <header
             className={`  bg-[#091f39]  left-0 top-0 right-0 z-20 flex fixed w-full  content-center   items-center   justify-between   
-                 place-items-center ${!top && ` shadow-2xl`}`}>
+                 place-items-center ${!top && ` shadow-md shadow-gray-950`}`}>
 
 <div className='mx-auto max-w-[1900px]      flex  w-full  content-center   items-center   justify-between    ' >
             <div className='  2xl:flex belowmd:flex 2xl:pt-4 px-5 lg:px-14 belowmd:px-5'><Link href='/'> <Hash

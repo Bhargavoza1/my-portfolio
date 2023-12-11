@@ -191,10 +191,11 @@ function About(): React.JSX.Element {
                         </div>
 
                         <div className='xl:hidden  mt-10  max-w-full   justify-center    pb-4 '><SocialMedia MyColor={'#111'}/></div>
-                        <ScrollToTopButton/>
+
                     </main>
-                </div>
+                </div><ScrollToTopButton/>
             </div>
+
         </div>
 
 
