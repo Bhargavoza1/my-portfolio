@@ -52,7 +52,7 @@ export default async function Post({ params: { postId } }: Props) {
     const pubDate = getFormattedDate(meta.date)
 
     const tags = meta.tags.map((tag, i) => (
-        <Link className='text-gray-400 md:text-lg text-sm' key={i} href={`/tags/${tag}`}>#{tag}</Link>
+        <Link className='text-MyRed  md:text-lg text-sm' key={i} href={`/tags/${tag}`}>#{tag}</Link>
     ))
 
     return (
@@ -67,7 +67,7 @@ export default async function Post({ params: { postId } }: Props) {
             </article>
             <section>
                 <h3 className='text-gray-400'>Related:</h3>
-                <div className="  flex flex-row gap-2">
+                <div className=" flex flex-row gap-2">
                     {tags}
                 </div>
             </section>
