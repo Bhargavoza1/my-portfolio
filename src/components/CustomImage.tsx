@@ -17,8 +17,8 @@ export default function CustomImage({ src, alt, priority }: Props) {
                 className="rounded-lg mx-auto"
                 src={src}
                 alt={alt}
-                height={1000}
-                width={1000}
+                height={1500}
+                width={1500}
                 objectFit="cover"
 
                 priority={prty}
