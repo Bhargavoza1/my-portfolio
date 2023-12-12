@@ -307,7 +307,7 @@ export default function Home() {
                 </div>
 
             </div>
-            <ScrollToTopButton/>
+
         </div>
     )
 }
