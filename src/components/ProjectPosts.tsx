@@ -8,7 +8,7 @@ export default async function ProjectPosts() {
     }
 
     return (
-        <section className="  mt-16 px-2   ">
+        <section className="  mt-16    ">
 
             <ul className="w-full list-none     ">
                 {posts.map(post => (
