@@ -9,7 +9,7 @@ type Props = {
 export function ListBlogsItem({post}: Props) {
     const {id, description, image, title, date, tags} = post
     const formattedDate = getFormattedDate(date)
-
+    const tagsTostring = tags.map(tag => ('#' + tag + Array(4).fill('\xa0').join(''))).join(',').split(',').join('')
 
     return (
         <div className='pb-8'>
@@ -26,8 +26,7 @@ export function ListBlogsItem({post}: Props) {
                             <h2 className='text-lg text-gray-400 pt-2 xl:pb-0 pb-3'>{description}</h2>
 
                             <div
-                                className=" xl:flex grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-x-0 gap-y-0 xl:space-x-3 pt-1 xl:pb-0 pb-3   ">{tags.map(tag => (
-                                <div key={tag} className=' text-MyBlue text-sm'>#{tag}</div>))}</div>
+                                className="pt-1 xl:pb-0 pb-3 text-MyBlue text-sm  ">{tagsTostring}</div>
 
                         </div>
                     </div>
@@ -42,6 +41,7 @@ export function ListBlogsItem({post}: Props) {
 export function ListProjectsItem({post}: Props) {
     const {id, description, image, title, date, tags} = post
     const formattedDate = getFormattedDate(date)
+    const tagsTostring = tags.map(tag => ('#' + tag + Array(4).fill('\xa0').join(''))).join(',').split(',').join('')
 
     return (
         <div className='pb-8'>
@@ -62,8 +62,7 @@ export function ListProjectsItem({post}: Props) {
                             <h2 className='text-lg text-gray-400 pt-2 xl:pb-0 pb-3'>{description}</h2>
 
                             <div
-                                className=" xl:flex grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-x-0 gap-y-0 xl:space-x-3 pt-1 xl:pb-0 pb-3   ">{tags.map(tag => (
-                                <div key={tag} className=' text-MyBlue text-sm'>#{tag}</div>))}</div>
+                                className="pt-1 xl:pb-0 pb-3 text-MyBlue text-sm   ">{tagsTostring}</div>
                         </div>
                     </div>
 
