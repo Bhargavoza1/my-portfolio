@@ -5,7 +5,7 @@ import Link from "next/link"
 import 'highlight.js/styles/github-dark.css'
 import styles from "@/app/(section)/about/page.module.css";
 
-export const revalidate = 10
+
 
 type Props = {
     params: {

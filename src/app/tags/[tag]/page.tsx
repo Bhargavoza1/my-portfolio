@@ -2,7 +2,6 @@ import { getBlogPostsMeta, getProjectPostsMeta  } from "@/lib/posts"
 import {ListBlogsItem, ListProjectsItem} from "@/components/ListItem";
 import Link from "next/link"
 
-export const revalidate = 86400
 
 type Props = {
     params: {

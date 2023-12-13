@@ -4,7 +4,7 @@ import styles from "@/app/(section)/about/page.module.css";
 
 import Link from "next/link";
 
-export const revalidate = 10
+
 
 import type {Metadata} from 'next'
 

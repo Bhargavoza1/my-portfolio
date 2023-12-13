@@ -9,7 +9,6 @@ export const metadata: Metadata = {
     description: 'hey you can check here what I have built so far',
 }
 
-export const revalidate = 10
 
 function About(): React.JSX.Element {
     return (

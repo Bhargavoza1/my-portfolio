@@ -7,7 +7,7 @@ import styles from "@/app/(section)/about/page.module.css";
 import ScrollToTopButton from "@/components/BacktoTop";
 import React from "react";
 
-export const revalidate = 10
+
 
 type Props = {
     params: {
