@@ -4,6 +4,11 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import Video from '@/components/Video'
 import CustomImage from '@/components/CustomImage'
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+// @ts-ignore
+import * as katexcss from 'katex/dist/katex.css'
+
 
 type Filetree = {
     "tree": [
@@ -34,6 +39,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
         components: {
             Video,
             CustomImage,
+            katexcss,
         },
         options: {
             parseFrontmatter: true,
@@ -42,10 +48,13 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
                     // @ts-ignore
                     rehypeHighlight,
                     rehypeSlug,
+                    // @ts-ignore
+                    rehypeKatex,
                     [rehypeAutolinkHeadings, {
                         behavior: 'wrap'
                     }],
                 ],
+                remarkPlugins: [remarkMath],
             },
         }
     })
