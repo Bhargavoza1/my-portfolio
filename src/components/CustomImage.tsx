@@ -4,9 +4,11 @@ type Props = {
     src: string,
     alt: string,
     priority?: string,
+    height?: number,
+    width?: number,
 }
 
-export default function CustomImage({ src, alt, priority }: Props) {
+export default function CustomImage({ src, alt, priority, height=1500 , width=1500}  : Props ) {
 
     const prty = priority ? true : false
 
@@ -17,8 +19,8 @@ export default function CustomImage({ src, alt, priority }: Props) {
                 className="rounded-lg mx-auto"
                 src={src}
                 alt={alt}
-                height={1500}
-                width={1500}
+                height={height}
+                width={width}
                 objectFit="cover"
 
                 priority={prty}
