@@ -21,7 +21,7 @@ export default function CustomImage({ src, alt, priority, height=1500 , width=15
                 alt={alt}
                 height={height}
                 width={width}
-                objectFit="cover"
+
 
                 priority={prty}
             />

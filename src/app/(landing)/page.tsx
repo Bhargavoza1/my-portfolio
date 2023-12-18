@@ -105,7 +105,7 @@ export default function Home() {
                             <Image
                                 className='shadow   max-w-full h-auto align-middle border-[#1b96f3] z-10'
                                 src="/Bhargav.jpg"
-                                layout="fill" // required
+                                fill={true}// required
                                 alt="Picture of the author"
                             />
                             <div
