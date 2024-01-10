@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import 'highlight.js/styles/github-dark.css'
 import styles from "@/app/(section)/about/page.module.css";
+import React from "react";
 
 
 
@@ -50,8 +51,12 @@ export default async function Post({ params: { postId } }: Props) {
     const pubDate = getFormattedDate(meta.date)
 
     const tags = meta.tags.map((tag, i) => (
-        <Link className='text-MyRed  md:text-lg text-sm'  key={i} href={`/tags/${tag}`}>#{tag}</Link>
-    ))
+        <React.Fragment key={i}>
+            <Link className='text-MyRed md:text-lg text-sm' href={`/tags/${tag}`} style={{ marginRight: '8px', marginBottom: '8px' }}>
+                #{tag} {'\n'}
+            </Link>
+        </React.Fragment>
+    ));
 
     return (
         <main className='mt-24 md:mt-40 px-4 md:px-6 prose  prose-invert prose-xl prose-slate dark:prose-invert mx-auto max-w-[1600px]'>
@@ -64,7 +69,7 @@ export default async function Post({ params: { postId } }: Props) {
             </article>
             <section>
                 <h3 className='text-gray-400'>Related:</h3>
-                <div className="flex flex-row gap-4">
+                <div className=" ">
                     {tags}
                 </div>
             </section>
