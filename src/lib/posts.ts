@@ -82,6 +82,9 @@ export async function getBlogPostsMeta(): Promise<Meta[] | undefined> {
 
     const posts: Meta[] = []
 
+//Considering my algo for pagination will start from here
+//   console.log(filesArray.length)
+
     for (const file of filesArray) {
         const post = await getBlogPostByName(file)
         if (post) {
