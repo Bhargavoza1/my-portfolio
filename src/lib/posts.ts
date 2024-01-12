@@ -9,7 +9,6 @@ import rehypeKatex from "rehype-katex";
 // @ts-ignore
 import * as katexcss from 'katex/dist/katex.css'
 
-
 type Filetree = {
     "tree": [
         {
@@ -65,36 +64,51 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
     return blogPostObj
 }
 
-export async function getBlogPostsMeta(): Promise<Meta[] | undefined> {
-    const res = await fetch('https://api.github.com/repos/Bhargavoza1/blogs/git/trees/main?recursive=1', {
+export async function getBlogPostsMeta(page: number = 1, perPage: number = 20): Promise<{ posts: Meta[], totalPages: number } | undefined> {
+    const repoName = 'blogs'; // Replace with your actual repository name
+    const directoryPath = ''; // Empty string to represent the root directory
+
+    const res = await fetch(`https://api.github.com/repos/Bhargavoza1/blogs/git/trees/main?recursive=1`, {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        },  next: { revalidate: 1}
-    })
+        },
+    });
 
-    if (!res.ok) return undefined
+    if (!res.ok) return undefined;
 
-    const repoFiletree: Filetree = await res.json()
+    const repoContents: Filetree = await res.json();
 
-    const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
+    // Filter files with ".mdx" extension
+    const mdxFiles = repoContents.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
 
-    const posts: Meta[] = []
+    const startIndex = (page - 1) * perPage;
+    const endIndex = startIndex + perPage;
 
-//Considering my algo for pagination will start from here
-//   console.log(filesArray.length)
 
-    for (const file of filesArray) {
-        const post = await getBlogPostByName(file)
+    const posts: Meta[] = [];
+
+    for (const file of mdxFiles) {
+        const post = await getBlogPostByName(file );
+
         if (post) {
-            const { meta } = post
-            posts.push(meta)
+            const { meta } = post;
+            posts.push(meta);
         }
     }
 
-    return posts.sort((a, b) => a.date < b.date ? 1 : -1)
+    posts.sort((a, b) => a.date < b.date ? 1 : -1)
+
+    const paginatedContents = posts.slice(startIndex, endIndex);
+
+    const totalPages = Math.ceil(mdxFiles.length / perPage);
+
+    return { posts: paginatedContents, totalPages };
 }
+
+
+
 
 
 
