@@ -64,7 +64,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
     return blogPostObj
 }
 
-export async function getBlogPostsMeta(page: number = 1, perPage: number = 2): Promise<{ posts: Meta[], totalPages: number } | undefined> {
+export async function getBlogPostsMeta(page: number = 1, perPage: number = 1): Promise<{ posts: Meta[], totalPages: number } | undefined> {
     const repoName = 'blogs'; // Replace with your actual repository name
     const directoryPath = ''; // Empty string to represent the root directory
 

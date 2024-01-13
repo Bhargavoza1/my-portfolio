@@ -35,21 +35,49 @@ export default async function page({searchParams}:{searchParams:any}): Promise<R
 
 
             {/* Add the pagination navigation */}
-            <nav aria-label="Page navigation example">
-                <ul className="list-style-none flex">
-                    {Array.from({length: totalpage}, (_, i) => i + 1).map((page) => (
-                        <li key={page}>
-                            <Link href={`/blogs?page=${page}`}>
-                                <div
-                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white ${page === parseInt(searchParams.page) ? 'bg-neutral-100 dark:bg-neutral-700' : ''}`}
-                                >
-                                    {page}
-                                </div>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            {posts.totalPages > 1 && (
+                <nav className='flex justify-center text-MyBlue pb-6 pt-6' >
+                    <ul className="list-style-none flex">
+                        {/* Add the back button */}
+                        {parseInt(searchParams.page) > 1 && (
+                            <li>
+                                <Link href={`/blogs?page=${parseInt(searchParams.page) - 1}`}>
+                                    <div
+                                        className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                                        aria-label="Previous"
+                                    >
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </div>
+                                </Link>
+                            </li>
+                        )}
+                        {Array.from({length: totalpage}, (_, i) => i + 1).map((page) => (
+                            <li key={page}>
+                                <Link href={`/blogs?page=${page}`}>
+                                    <div
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm   transition-all duration-300   ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                    >
+                                        {page}
+                                    </div>
+                                </Link>
+                            </li>
+                        ))}
+
+                        {parseInt(searchParams.page) < posts.totalPages && (
+                            <li>
+                                <Link href={`/blogs?page=${parseInt(searchParams.page) + 1}`}>
+                                    <div
+                                        className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                                        aria-label="Next"
+                                    >
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </div>
+                                </Link>
+                            </li>
+                        )}
+                    </ul>
+                </nav>
+            )}
 
 
         </div>
