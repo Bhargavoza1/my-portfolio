@@ -51,17 +51,78 @@ export default async function page({searchParams}:{searchParams:any}): Promise<R
                                 </Link>
                             </li>
                         )}
-                        {Array.from({length: totalpage}, (_, i) => i + 1).map((page) => (
-                            <li key={page}>
-                                <Link href={`/blogs?page=${page}`}>
+
+                        {parseInt(searchParams.page) > 2 && (
+                            <li>
+                                <Link href={`/blogs?page=1`}>
                                     <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm   transition-all duration-300   ${page === parseInt(searchParams.page) || (!searchParams.page && page === 1 ) ? 'text-MyRed' : ''}`}
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
                                     >
-                                        {page}
+                                        1
                                     </div>
                                 </Link>
                             </li>
-                        ))}
+                        )}
+                        {parseInt(searchParams.page) > 3 && (
+                            <li>
+                                <div
+                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                >
+                                    ...
+                                </div>
+                            </li>
+                        )}
+
+                        {parseInt(searchParams.page) > 1 && (
+                            <li>
+                                <Link href={`/blogs?page=${parseInt(searchParams.page) - 1}`}>
+                                    <div
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                    >
+                                        {parseInt(searchParams.page) - 1}
+                                    </div>
+                                </Link>
+                            </li>
+                        )}
+                        <li>
+                            <div
+                                className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : 'text-MyRed'}`}
+                            >
+                                {parseInt(searchParams.page)}
+                            </div>
+                        </li>
+                        {parseInt(searchParams.page) < posts.totalPages && (
+                            <li>
+                                <Link href={`/blogs?page=${parseInt(searchParams.page) + 1}`}>
+                                    <div
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                    >
+                                        {parseInt(searchParams.page) + 1}
+                                    </div>
+                                </Link>
+                            </li>
+                        )}
+                        {parseInt(searchParams.page) < posts.totalPages - 2 && (
+                            <li>
+                                <div
+                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                >
+                                    ...
+                                </div>
+                            </li>
+                        )}
+                        {parseInt(searchParams.page) < posts.totalPages - 1 && (
+                            <li>
+                                <Link href={`/blogs?page=${posts.totalPages}`}>
+                                    <div
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm   transition-all duration-300   ${page === parseInt(searchParams.page) || (!searchParams.page && page === 1 ) ? 'text-MyRed' : ''}`}
+                                    >
+                                        {posts.totalPages}
+                                    </div>
+                                </Link>
+                            </li>
+                        )}
+
 
                         {parseInt(searchParams.page) < posts.totalPages || !searchParams.page ? (
                             <li>
