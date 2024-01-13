@@ -16,8 +16,15 @@ export const metadata: Metadata = {
 
 export default async function page({searchParams}:{searchParams:any}): Promise<React.JSX.Element> {
     const posts = await getBlogPostsMeta(  searchParams.page )
-  console.log(searchParams.page)
-    const totalpage = posts?.totalPages
+    const totalPages = posts?.totalPages ?? 1;
+    let defaultPage ;
+    if (!searchParams.page) {
+        // Set the default page to 1
+        defaultPage = 1;
+    }
+    const page = parseInt(searchParams.page || defaultPage);
+
+
     return (
         <div className='mt-14 md:mt-24 px-4 md:px-6  max-w-[1700px] mx-auto    pt-4 md:pb-4 sm:px-6  lg:px-8'>
 
@@ -35,15 +42,15 @@ export default async function page({searchParams}:{searchParams:any}): Promise<R
 
 
             {/* Add the pagination navigation */}
-            {posts.totalPages > 1 && (
+            {totalPages > 1 && (
                 <nav className='flex justify-center text-MyBlue pb-6 pt-6' >
                     <ul className="list-style-none flex">
                         {/* Add the back button */}
-                        {parseInt(searchParams.page) > 1 && (
+                        {page > 1 && (
                             <li>
-                                <Link href={`/blogs?page=${parseInt(searchParams.page) - 1}`}>
+                                <Link href={`/blogs?page=${page - 1}`}>
                                     <div
-                                        className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                                        className="relative block rounded bg-transparent px-3 py-1.5 text-sm  transition-all duration-300 "
                                         aria-label="Previous"
                                     >
                                         <span aria-hidden="true">&laquo;</span>
@@ -52,83 +59,83 @@ export default async function page({searchParams}:{searchParams:any}): Promise<R
                             </li>
                         )}
 
-                        {parseInt(searchParams.page) > 2 && (
+                        {page > 2 && (
                             <li>
                                 <Link href={`/blogs?page=1`}>
                                     <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
                                     >
                                         1
                                     </div>
                                 </Link>
                             </li>
                         )}
-                        {parseInt(searchParams.page) > 3 && (
+                        {page > 3 && (
                             <li>
                                 <div
-                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
                                 >
                                     ...
                                 </div>
                             </li>
                         )}
 
-                        {parseInt(searchParams.page) > 1 && (
+                        {page > 1 && (
                             <li>
-                                <Link href={`/blogs?page=${parseInt(searchParams.page) - 1}`}>
+                                <Link href={`/blogs?page=${page - 1}`}>
                                     <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
                                     >
-                                        {parseInt(searchParams.page) - 1}
+                                        {page - 1}
                                     </div>
                                 </Link>
                             </li>
                         )}
                         <li>
                             <div
-                                className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : 'text-MyRed'}`}
+                                className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ' text-MyRed  '}`}
                             >
-                                {parseInt(searchParams.page)}
+                                {page}
                             </div>
                         </li>
-                        {parseInt(searchParams.page) < posts.totalPages && (
+                        {page < totalPages && (
                             <li>
-                                <Link href={`/blogs?page=${parseInt(searchParams.page) + 1}`}>
+                                <Link href={`/blogs?page=${page + 1}`}>
                                     <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
                                     >
-                                        {parseInt(searchParams.page) + 1}
+                                        {page + 1}
                                     </div>
                                 </Link>
                             </li>
                         )}
-                        {parseInt(searchParams.page) < posts.totalPages - 2 && (
+                        {page < totalPages - 2 && (
                             <li>
                                 <div
-                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ''}`}
+                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
                                 >
                                     ...
                                 </div>
                             </li>
                         )}
-                        {parseInt(searchParams.page) < posts.totalPages - 1 && (
+                        {page < totalPages - 1 && (
                             <li>
-                                <Link href={`/blogs?page=${posts.totalPages}`}>
+                                <Link href={`/blogs?page=${totalPages}`}>
                                     <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm   transition-all duration-300   ${page === parseInt(searchParams.page) || (!searchParams.page && page === 1 ) ? 'text-MyRed' : ''}`}
+                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm   transition-all duration-300   `}
                                     >
-                                        {posts.totalPages}
+                                        {totalPages}
                                     </div>
                                 </Link>
                             </li>
                         )}
 
 
-                        {parseInt(searchParams.page) < posts.totalPages || !searchParams.page ? (
+                        {page < totalPages|| !searchParams.page ? (
                             <li>
-                                <Link href={`/blogs?page=${parseInt(searchParams.page || 1) + 1}`}>
+                                <Link href={`/blogs?page=${page + 1}`}>
                                     <div
-                                        className="relative block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700 dark:hover:text-white"
+                                        className="relative block rounded bg-transparent px-3 py-1.5 text-sm  transition-all duration-300 "
                                         aria-label="Next"
                                     >
                                         <span aria-hidden="true">&raquo;</span>

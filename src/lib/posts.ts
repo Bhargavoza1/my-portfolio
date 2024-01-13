@@ -64,16 +64,14 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
     return blogPostObj
 }
 
-export async function getBlogPostsMeta(page: number = 1, perPage: number = 10): Promise<{ posts: Meta[], totalPages: number } | undefined> {
-    const repoName = 'blogs'; // Replace with your actual repository name
-    const directoryPath = ''; // Empty string to represent the root directory
+export async function getBlogPostsMeta(page: number = 1, perPage: number = 2): Promise<{ posts: Meta[], totalPages: number } | undefined> {
 
     const res = await fetch(`https://api.github.com/repos/Bhargavoza1/blogs/git/trees/main?recursive=1`, {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        },
+        },  next: { revalidate: 1}
     });
 
     if (!res.ok) return undefined;
@@ -118,7 +116,7 @@ export async function getProjectPostByName(fileName: string): Promise<BlogPost |
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }
+        },  next: { revalidate: 1}
     })
 
     if (!res.ok) return undefined
