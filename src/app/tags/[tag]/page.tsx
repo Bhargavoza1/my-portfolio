@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 
     if (!posts || !posts2) return []
 
-    const tags = new Set([posts.posts.map(post => post.tags).flat(), posts2.map(post2 => post2.tags).flat()].flat())
+    const tags = new Set([posts.posts.map(post => post.tags).flat(), posts2.posts.map(post2 => post2.tags).flat()].flat())
 
 
     return Array.from(tags).map((tag) => ({ tag }))
@@ -35,7 +35,7 @@ export default async function TagPostList({ params: { tag } }: Props) {
 
     if (!posts || !posts2) return <p className="mt-10 text-center">Sorry, no posts available.</p>
 
-    const tagPosts = [posts.posts.filter(post => post.tags.includes(tag)),posts2.filter(post2 => post2.tags.includes(tag))].flat()
+    const tagPosts = [posts.posts.filter(post => post.tags.includes(tag)),posts2.posts.filter(post2 => post2.tags.includes(tag))].flat()
 
     if (!tagPosts.length) {
         return (
