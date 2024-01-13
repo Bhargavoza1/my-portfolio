@@ -1,5 +1,6 @@
 import React from 'react';
 import BlogPosts from "@/components/BlogPosts";
+import Pagination from "@/components/pagination";
 import styles from "@/app/(section)/about/page.module.css";
 
 import Link from "next/link";
@@ -42,110 +43,8 @@ export default async function page({searchParams}:{searchParams:any}): Promise<R
 
 
             {/* Add the pagination navigation */}
-            {totalPages > 1 && (
-                <nav className='flex justify-center text-MyBlue pb-6 pt-6' >
-                    <ul className="list-style-none flex">
-                        {/* Add the back button */}
-                        {page > 1 && (
-                            <li>
-                                <Link href={`/blogs?page=${page - 1}`}>
-                                    <div
-                                        className="relative block rounded bg-transparent px-3 py-1.5 text-sm  transition-all duration-300 "
-                                        aria-label="Previous"
-                                    >
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </div>
-                                </Link>
-                            </li>
-                        )}
+             <Pagination pageName='blogs' totalPages={totalPages} page={page} searchParams={searchParams.page}/>
 
-                        {page > 2 && (
-                            <li>
-                                <Link href={`/blogs?page=1`}>
-                                    <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
-                                    >
-                                        1
-                                    </div>
-                                </Link>
-                            </li>
-                        )}
-                        {page > 3 && (
-                            <li>
-                                <div
-                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
-                                >
-                                    ...
-                                </div>
-                            </li>
-                        )}
-
-                        {page > 1 && (
-                            <li>
-                                <Link href={`/blogs?page=${page - 1}`}>
-                                    <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
-                                    >
-                                        {page - 1}
-                                    </div>
-                                </Link>
-                            </li>
-                        )}
-                        <li>
-                            <div
-                                className={`relative block rounded bg-transparent px-3 py-1.5 text-sm ${page === parseInt(searchParams.page) ? 'text-MyRed' : ' text-MyRed  '}`}
-                            >
-                                {page}
-                            </div>
-                        </li>
-                        {page < totalPages && (
-                            <li>
-                                <Link href={`/blogs?page=${page + 1}`}>
-                                    <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
-                                    >
-                                        {page + 1}
-                                    </div>
-                                </Link>
-                            </li>
-                        )}
-                        {page < totalPages - 2 && (
-                            <li>
-                                <div
-                                    className={`relative block rounded bg-transparent px-3 py-1.5 text-sm  `}
-                                >
-                                    ...
-                                </div>
-                            </li>
-                        )}
-                        {page < totalPages - 1 && (
-                            <li>
-                                <Link href={`/blogs?page=${totalPages}`}>
-                                    <div
-                                        className={`relative block rounded bg-transparent px-3 py-1.5 text-sm   transition-all duration-300   `}
-                                    >
-                                        {totalPages}
-                                    </div>
-                                </Link>
-                            </li>
-                        )}
-
-
-                        {page < totalPages|| !searchParams.page ? (
-                            <li>
-                                <Link href={`/blogs?page=${page + 1}`}>
-                                    <div
-                                        className="relative block rounded bg-transparent px-3 py-1.5 text-sm  transition-all duration-300 "
-                                        aria-label="Next"
-                                    >
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </div>
-                                </Link>
-                            </li>
-                        ) : null}
-                    </ul>
-                </nav>
-            )}
 
 
         </div>

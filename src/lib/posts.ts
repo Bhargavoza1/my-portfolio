@@ -17,6 +17,8 @@ type Filetree = {
     ]
 }
 
+const perPage: number = 1
+
 export async function getBlogPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/blogs/main/${fileName}`, {
         headers: {
@@ -64,7 +66,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
     return blogPostObj
 }
 
-export async function getBlogPostsMeta(page: number = 1, perPage: number = 2): Promise<{ posts: Meta[], totalPages: number } | undefined> {
+export async function getBlogPostsMeta(page: number = 1 ,IspaginatedContents:boolean = true ): Promise<{ posts: Meta[], totalPages: number } | undefined> {
 
     const res = await fetch(`https://api.github.com/repos/Bhargavoza1/blogs/git/trees/main?recursive=1`, {
         headers: {
@@ -96,7 +98,7 @@ export async function getBlogPostsMeta(page: number = 1, perPage: number = 2): P
         }
     }
 
-    posts.sort((a, b) => a.date < b.date ? 1 : -1)
+    IspaginatedContents ?  posts.sort((a, b) => a.date < b.date ? 1 : -1) : ''
 
     const paginatedContents = posts.slice(startIndex, endIndex);
 
