@@ -31,12 +31,12 @@ export function generateMetadata({params: {tag}}: Props) {
     }
 }
 
-
-// @ts-ignore
+ 
 export default async function TagPostList({searchParams, params: {tag}}: { searchParams: any; params: Props }) {
     const posts = await getBlogPostsMeta(undefined, false) //deduped!
     const posts2 = await getProjectPostsMeta(undefined, false) //deduped!
 
+ 
     if (!posts || !posts2) return <p className="mt-10 text-center">Sorry, no posts available.</p>
 
     const tagPosts = [posts.posts.filter(post => post.tags.includes(tag)), posts2.posts.filter(post2 => post2.tags.includes(tag))].flat()
