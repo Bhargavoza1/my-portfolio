@@ -8,7 +8,7 @@ import Link from "next/link";
 
 
 import type {Metadata} from 'next'
-import {getBlogPostsMeta} from "@/lib/posts";
+import {getBlogPostsMeta, getProjectPostsMeta} from "@/lib/posts";
 
 export const metadata: Metadata = {
     title: "Bhargav's Blogs",
