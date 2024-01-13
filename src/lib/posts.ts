@@ -17,7 +17,7 @@ type Filetree = {
     ]
 }
 
-const perPage: number = 1
+const perPage: number = 10
 
 export async function getBlogPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/blogs/main/${fileName}`, {

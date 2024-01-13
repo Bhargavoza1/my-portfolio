@@ -10,7 +10,7 @@ type Props = {
         tag: string
     }
 }
-const perPage: number = 1
+const perPage: number = 10
 export async function generateStaticParams() {
     const posts = await getBlogPostsMeta(undefined, false) //deduped!
     const posts2 = await getProjectPostsMeta(undefined, false) //deduped!
