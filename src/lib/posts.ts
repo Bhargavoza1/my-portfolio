@@ -1,4 +1,4 @@
-import {compileMDX} from 'next-mdx-remote/rsc'
+import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
@@ -9,6 +9,7 @@ import rehypeKatex from "rehype-katex";
 // @ts-ignore
 import * as katexcss from 'katex/dist/katex.css'
 
+
 type Filetree = {
     "tree": [
         {
@@ -17,15 +18,13 @@ type Filetree = {
     ]
 }
 
-const perPage: number = 10
-
 export async function getBlogPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/blogs/main/${fileName}`, {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }, next: {revalidate: 1}
+        },  next: { revalidate: 1}
     })
 
     if (!res.ok) return undefined
@@ -35,13 +34,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
     if (rawMDX === '404: Not Found') return undefined
 
 
-    const {frontmatter, content} = await compileMDX<{
-        title: string,
-        image: string,
-        description: string,
-        date: string,
-        tags: string[]
-    }>({
+    const { frontmatter, content } = await compileMDX<{ title: string,image:string, description:string, date: string, tags: string[] }>({
         source: rawMDX,
         components: {
             Video,
@@ -67,63 +60,42 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
     })
 
     const id = fileName.replace(/\.mdx$/, '')
-    const blogPostObj: BlogPost = {
-        meta: {
-            id,
-            title: frontmatter.title,
-            image: frontmatter.image,
-            description: frontmatter.description,
-            date: frontmatter.date,
-            tags: frontmatter.tags
-        }, content
-    }
+    const blogPostObj: BlogPost = { meta: { id, title: frontmatter.title,image :frontmatter.image, description: frontmatter.description , date: frontmatter.date, tags: frontmatter.tags }, content }
 
     return blogPostObj
 }
 
-export async function getBlogPostsMeta(page: number = 1, IspaginatedContents: boolean = true): Promise<{
-    posts: Meta[],
-    totalPages: number
-} | undefined> {
-
-    const res = await fetch(`https://api.github.com/repos/Bhargavoza1/blogs/git/trees/main?recursive=1`, {
+export async function getBlogPostsMeta(): Promise<Meta[] | undefined> {
+    const res = await fetch('https://api.github.com/repos/Bhargavoza1/blogs/git/trees/main?recursive=1', {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }, next: {revalidate: 1}
-    });
+        },  next: { revalidate: 1}
+    })
 
-    if (!res.ok) return undefined;
+    if (!res.ok) return undefined
 
-    const repoContents: Filetree = await res.json();
+    const repoFiletree: Filetree = await res.json()
 
-    // Filter files with ".mdx" extension
-    const mdxFiles = repoContents.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
+    const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
 
-    const startIndex = (page - 1) * perPage;
-    const endIndex = startIndex + perPage;
+    const posts: Meta[] = []
 
+//Considering my algo for pagination will start from here
+//   console.log(filesArray.length)
 
-    const posts: Meta[] = [];
-
-    for (const file of mdxFiles) {
-        const post = await getBlogPostByName(file);
-
+    for (const file of filesArray) {
+        const post = await getBlogPostByName(file)
         if (post) {
-            const {meta} = post;
-            posts.push(meta);
+            const { meta } = post
+            posts.push(meta)
         }
     }
 
-    IspaginatedContents ? posts.sort((a, b) => a.date < b.date ? 1 : -1) : ''
-
-    const paginatedContents = IspaginatedContents ? posts.slice(startIndex, endIndex) : posts;
-
-    const totalPages = Math.ceil(mdxFiles.length / perPage);
-
-    return {posts: paginatedContents, totalPages};
+    return posts.sort((a, b) => a.date < b.date ? 1 : -1)
 }
+
 
 
 export async function getProjectPostByName(fileName: string): Promise<BlogPost | undefined> {
@@ -132,7 +104,7 @@ export async function getProjectPostByName(fileName: string): Promise<BlogPost |
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }, next: {revalidate: 1}
+        }
     })
 
     if (!res.ok) return undefined
@@ -142,13 +114,7 @@ export async function getProjectPostByName(fileName: string): Promise<BlogPost |
     if (rawMDX === '404: Not Found') return undefined
 
 
-    const {frontmatter, content} = await compileMDX<{
-        title: string,
-        image: string,
-        description: string,
-        date: string,
-        tags: string[]
-    }>({
+    const { frontmatter, content } = await compileMDX<{ title: string,image:string , description: string , date: string, tags: string[] }>({
         source: rawMDX,
         components: {
             Video,
@@ -171,61 +137,36 @@ export async function getProjectPostByName(fileName: string): Promise<BlogPost |
 
     const id = fileName.replace(/\.mdx$/, '')
 
-    const blogPostObj: BlogPost = {
-        meta: {
-            id,
-            title: frontmatter.title,
-            image: frontmatter.image,
-            description: frontmatter.description,
-            date: frontmatter.date,
-            tags: frontmatter.tags
-        }, content
-    }
+    const blogPostObj: BlogPost = { meta: { id, title: frontmatter.title,image:frontmatter.image , description: frontmatter.description , date: frontmatter.date, tags: frontmatter.tags }, content }
 
     return blogPostObj
 }
 
-
-export async function getProjectPostsMeta(page: number = 1, IspaginatedContents: boolean = true): Promise<{
-    posts: Meta[],
-    totalPages: number
-} | undefined> {
-
-    const res = await fetch(`https://api.github.com/repos/Bhargavoza1/projects/git/trees/main?recursive=1`, {
+export async function getProjectPostsMeta(): Promise<Meta[] | undefined> {
+    const res = await fetch('https://api.github.com/repos/Bhargavoza1/projects/git/trees/main?recursive=1', {
         headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }, next: {revalidate: 1}
-    });
+        }
+    })
 
-    if (!res.ok) return undefined;
+    if (!res.ok) return undefined
 
-    const repoContents: Filetree = await res.json();
+    const repoFiletree: Filetree = await res.json()
 
-    // Filter files with ".mdx" extension
-    const mdxFiles = repoContents.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
+    const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
 
+    const posts: Meta[] = []
 
-    const startIndex = (page - 1) * perPage;
-    const endIndex = startIndex + perPage;
+    for (const file of filesArray) {
+        const post = await getProjectPostByName(file)
 
-
-    const posts: Meta[] = [];
-
-    for (const file of mdxFiles) {
-        const post = await getProjectPostByName(file);
         if (post) {
-            const {meta} = post;
-            posts.push(meta);
+            const { meta } = post
+            posts.push(meta)
         }
     }
 
-    IspaginatedContents ? posts.sort((a, b) => a.date < b.date ? 1 : -1) : ''
-
-    const paginatedContents = IspaginatedContents ? posts.slice(startIndex, endIndex) : posts;
-
-    const totalPages = Math.ceil(mdxFiles.length / perPage);
-
-    return {posts: paginatedContents, totalPages};
+    return posts.sort((a, b) => a.date < b.date ? 1 : -1)
 }

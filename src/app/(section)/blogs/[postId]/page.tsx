@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
     if (!posts) return []
 
-    return posts.posts.map((post) => ({
+    return posts.map((post) => ({
         postId: post.id
     }))
 }

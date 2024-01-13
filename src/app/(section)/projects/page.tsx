@@ -3,8 +3,6 @@ import ProjectPosts from "@/components/ProjectPosts";
 import styles from "@/app/(section)/about/page.module.css";
 import SocialMedia from "@/components/SocialMedia";
 import type {Metadata} from 'next'
-import Pagination from "@/components/pagination";
-import {getBlogPostsMeta, getProjectPostsMeta} from "@/lib/posts";
 
 export const metadata: Metadata = {
     title: "Bhargav's Projects",
@@ -12,16 +10,7 @@ export const metadata: Metadata = {
 }
 
 
-export default async function page({searchParams}:{searchParams:any}): Promise<React.JSX.Element> {
-    const posts = await getProjectPostsMeta( searchParams.page )
-
-    const totalPages = posts?.totalPages ?? 1;
-    let defaultPage ;
-    if (!searchParams.page) {
-        // Set the default page to 1
-        defaultPage = 1;
-    }
-    const page = parseInt(searchParams.page || defaultPage);
+function About(): React.JSX.Element {
     return (
         <div className=' mt-14 md:mt-24 px-4 md:px-6  max-w-[1700px] mx-auto    pt-4 md:pb-4 sm:px-6  lg:px-8   '>
             <div className='md:min-w-[300px]'>
@@ -34,10 +23,9 @@ export default async function page({searchParams}:{searchParams:any}): Promise<R
                     my projects.
                 </div>
             </div>
-            <ProjectPosts posts={posts}/>
-
-            <Pagination pageName='projects' totalPages={totalPages} page={page} searchParams={searchParams.page}/>
+            <ProjectPosts/>
         </div>
     );
 }
 
+export default About;

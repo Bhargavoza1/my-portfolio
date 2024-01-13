@@ -1,6 +1,5 @@
 import React from 'react';
 import BlogPosts from "@/components/BlogPosts";
-import Pagination from "@/components/pagination";
 import styles from "@/app/(section)/about/page.module.css";
 
 import Link from "next/link";
@@ -8,24 +7,13 @@ import Link from "next/link";
 
 
 import type {Metadata} from 'next'
-import {getBlogPostsMeta, getProjectPostsMeta} from "@/lib/posts";
 
 export const metadata: Metadata = {
     title: "Bhargav's Blogs",
     description: 'hey you can check here what i am exploring next ',
 }
 
-export default async function page({searchParams}:{searchParams:any}): Promise<React.JSX.Element> {
-    const posts = await getBlogPostsMeta(  searchParams.page )
-    const totalPages = posts?.totalPages ?? 1;
-    let defaultPage ;
-    if (!searchParams.page) {
-        // Set the default page to 1
-        defaultPage = 1;
-    }
-    const page = parseInt(searchParams.page || defaultPage);
-
-
+function About(): React.JSX.Element {
     return (
         <div className='mt-14 md:mt-24 px-4 md:px-6  max-w-[1700px] mx-auto    pt-4 md:pb-4 sm:px-6  lg:px-8'>
 
@@ -39,16 +27,10 @@ export default async function page({searchParams}:{searchParams:any}): Promise<R
                     stories.
                 </div>
             </div>
-            <BlogPosts posts={posts} />
-
-
-            {/* Add the pagination navigation */}
-             <Pagination pageName='blogs' totalPages={totalPages} page={page} searchParams={searchParams.page}/>
-
-
-
+            <BlogPosts/>
         </div>
 
     );
 }
 
+export default About;
