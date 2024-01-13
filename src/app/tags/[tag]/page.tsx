@@ -32,7 +32,7 @@ export function generateMetadata({ params: { tag } }: Props) {
 export default async function TagPostList({ params: { tag } }: Props) {
     const posts = await getBlogPostsMeta() //deduped!
     const posts2 = await getProjectPostsMeta() //deduped!
-
+    console.log(posts)
     if (!posts || !posts2) return <p className="mt-10 text-center">Sorry, no posts available.</p>
 
     const tagPosts = [posts.filter(post => post.tags.includes(tag)),posts2.filter(post2 => post2.tags.includes(tag))].flat()
