@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-const Pagination = ({ pageName ,totalPages , page , searchParams }: {pageName : string , totalPages: number , page:number , searchParams:number }) => {
+const Pagination = ({pageName, totalPages, page, searchParams}: {
+    pageName: string,
+    totalPages: number,
+    page: number,
+    searchParams: number
+}) => {
 
 
     return (
@@ -109,9 +114,7 @@ const Pagination = ({ pageName ,totalPages , page , searchParams }: {pageName : 
                                     </div>
                                 </Link>
                             </li>
-                        ) : (
-                            null
-                        )}
+                        ) : null}
                     </ul>
                 </nav>
             )}
