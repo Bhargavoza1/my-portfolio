@@ -127,10 +127,13 @@ export async function getProjectPostByName(fileName: string): Promise<BlogPost |
                     // @ts-ignore
                     rehypeHighlight,
                     rehypeSlug,
+                    // @ts-ignore
+                    rehypeKatex,
                     [rehypeAutolinkHeadings, {
                         behavior: 'wrap'
                     }],
                 ],
+                remarkPlugins: [remarkMath],
             },
         }
     })
