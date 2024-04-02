@@ -75,7 +75,7 @@ function NavBar() {
                             spanclass=' left-[50%] translate-x-[-50%]'/>
                     {/*<MyLink href="/#about" title="ABOUT" className=' mx-8  '
                             spanclass='left-[50%] translate-x-[-50%] '/>*/}
-                    <MyLink href="/projects" title="PROJECETS" className=' mx-8   '
+                    <MyLink href="/projects" title="PROJECTS" className=' mx-8   '
                             spanclass='left-[50%] translate-x-[-50%] '/>
                     <MyLink href="/blogs" title="BLOGS" className=' mx-8  '
                             spanclass='left-[50%] translate-x-[-50%] '/>

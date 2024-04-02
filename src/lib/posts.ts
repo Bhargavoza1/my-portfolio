@@ -71,7 +71,7 @@ export async function getBlogPostsMeta(): Promise<Meta[] | undefined> {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        }
+        },  next: { revalidate: 1}
     })
 
     if (!res.ok) return undefined
