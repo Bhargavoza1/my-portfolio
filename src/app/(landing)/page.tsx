@@ -193,8 +193,8 @@ export default function Home() {
                     <p className='pb-3 text-gray-400 text-xl '>
                         In the past decade, I have pulled lots of technical skills(only technical skills).
                     </p>
-                    <ul className="   grid  grid-cols-1 md:grid-cols-2 skillspacing:grid-cols-4  text-xl text-gray-400  list-disc list-inside align-top  ">
-                        <li className='mb-5 text-MyBlue'>Programming&nbsp;Languages
+                    <ul className="  pr-40 md:pr-0  grid  grid-cols-1 md:grid-cols-3 skillspacing:grid-cols-5  text-xl text-gray-400   list-disc list-inside align-top  ">
+                        <li className='mb-5 text-MyBlue mr-5 '>Programming&nbsp;Languages
                             <ol className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>C++</li>
                                 <li>C#</li>
@@ -203,7 +203,7 @@ export default function Home() {
                                 <li>Typescript</li>
                             </ol>
                         </li>
-                        <li className='mb-5 text-MyBlue'>
+                        <li className='mb-5 text-MyBlue mr-5'>
                             Game&nbsp;development
                             <ol className="text-gray-400  pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>Unreal engine 4-5</li>
@@ -213,14 +213,14 @@ export default function Home() {
                                 <li>Photoshop(basic)</li>
                             </ol>
                         </li>
-                        <li className='mb-5 text-MyBlue'>
+                        <li className='mb-5 text-MyBlue mr-5'>
                             Game&nbsp;Engine&nbsp;Development
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>Directx 12</li>
                                 <li>OpenGL</li>
                             </ul>
                         </li>
-                        <li className='mb-5 text-MyBlue'>
+                        <li className='mb-5 text-MyBlue mr-5'>
                             ML/DL
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>Pytorch</li>
@@ -228,7 +228,7 @@ export default function Home() {
                                 <li>Numpy</li>
                             </ul>
                         </li>
-                        <li className='mb-5 text-MyBlue'>
+                        <li className='mb-5 text-MyBlue mr-5'>
                             Data&nbsp;Engineering
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>Apache Spark</li>
@@ -236,7 +236,7 @@ export default function Home() {
                                 <li>Kafka</li>
                             </ul>
                         </li>
-                        <li className='mb-5 text-MyBlue'>
+                        <li className='mb-5 text-MyBlue mr-5'>
                             DevOps
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>Docker</li>
@@ -245,7 +245,7 @@ export default function Home() {
                             </ul>
                         </li>
 
-                        <li className='mb-5 text-MyBlue'>
+                        <li className='mb-5 text-MyBlue mr-5'>
                             Robotics
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>ROS 1-2</li>
@@ -254,7 +254,7 @@ export default function Home() {
                                 <li>Arduino</li>
                             </ul>
                         </li>
-                        <li className='mb-5 text-MyBlue'>
+                        <li className='mb-5 text-MyBlue mr-5'>
                             Database
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>MongoDB</li>
@@ -262,7 +262,7 @@ export default function Home() {
                                 <li>PostgreSQL</li>
                             </ul>
                         </li>
-                        <li className='mb-5 text-MyBlue'>
+                        <li className='mb-5 text-MyBlue mr-5'>
                             WebDev
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>React</li>
