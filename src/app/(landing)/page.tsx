@@ -183,9 +183,9 @@ export default function Home() {
 
 
             {/*skills */}
-            <div  className=' mx-auto max-w-[1900px] px-4 py-28  sm:px-6     lg:px-8   '>
+            <div  className='    mx-auto max-w-[1900px] px-4 sm:py-10 py-5  sm:px-6     lg:px-8   '>
                 <div
-                    className="  lg:pl-20    space-y-10  place-items-center  justify-center content-center  lg:text-left">
+                    className="      space-y-10  place-items-center  justify-center content-center  lg:text-left">
 
                     <h1 className={` ${styles.thickline2} mt-8 my-3 text-5xl tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
                         Skills
@@ -193,7 +193,7 @@ export default function Home() {
                     <p className='pb-3 text-gray-400 text-xl '>
                         In the past decade, I have pulled lots of technical skills(only technical skills).
                     </p>
-                    <ul className="  pr-40 md:pr-0  grid  grid-cols-1 md:grid-cols-3 skillspacing:grid-cols-5  text-xl text-gray-400   list-disc list-inside align-top  ">
+                    <ul className="  pr-16 md:pr-0  grid  grid-cols-1 md:grid-cols-3 skillspacing:grid-cols-5  text-xl text-gray-400   list-disc list-inside align-top  ">
                         <li className='mb-5 text-MyBlue mr-5 '>Programming&nbsp;Languages
                             <ol className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
                                 <li>C++</li>
@@ -284,7 +284,7 @@ export default function Home() {
 
                 <div className='max-w-[1900px] mx-auto  px-4 pt-4 md:pb-4 sm:px-6  lg:px-8'>
                     <div
-                        className="  lg:px-20   space-y-10  place-items-center  justify-center content-center  lg:text-left">
+                        className="  lg:px-20   space-y-10  sm:place-items-center  sm:justify-center sm:content-center  lg:text-left">
 
 
                         <div
@@ -296,7 +296,7 @@ export default function Home() {
                                 </h1>
 
                             </div>
-                            <div className='text-gray-400'>
+                            <div className='text-gray-400 sm:pl-20'>
                                 <div className='pb-3'>ozabhargav41@gmail.com</div>
                                 <div className='pb-8'>+91 7567592803</div>
                                 <SocialMedia MyColor={'#d43256'}/>
