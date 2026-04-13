@@ -13,7 +13,7 @@ function SocialMedia({MyColor= '#58cee3'}:{MyColor:string})  {
                         <Link href='https://www.linkedin.com/in/bhargav-oza-549072100/' className='lg:mr-6  mr-3.5'><Linkedin  className='h-7 w-7 myimg:h-10 myimg:w-10 '  color={MyColor} /></Link>
                         <Link href='https://github.com/Bhargavoza1' className='lg:mx-6  mx-3.5'><Github   className='h-7 w-7 myimg:h-10 myimg:w-10 '  color={MyColor} /></Link>
                         <Link href='https://www.youtube.com/channel/UCMbi7404LA6itxNfG08Cr7w' className='lg:mx-6  mx-3.5 ' ><Youtube  className='h-7 w-7 myimg:h-10 myimg:w-10 '  color={MyColor}  /></Link>
-                        <Link href='https://www.instagram.com/troniq_777/' className='lg:ml-6  ml-3.5'><Instagram className='h-7 w-7 myimg:h-10 myimg:w-10 '  color={MyColor}  /></Link>
+                        <Link href='https://www.instagram.com/troniq_01/' className='lg:ml-6  ml-3.5'><Instagram className='h-7 w-7 myimg:h-10 myimg:w-10 '  color={MyColor}  /></Link>
                     </div>
                 </div>
 
