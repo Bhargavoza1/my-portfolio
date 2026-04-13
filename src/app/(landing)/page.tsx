@@ -3,13 +3,11 @@ import Image from 'next/image'
 import React from "react";
 import localFont from "next/font/local";
 
-import dynamic from 'next/dynamic'
 import SocialMedia from "@/components/SocialMedia";
 import styles from "@/app/(section)/about/page.module.css";
 import ScrollToTopButton from "@/components/BacktoTop";
 import Link from "next/link";
-
-const Typewriter = dynamic(() => import('../../components/Typewriter'), {ssr: false})
+import Typewriter from '../../components/Typewriter'
 
 //const myfont = localFont({src: "../../components/fonts/ron-ron-regular-400.ttf"})
 

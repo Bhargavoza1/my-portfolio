@@ -4,9 +4,9 @@ import Link from "next/link"
 
 
 type Props = {
-    params: {
+    params: Promise<{
         tag: string
-    }
+    }>
 }
 
 export async function generateStaticParams() {
@@ -22,14 +22,25 @@ export async function generateStaticParams() {
     return Array.from(tags).map((tag) => ({ tag }))
 }
 
-export function generateMetadata({ params: { tag } }: Props) {
+export async function generateMetadata(props: Props) {
+    const params = await props.params;
+
+    const {
+        tag
+    } = params;
 
     return {
         title: `Posts about ${tag}`
     }
 }
 
-export default async function TagPostList({ params: { tag } }: Props) {
+export default async function TagPostList(props: Props) {
+    const params = await props.params;
+
+    const {
+        tag
+    } = params;
+
     const posts = await getBlogPostsMeta() //deduped!
     const posts2 = await getProjectPostsMeta() //deduped!
 

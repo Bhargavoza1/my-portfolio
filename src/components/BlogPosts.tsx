@@ -1,5 +1,5 @@
 import { getBlogPostsMeta } from "@/lib/posts"
-import {ListBlogsItem} from "./ListItem"
+import PaginatedBlogPosts from "./PaginatedBlogPosts"
 import React from "react";
 
 export default async function BlogPosts() {
@@ -9,14 +9,5 @@ export default async function BlogPosts() {
         return <p className="mt-10 text-center">Sorry, no posts available.</p>
     }
 
-    return (
-        <section className=" mt-16    ">
-
-            <ul className="w-full list-none         ">
-                {posts.map(post => (
-                    <ListBlogsItem key={post.id} post={post} />
-                ))}
-            </ul>
-        </section>
-    )
+    return <PaginatedBlogPosts posts={posts} />
 }

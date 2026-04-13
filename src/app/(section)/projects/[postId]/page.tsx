@@ -9,9 +9,9 @@ import React from "react";
 
 
 type Props = {
-    params: {
+    params: Promise<{
         postId: string
-    }
+    }>
 }
 
 export async function generateStaticParams() {
@@ -24,7 +24,12 @@ export async function generateStaticParams() {
     }))
 }
 
-export async function generateMetadata({ params: { postId } }: Props) {
+export async function generateMetadata(props: Props) {
+    const params = await props.params;
+
+    const {
+        postId
+    } = params;
 
     const post = await getProjectPostByName(`${postId}.mdx`) //deduped!
 
@@ -40,7 +45,12 @@ export async function generateMetadata({ params: { postId } }: Props) {
     }
 }
 
-export default async function Post({ params: { postId } }: Props) {
+export default async function Post(props: Props) {
+    const params = await props.params;
+
+    const {
+        postId
+    } = params;
 
     const post = await getProjectPostByName(`${postId}.mdx`) //deduped!
 
