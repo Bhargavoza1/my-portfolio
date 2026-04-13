@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ListBlogsItem, ListProjectsItem } from "./ListItem"
 
-const ITEMS_PER_PAGE = 1
+const ITEMS_PER_PAGE = 5
 
 type Props = {
     posts: Meta[]
