@@ -20,6 +20,26 @@ type Filetree = {
     ]
 }
 
+
+async function getFrontmatterOnly(rawMDX: string): Promise<Meta | null> {
+    const match = rawMDX.match(/^---\n([\s\S]*?)\n---/)
+    if (!match) return null
+
+    const frontmatter = match[1]
+    const get = (key: string) => frontmatter.match(new RegExp(`${key}:\\s*['"]?([^'"\n]+)['"]?`))?.[1]?.trim() ?? ''
+    const tags = (frontmatter.match(/tags:\s*\[([^\]]+)\]/)?.[1] ?? '')
+        .split(',').map(t => t.trim().replace(/['"]/g, '')).filter(Boolean)
+
+    return {
+        id: '',
+        title: get('title'),
+        image: get('image'),
+        description: get('description'),
+        date: get('date'),
+        tags,
+    }
+}
+
 export async function getBlogPostByName(fileName: string): Promise<BlogPost | undefined> {
     const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/blogs/main/${fileName}`, {
         headers: {
@@ -73,31 +93,38 @@ export async function getBlogPostsMeta(): Promise<Meta[] | undefined> {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        },  next: { revalidate: 1}
+        }, next: { revalidate: 1 }
     })
 
     if (!res.ok) return undefined
 
     const repoFiletree: Filetree = await res.json()
-
     const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
 
     const posts: Meta[] = []
 
-//Considering my algo for pagination will start from here
-//   console.log(filesArray.length)
-
     for (const file of filesArray) {
-        const post = await getBlogPostByName(file)
-        if (post) {
-            const { meta } = post
+        const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/blogs/main/${file}`, {
+            headers: {
+                Accept: 'application/vnd.github+json',
+                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+                'X-GitHub-Api-Version': '2022-11-28',
+            }, next: { revalidate: 1 }
+        })
+
+        if (!res.ok) continue
+        const rawMDX = await res.text()
+        if (rawMDX === '404: Not Found') continue
+
+        const meta = await getFrontmatterOnly(rawMDX)
+        if (meta) {
+            meta.id = file.replace(/\.mdx$/, '')
             posts.push(meta)
         }
     }
 
     return posts.sort((a, b) => a.date < b.date ? 1 : -1)
 }
-
 
 
 export async function getProjectPostByName(fileName: string): Promise<BlogPost | undefined> {
@@ -153,22 +180,32 @@ export async function getProjectPostsMeta(): Promise<Meta[] | undefined> {
             Accept: 'application/vnd.github+json',
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
-        },  next: { revalidate: 1}
+        }, next: { revalidate: 1 }
     })
 
     if (!res.ok) return undefined
 
     const repoFiletree: Filetree = await res.json()
-
     const filesArray = repoFiletree.tree.map(obj => obj.path).filter(path => path.endsWith('.mdx'))
 
     const posts: Meta[] = []
 
     for (const file of filesArray) {
-        const post = await getProjectPostByName(file)
+        const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/projects/main/${file}`, {
+            headers: {
+                Accept: 'application/vnd.github+json',
+                Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+                'X-GitHub-Api-Version': '2022-11-28',
+            }, next: { revalidate: 1 }
+        })
 
-        if (post) {
-            const { meta } = post
+        if (!res.ok) continue
+        const rawMDX = await res.text()
+        if (rawMDX === '404: Not Found') continue
+
+        const meta = await getFrontmatterOnly(rawMDX)
+        if (meta) {
+            meta.id = file.replace(/\.mdx$/, '')
             posts.push(meta)
         }
     }
