@@ -6,8 +6,10 @@ import Video from '@/components/Video'
 import CustomImage from '@/components/CustomImage'
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import 'highlight.js/styles/github-dark.css'
+import 'katex/dist/katex.min.css'
 // @ts-ignore
-import * as katexcss from 'katex/dist/katex.css'
+
 
 
 type Filetree = {
@@ -39,7 +41,7 @@ export async function getBlogPostByName(fileName: string): Promise<BlogPost | un
         components: {
             Video,
             CustomImage,
-            katexcss,
+
         },
         options: {
             parseFrontmatter: true,
