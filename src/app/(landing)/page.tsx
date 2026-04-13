@@ -131,18 +131,17 @@ export default function Home() {
                                 <h2 className='list-disc pt-3 pb-3   md:flex grid justify-start font-extrabold '>
                                     <div className='flex  '><span
                                         className='text-xl md:pr-6 pr-3 flex text-MyBlue'>•</span>
-                                        <div className='text-MyRed text-xl'> GAME
-                                            DEVELOPER
+                                        <div className='text-MyRed text-xl'> ROBOTICS SIMULATION ENGINEER
                                         </div>
                                     </div>
                                     <div className='flex'><span
                                         className='text-xl md:px-6 pr-3 flex text-MyBlue'>•</span>
-                                        <div className='text-MyRed text-xl'>ML/DL ENGINEER
+                                        <div className='text-MyRed text-xl'>REINFORCEMENT LEARNING ENGINEER
                                         </div>
                                     </div>
                                     <div className='flex'><span
                                         className='text-xl  md:px-6 pr-3 flex text-MyBlue'>•</span>
-                                        <div className='text-MyRed text-xl'>BACK END DEVELOPER
+                                        <div className='text-MyRed text-xl'>PHYSICS ENGINE DEVELOPER
                                         </div>
                                     </div>
                                 </h2>
@@ -191,86 +190,92 @@ export default function Home() {
                     <p className='pb-3 text-gray-400 text-xl '>
                         In the past decade, I have pulled lots of technical skills(only technical skills).
                     </p>
-                    <ul className="  pr-16 md:pr-0  grid  grid-cols-1 md:grid-cols-3 skillspacing:grid-cols-5  text-xl text-gray-400   list-disc list-inside align-top  ">
-                        <li className='mb-5 text-MyBlue mr-5 '>Programming&nbsp;Languages
-                            <ol className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>C++</li>
-                                <li>C#</li>
-                                <li>Python</li>
-                                <li>Javascript</li>
-                                <li>Typescript</li>
-                            </ol>
-                        </li>
+                    <ul className="pr-16 md:pr-0 grid grid-cols-1 md:grid-cols-3 skillspacing:grid-cols-5 text-xl text-gray-400 list-disc list-inside align-top">
+
+                        {/* 1. SIMULATION - Most Important For Your Role */}
                         <li className='mb-5 text-MyBlue mr-5'>
-                            Game&nbsp;development
-                            <ol className="text-gray-400  pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>Unreal engine 4-5</li>
-                                <li>Unity</li>
-                                <li>Blender(basic)</li>
-                                <li>Maya(basic)</li>
-                                <li>Photoshop(basic)</li>
-                            </ol>
-                        </li>
-                        <li className='mb-5 text-MyBlue mr-5'>
-                            Game&nbsp;Engine&nbsp;Development
+                            Simulation
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>Directx 12</li>
-                                <li>OpenGL</li>
-                            </ul>
-                        </li>
-                        <li className='mb-5 text-MyBlue mr-5'>
-                            ML/DL
-                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>Pytorch</li>
-                                <li>Tensorflow</li>
-                                <li>Numpy</li>
-                            </ul>
-                        </li>
-                        <li className='mb-5 text-MyBlue mr-5'>
-                            Data&nbsp;Engineering
-                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>Apache Spark</li>
-                                <li>Airflow</li>
-                                <li>Kafka</li>
-                            </ul>
-                        </li>
-                        <li className='mb-5 text-MyBlue mr-5'>
-                            DevOps
-                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>Docker</li>
-                                <li>Kubernetes</li>
-                                <li>Kafka</li>
+                                <li>NVIDIA Isaac Sim</li>
+                                <li>NVIDIA Isaac Lab</li>
+                                <li>MuJoCo</li>
+                                <li>Unity ML-Agents</li>
+                                <li>Unreal Engine 4/5</li>
+                                <li>ROS 1 / ROS 2</li>
                             </ul>
                         </li>
 
+                        {/* 2. REINFORCEMENT LEARNING - Core Skill */}
                         <li className='mb-5 text-MyBlue mr-5'>
-                            Robotics
+                            Reinforcement&nbsp;Learning
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>ROS 1-2</li>
+                                <li>PPO</li>
+                                <li>SAC</li>
+                                <li>TQC</li>
+                                <li>AIRL / GAIL</li>
+                                <li>Domain Randomization</li>
+                                <li>Reward Shaping</li>
+                            </ul>
+                        </li>
+
+                        {/* 3. PHYSICS & ENGINE DEV - Your Unique Edge */}
+                        <li className='mb-5 text-MyBlue mr-5'>
+                            Physics&nbsp;&amp;&nbsp;Engine&nbsp;Dev
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>CUDA C++ (Physics)</li>
+                                <li>Rigid Body Dynamics</li>
+                                <li>Collision Detection</li>
+                                <li>Vulkan Renderer</li>
+                                <li>DirectX 12</li>
+                                <li>OpenGL</li>
+                            </ul>
+                        </li>
+
+                        {/* 4. PROGRAMMING - Keep Strong */}
+                        <li className='mb-5 text-MyBlue mr-5'>
+                            Programming&nbsp;Languages
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>C++</li>
+                                <li>CUDA C++</li>
+                                <li>Python</li>
+                                <li>C#</li>
+                            </ul>
+                        </li>
+
+                        {/* 5. ML/DL - Supporting Skill */}
+                        <li className='mb-5 text-MyBlue mr-5'>
+                            ML / DL
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>PyTorch</li>
+                                <li>JAX</li>
+                                <li>TensorFlow</li>
+                                <li>Stable Baselines3</li>
+                                <li>Hugging Face</li>
+                            </ul>
+                        </li>
+
+                        {/* 6. HARDWARE - Real Robotics Signal */}
+                        <li className='mb-5 text-MyBlue mr-5'>
+                            Hardware&nbsp;&amp;&nbsp;Embedded
+                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
+                                <li>Jetson Nano</li>
                                 <li>Raspberry Pi</li>
-                                <li>Jetson nano</li>
+                                <li>LiDAR / Sonar</li>
                                 <li>Arduino</li>
                             </ul>
                         </li>
+
+                        {/* 7. SYSTEMS - Keep Brief */}
                         <li className='mb-5 text-MyBlue mr-5'>
-                            Database
+                            Systems&nbsp;&amp;&nbsp;DevOps
                             <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>MongoDB</li>
-                                <li>Redis</li>
-                                <li>PostgreSQL</li>
+                                <li>Multi-GPU Training</li>
+                                <li>Docker</li>
+                                <li>Kubernetes</li>
+                                <li>Azure / AWS</li>
                             </ul>
                         </li>
-                        <li className='mb-5 text-MyBlue mr-5'>
-                            WebDev
-                            <ul className="text-gray-400 pl-8 mt-2 space-y-1 text-lg list-decimal list-inside">
-                                <li>React</li>
-                                <li>React Redux</li>
-                                <li>Next.js</li>
-                                <li>Node.js</li>
-                                <li>Flask</li>
-                                <li>FastApi</li>
-                            </ul>
-                        </li>
+
                     </ul>
 
                     <div className={` ${styles.hr} w-28 bg-MyRed`}></div>
