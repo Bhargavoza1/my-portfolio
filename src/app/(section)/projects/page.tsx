@@ -5,8 +5,8 @@ import SocialMedia from "@/components/SocialMedia";
 import type {Metadata} from 'next'
 
 export const metadata: Metadata = {
-    title: "Bhargav's Projects",
-    description: 'hey you can check here what I have built so far',
+    title: 'Projects',
+    description: 'Robotics simulation, reinforcement learning and engine projects by Bhargav Oza.',
 }
 
 
@@ -19,8 +19,8 @@ function About(): React.JSX.Element {
                 </h1>
             </div>
             <div className=' pt-2 '>
-                <div className='text-lg md:text-2xl text-gray-400'>My main motive for making this website is to showcase
-                    my projects.
+                <div className='text-lg md:text-2xl text-gray-400'>Robotics simulation, reinforcement learning and
+                    engine projects. The newest work is listed first.
                 </div>
             </div>
             <ProjectPosts/>

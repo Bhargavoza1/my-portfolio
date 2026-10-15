@@ -2,8 +2,8 @@
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {Button} from "@/components/ui/button";
-import {Menu, Github, Linkedin, Youtube, Instagram, Hash} from "lucide-react";
-import {Sheet, SheetClose, SheetContent, SheetTrigger} from "@/components/ui/sheet"
+import {Menu, Github, Linkedin, Youtube, Hash} from "lucide-react";
+import {Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle, SheetTrigger} from "@/components/ui/sheet"
 import localFont from "next/font/local";
 import {useEffect, useState} from "react";
 
@@ -39,7 +39,6 @@ const ChildComp: React.FC = () => <div className="flex  h-screen">
             <Link href='https://www.linkedin.com/in/bhargav-oza-549072100/'><Linkedin color='#1a1a1f'/></Link>
             <Link href='https://github.com/Bhargavoza1'><Github color='#1a1a1f'/></Link>
             <Link href='https://www.youtube.com/channel/UCMbi7404LA6itxNfG08Cr7w'><Youtube color='#1a1a1f'/></Link>
-            <Link href='https://www.instagram.com/troniq_777/'><Instagram color='#1a1a1f'/></Link>
         </div>
 
     </div>
@@ -79,6 +78,8 @@ function NavBar() {
                             spanclass='left-[50%] translate-x-[-50%] '/>
                     <MyLink href="/blogs" title="BLOGS" className=' mx-8  '
                             spanclass='left-[50%] translate-x-[-50%] '/>
+                    <MyLink href="/#contact" title="CONTACT" className=' ml-8  '
+                            spanclass='left-[50%] translate-x-[-50%] '/>
                     {/*<MyLink href="/#contact" title="CONTACT" className=' ml-8  '
                             spanclass=' left-[50%] translate-x-[-50%]'/>*/}
                 </nav>
@@ -95,6 +96,8 @@ function NavBar() {
                                   className='  p-0 border-0  data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right'
                                   overlayclass='bg-MyRed' overlaychild={<ChildComp/>}>
 
+                        <SheetTitle className='sr-only'>Menu</SheetTitle>
+                        <SheetDescription className='sr-only'>Site navigation</SheetDescription>
                         <div className='bg-MyBlue     h-full text-[#1a1a1f] p-0'>
                             <div className='   flex pt-[70px] items-center '>
 
@@ -143,6 +146,19 @@ function NavBar() {
 
                                             <span className={`left-[0] translate-x-[0] h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
                                             group-hover:w-full transition-all ease duration-300  ${router === "/blogs" ? 'w-full' : 'w-0'} `}>
+                                            &nbsp;
+                                            </span>
+                                        </Link>
+                                    </SheetClose>
+
+
+                                    <SheetClose asChild>
+
+                                        <Link href="/#contact" className={`  text-4xl  w-fit pl-1 relative group md:text-3xl  lg:text-4xl `} style={myfont.style}>
+                                            CONTACT
+
+                                            <span className={`left-[0] translate-x-[0] h-[2px] inline-block  w-0 bg-MyRed absolute -bottom-1
+                                            group-hover:w-full transition-all ease duration-300 w-0`}>
                                             &nbsp;
                                             </span>
                                         </Link>
