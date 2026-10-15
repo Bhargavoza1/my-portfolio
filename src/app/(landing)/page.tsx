@@ -117,7 +117,7 @@ export default function Home() {
                         <p className="text-MyBlue text-base md:text-lg tracking-widest uppercase mb-4" style={myfont.style}>
                             Robotics simulation and RL engineer
                         </p>
-                        <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight" style={myfont.style}>
+                        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight" style={myfont.style}>
                             I train humanoid robots <span className="text-MyRed">in simulation</span>
                             <span className="text-gray-300"> and build the engines they train in.</span>
                         </h1>
@@ -143,15 +143,20 @@ export default function Home() {
                     </div>
 
                     <Link href={H1_CASE_STUDY} className="block group">
-                        <div className="relative w-full aspect-[1500/1112] overflow-hidden rounded-lg shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
-                            <Image
-                                src="/projects/h1/hero.jpg"
-                                alt="Unitree H1 humanoid (black) walking next to its reference motion (transparent green) in MuJoCo"
-                                fill
-                                priority
-                                sizes="(min-width: 1024px) 50vw, 100vw"
-                                className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                            />
+                        <div className="relative w-full aspect-[620/376] overflow-hidden rounded-lg shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
+                            <video
+                                className="absolute inset-0 h-full w-full object-cover"
+                                poster="/projects/h1/walk-poster.jpg"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="auto"
+                                aria-label="Unitree H1 humanoid (black) walking next to its reference motion (transparent green) in MuJoCo"
+                            >
+                                <source src="/projects/h1/walk.webm" type="video/webm" />
+                                <source src="/projects/h1/walk.mp4" type="video/mp4" />
+                            </video>
                         </div>
                         <p className="mt-3 text-sm md:text-base text-gray-400">
                             Trained policy (black) next to the reference motion (green) in MuJoCo.
