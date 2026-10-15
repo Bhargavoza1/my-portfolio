@@ -51,14 +51,22 @@ const otherProjects: {
     tags: string[]
     video?: string
     poster?: string
+    clips?: { src: string; label: string }[]
     href?: string
     hrefLabel?: string
 }[] = [
     {
         status: 'Open source / bounty work',
-        title: 'Humanoid standing with TQC in K-Sim',
-        text: 'Trained a humanoid to stand using TQC in the K-Sim simulator, as an open-source contribution and bounty work for K-Scale.',
-        tags: ['TQC', 'Humanoid', 'K-Sim'],
+        title: 'Humanoid get-up with TQC in K-Sim',
+        text: 'Trained a 20-DoF humanoid to get up from lying and stand, using TQC in JAX, in about 24 hours on one RTX 4070 Ti. Staying balanced after standing is still in progress. Open-source and bounty work for K-Scale.',
+        tags: ['TQC', 'JAX', 'K-Sim'],
+        clips: [
+            { src: '/projects/ksim/1', label: 'Attempt 1' },
+            { src: '/projects/ksim/2', label: 'Attempt 2' },
+            { src: '/projects/ksim/3', label: 'Attempt 3' },
+        ],
+        href: 'https://github.com/Bhargavoza1/ksim-tqc-humanoidstanding',
+        hrefLabel: 'Code on GitHub',
     },
     {
         status: 'Freelance',
@@ -241,6 +249,30 @@ export default function Home() {
                     <div className="mt-8 grid md:grid-cols-3 gap-6">
                         {otherProjects.map(p => (
                             <article key={p.title} className="rounded-lg border border-gray-700 p-6 flex flex-col">
+                                {p.clips && (
+                                    <div className="mb-4 grid grid-cols-3 gap-2">
+                                        {p.clips.map(c => (
+                                            <div key={c.src}>
+                                                <div className="relative w-full aspect-[640/440] overflow-hidden rounded-md">
+                                                    <video
+                                                        className="absolute inset-0 h-full w-full object-cover"
+                                                        poster={`${c.src}-poster.jpg`}
+                                                        autoPlay
+                                                        loop
+                                                        muted
+                                                        playsInline
+                                                        preload="metadata"
+                                                        aria-label={`${p.title}, ${c.label}`}
+                                                    >
+                                                        <source src={`${c.src}.webm`} type="video/webm" />
+                                                        <source src={`${c.src}.mp4`} type="video/mp4" />
+                                                    </video>
+                                                </div>
+                                                <p className="mt-1 text-center text-xs text-gray-500">{c.label}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                                 {p.video && (
                                     <div className="relative mb-4 w-full aspect-[1100/612] overflow-hidden rounded-md">
                                         <video
