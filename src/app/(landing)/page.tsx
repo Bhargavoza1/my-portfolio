@@ -44,7 +44,16 @@ function Chip({ children }: { children: React.ReactNode }) {
     )
 }
 
-const otherProjects = [
+const otherProjects: {
+    status: string
+    title: string
+    text: string
+    tags: string[]
+    video?: string
+    poster?: string
+    href?: string
+    hrefLabel?: string
+}[] = [
     {
         status: 'Open source / bounty work',
         title: 'Humanoid standing with TQC in K-Sim',
@@ -56,6 +65,10 @@ const otherProjects = [
         title: 'Skinned-mesh locomotion and climbing',
         text: 'Reinforcement learning for locomotion and climbing of a skinned-mesh character, built with Unity ML-Agents.',
         tags: ['Unity ML-Agents', 'C#', 'RL'],
+        video: '/projects/skinned-mesh/climb',
+        poster: '/projects/skinned-mesh/climb-poster.jpg',
+        href: 'https://x.com/Troniq_/status/2041858132591440148',
+        hrefLabel: 'Watch on X',
     },
     {
         status: 'In progress',
@@ -228,6 +241,23 @@ export default function Home() {
                     <div className="mt-8 grid md:grid-cols-3 gap-6">
                         {otherProjects.map(p => (
                             <article key={p.title} className="rounded-lg border border-gray-700 p-6 flex flex-col">
+                                {p.video && (
+                                    <div className="relative mb-4 w-full aspect-[1100/612] overflow-hidden rounded-md">
+                                        <video
+                                            className="absolute inset-0 h-full w-full object-cover"
+                                            poster={p.poster}
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            preload="metadata"
+                                            aria-label={p.title}
+                                        >
+                                            <source src={`${p.video}.webm`} type="video/webm" />
+                                            <source src={`${p.video}.mp4`} type="video/mp4" />
+                                        </video>
+                                    </div>
+                                )}
                                 <p className="text-MyBlue text-xs md:text-sm tracking-widest uppercase mb-2">{p.status}</p>
                                 <h3 className="text-xl md:text-2xl font-extrabold" style={myfont.style}>
                                     {p.title}
@@ -238,6 +268,16 @@ export default function Home() {
                                         <Chip key={t}>{t}</Chip>
                                     ))}
                                 </div>
+                                {p.href && (
+                                    <a
+                                        href={p.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-4 text-base md:text-lg text-MyBlue hover:underline"
+                                    >
+                                        {p.hrefLabel} →
+                                    </a>
+                                )}
                             </article>
                         ))}
                     </div>
