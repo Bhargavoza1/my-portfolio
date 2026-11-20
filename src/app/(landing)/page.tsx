@@ -52,6 +52,7 @@ const otherProjects: {
     video?: string
     poster?: string
     clips?: { src: string; label: string }[]
+    clipAspect?: string  // tailwind aspect class of each clip (default: the K-Sim clips' 640 x 440)
     href?: string
     hrefLabel?: string
 }[] = [
@@ -80,11 +81,14 @@ const otherProjects: {
     },
     {
         status: 'My own engine, Nov 2026',
-        title: 'Crucible: GPU physics engine, two-arm cube stacking',
-        text: 'Crucible is my own GPU physics engine and renderer, written from scratch in CUDA C++ and Vulkan, not MuJoCo or Isaac. The whole robot learning pipeline runs inside it. Two OpenArm arms stack three cubes in order from three 64x64 camera images, with 92% success on new random starts: scripted IK expert, then a VLA, DAgger distillation into a small CNN + GRU, and a PPO fine-tune.',
-        tags: ['CUDA C++', 'Vulkan', 'VLA', 'DAgger', 'PPO'],
-        video: '/projects/crucible/stack',
-        poster: '/projects/crucible/stack-poster.jpg',
+        title: 'Crucible: my own GPU physics engine for robot learning',
+        text: 'A physics engine, renderer and RL stack I wrote from scratch in CUDA C++ and Vulkan, instead of using MuJoCo or Isaac. Articulated robots with contacts run as thousands of parallel environments on one GPU, and the training runs inside it too: PPO, imitation learning and policies that see through simulated cameras. Left: two arms stack three cubes from 64x64 camera images (92% on new starts). Right: a Unitree G1 walking and steering on rough terrain.',
+        tags: ['CUDA C++', 'Vulkan', 'Rigid body dynamics', 'PPO', 'Imitation learning'],
+        clips: [
+            { src: '/projects/crucible/stack', label: 'Two-arm cube stacking' },
+            { src: '/projects/crucible/g1-rough', label: 'Unitree G1 on rough terrain' },
+        ],
+        clipAspect: 'aspect-video',
     },
 ]
 
@@ -252,10 +256,12 @@ export default function Home() {
                         {otherProjects.map(p => (
                             <article key={p.title} className="rounded-lg border border-gray-700 p-6 flex flex-col">
                                 {p.clips && (
-                                    <div className="mb-4 grid grid-cols-3 gap-2">
+                                    <div className={`mb-4 grid ${p.clips.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-2`}>
                                         {p.clips.map(c => (
                                             <div key={c.src}>
-                                                <div className="relative w-full aspect-[640/440] overflow-hidden rounded-md">
+                                                <div
+                                                    className={`relative w-full ${p.clipAspect ?? 'aspect-[640/440]'} overflow-hidden rounded-md`}
+                                                >
                                                     <video
                                                         className="absolute inset-0 h-full w-full object-cover"
                                                         poster={`${c.src}-poster.jpg`}
