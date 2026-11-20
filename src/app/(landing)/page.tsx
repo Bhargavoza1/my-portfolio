@@ -52,7 +52,7 @@ const otherProjects: {
     video?: string
     poster?: string
     clips?: { src: string; label: string }[]
-    clipAspect?: string  // tailwind aspect class of each clip (default: the K-Sim clips' 640 x 440)
+    clipRatio?: string  // CSS aspect ratio of each clip, e.g. '16 / 9' (default: the K-Sim clips' 640 x 440 class)
     href?: string
     hrefLabel?: string
 }[] = [
@@ -88,7 +88,7 @@ const otherProjects: {
             { src: '/projects/crucible/stack', label: 'Two-arm cube stacking' },
             { src: '/projects/crucible/g1-rough', label: 'Unitree G1 on rough terrain' },
         ],
-        clipAspect: 'aspect-video',
+        clipRatio: '16 / 9',
     },
 ]
 
@@ -260,7 +260,8 @@ export default function Home() {
                                         {p.clips.map(c => (
                                             <div key={c.src}>
                                                 <div
-                                                    className={`relative w-full ${p.clipAspect ?? 'aspect-[640/440]'} overflow-hidden rounded-md`}
+                                                    className={`relative w-full ${p.clipRatio ? '' : 'aspect-[640/440]'} overflow-hidden rounded-md`}
+                                                    style={p.clipRatio ? { aspectRatio: p.clipRatio } : undefined}
                                                 >
                                                     <video
                                                         className="absolute inset-0 h-full w-full object-cover"
