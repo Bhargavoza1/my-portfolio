@@ -79,10 +79,12 @@ const otherProjects: {
         hrefLabel: 'Watch on X',
     },
     {
-        status: 'In progress',
-        title: 'GPU physics engine from scratch',
-        text: 'A physics engine in CUDA C++ with a Vulkan renderer. The goal is parallel environments for RL training of any robot, through articulated body dynamics.',
-        tags: ['CUDA C++', 'Vulkan', 'Rigid body dynamics'],
+        status: 'My own engine, Nov 2026',
+        title: 'Crucible: GPU physics engine, two-arm cube stacking',
+        text: 'Crucible is my own GPU physics engine and renderer, written from scratch in CUDA C++ and Vulkan, not MuJoCo or Isaac. The whole robot learning pipeline runs inside it. Two OpenArm arms stack three cubes in order from three 64x64 camera images, with 92% success on new random starts: scripted IK expert, then a VLA, DAgger distillation into a small CNN + GRU, and a PPO fine-tune.',
+        tags: ['CUDA C++', 'Vulkan', 'VLA', 'DAgger', 'PPO'],
+        video: '/projects/crucible/stack',
+        poster: '/projects/crucible/stack-poster.jpg',
     },
 ]
 
