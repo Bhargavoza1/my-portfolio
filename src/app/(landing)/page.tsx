@@ -11,7 +11,7 @@ const myfont = localFont({ src: '../../components/fonts/OTF/Satoshi-Bold.otf' })
 
 export const metadata: Metadata = {
     description:
-        'Robotics simulation and reinforcement learning engineer. Humanoid imitation learning in MuJoCo MJX and JAX, GPU physics engines in CUDA C++.',
+        'Robotics simulation and reinforcement learning engineer. Humanoid imitation learning in MuJoCo MJX and JAX, and Crucible, my own GPU physics engine in CUDA C++ and Vulkan.',
 }
 
 const EMAIL = 'ozabhargav41@gmail.com'
@@ -149,16 +149,18 @@ export default function Home() {
                             <span className="text-gray-300"> and build the engines they train in.</span>
                         </h1>
                         <p className="mt-6 max-w-2xl text-lg md:text-xl text-gray-400">
-                            Hi, I am Bhargav Oza. I work with MuJoCo MJX, JAX and CUDA C++. My latest work is a
-                            from-scratch DeepMimic pipeline for the Unitree H1 humanoid, and a paper on the bugs that
-                            the reward curve did not show.
+                            Hi, I am Bhargav Oza. I work with MuJoCo MJX, JAX and CUDA C++. My latest work is
+                            Crucible, my own GPU physics engine in CUDA and Vulkan: in it, two robot arms learned to
+                            stack cubes from camera images and a Unitree G1 learned to walk on rough terrain. Before
+                            that, a from-scratch DeepMimic pipeline for the Unitree H1 and a paper on the bugs that the
+                            reward curve did not show.
                         </p>
                         <div className="mt-8 flex flex-wrap gap-4">
                             <Link href={H1_CASE_STUDY} className={btnPrimary}>
                                 See the H1 project
                             </Link>
                             <Link href="/#projects" className={btnGhost}>
-                                All selected work
+                                Crucible and all selected work
                             </Link>
                             <a href={`mailto:${EMAIL}`} className={btnGhost}>
                                 Email me
@@ -169,24 +171,25 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <Link href={H1_CASE_STUDY} className="block group">
+                    <Link href="/#projects" className="block group">
                         <div className="relative w-full aspect-[620/376] overflow-hidden rounded-lg shadow-[0_8px_24px_rgba(0,0,0,0.45)]">
                             <video
                                 className="absolute inset-0 h-full w-full object-cover"
-                                poster="/projects/h1/walk-poster.jpg"
+                                poster="/projects/hero/montage-poster.jpg"
                                 autoPlay
                                 loop
                                 muted
                                 playsInline
                                 preload="auto"
-                                aria-label="Unitree H1 humanoid (black) walking next to its reference motion (transparent green) in MuJoCo"
+                                aria-label="Unitree H1 imitation in MuJoCo, then two-arm cube stacking and a Unitree G1 walking on rough terrain in Crucible"
                             >
-                                <source src="/projects/h1/walk.webm" type="video/webm" />
-                                <source src="/projects/h1/walk.mp4" type="video/mp4" />
+                                <source src="/projects/hero/montage.webm" type="video/webm" />
+                                <source src="/projects/hero/montage.mp4" type="video/mp4" />
                             </video>
                         </div>
                         <p className="mt-3 text-sm md:text-base text-gray-400">
-                            Trained policy (black) next to the reference motion (green) in MuJoCo.
+                            Unitree H1 imitation in MuJoCo MJX, then my own engine Crucible: two-arm stacking from
+                            cameras and a G1 on rough terrain.
                         </p>
                     </Link>
                 </div>
