@@ -45,6 +45,7 @@ function Chip({ children }: { children: React.ReactNode }) {
 }
 
 const otherProjects: {
+    id?: string  // the card's anchor: bhargavoza.com/#<id> scrolls to it
     status: string
     title: string
     text: string
@@ -80,6 +81,7 @@ const otherProjects: {
         hrefLabel: 'Watch on X',
     },
     {
+        id: 'crucible',
         status: 'My own engine, Nov 2026',
         title: 'Crucible: my own GPU physics engine for robot learning',
         text: 'A physics engine, renderer and RL stack I wrote from scratch in CUDA C++ and Vulkan, instead of using MuJoCo or Isaac. Articulated robots with contacts run as thousands of parallel environments on one GPU, and the training runs inside it too: PPO, imitation learning and policies that see through simulated cameras. Left: two arms stack three cubes from 64x64 camera images (92% on new starts). Right: a Unitree G1 walking and steering on rough terrain.',
@@ -257,7 +259,7 @@ export default function Home() {
                     {/* other projects */}
                     <div className="mt-8 grid md:grid-cols-3 gap-6">
                         {otherProjects.map(p => (
-                            <article key={p.title} className="rounded-lg border border-gray-700 p-6 flex flex-col">
+                            <article key={p.title} id={p.id} className="scroll-mt-24 rounded-lg border border-gray-700 p-6 flex flex-col">
                                 {p.clips && (
                                     <div className={`mb-4 grid ${p.clips.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-2`}>
                                         {p.clips.map(c => (
