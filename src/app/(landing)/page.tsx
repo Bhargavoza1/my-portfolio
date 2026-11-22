@@ -58,6 +58,29 @@ const otherProjects: {
     hrefLabel?: string
 }[] = [
     {
+        id: 'crucible',
+        status: 'My own engine, Nov 2026',
+        title: 'Crucible: my own GPU physics engine for robot learning',
+        text: 'A physics engine, renderer and RL stack I wrote from scratch in CUDA C++ and Vulkan, instead of using MuJoCo or Isaac. Articulated robots with contacts run as thousands of parallel environments on one GPU, and the training runs inside it too: PPO, imitation learning and policies that see through simulated cameras. Left: two arms stack three cubes from 64x64 camera images (92% on new starts). Right: a Unitree G1 walking and steering on rough terrain.',
+        tags: ['CUDA C++', 'Vulkan', 'Rigid body dynamics', 'PPO', 'Imitation learning'],
+        clips: [
+            { src: '/projects/crucible/stack', label: 'Two-arm cube stacking' },
+            { src: '/projects/crucible/g1-rough', label: 'Unitree G1 on rough terrain' },
+        ],
+        clipRatio: '16 / 9',
+    },
+    {
+        id: 'skinned-mesh',
+        status: 'Freelance',
+        title: 'Skinned-mesh locomotion and climbing',
+        text: 'Reinforcement learning for locomotion and climbing of a skinned-mesh character, built with Unity ML-Agents.',
+        tags: ['Unity ML-Agents', 'C#', 'RL'],
+        video: '/projects/skinned-mesh/climb',
+        poster: '/projects/skinned-mesh/climb-poster.jpg',
+        href: 'https://x.com/Troniq_/status/2041858132591440148',
+        hrefLabel: 'Watch on X',
+    },
+    {
         status: 'Open source / bounty work',
         title: 'Humanoid get-up with TQC in K-Sim',
         text: 'Trained a 20-DoF humanoid to get up from lying and stand, using TQC in JAX, in about 24 hours on one RTX 4070 Ti. Staying balanced after standing is still in progress. Open-source and bounty work for K-Scale.',
@@ -69,28 +92,6 @@ const otherProjects: {
         ],
         href: 'https://github.com/Bhargavoza1/ksim-tqc-humanoidstanding',
         hrefLabel: 'Code on GitHub',
-    },
-    {
-        status: 'Freelance',
-        title: 'Skinned-mesh locomotion and climbing',
-        text: 'Reinforcement learning for locomotion and climbing of a skinned-mesh character, built with Unity ML-Agents.',
-        tags: ['Unity ML-Agents', 'C#', 'RL'],
-        video: '/projects/skinned-mesh/climb',
-        poster: '/projects/skinned-mesh/climb-poster.jpg',
-        href: 'https://x.com/Troniq_/status/2041858132591440148',
-        hrefLabel: 'Watch on X',
-    },
-    {
-        id: 'crucible',
-        status: 'My own engine, Nov 2026',
-        title: 'Crucible: my own GPU physics engine for robot learning',
-        text: 'A physics engine, renderer and RL stack I wrote from scratch in CUDA C++ and Vulkan, instead of using MuJoCo or Isaac. Articulated robots with contacts run as thousands of parallel environments on one GPU, and the training runs inside it too: PPO, imitation learning and policies that see through simulated cameras. Left: two arms stack three cubes from 64x64 camera images (92% on new starts). Right: a Unitree G1 walking and steering on rough terrain.',
-        tags: ['CUDA C++', 'Vulkan', 'Rigid body dynamics', 'PPO', 'Imitation learning'],
-        clips: [
-            { src: '/projects/crucible/stack', label: 'Two-arm cube stacking' },
-            { src: '/projects/crucible/g1-rough', label: 'Unitree G1 on rough terrain' },
-        ],
-        clipRatio: '16 / 9',
     },
 ]
 
