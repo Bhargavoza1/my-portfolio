@@ -1,0 +1,110 @@
+---
+title: "Crucible: My Own GPU Physics Engine for Robot Learning"
+image: https://raw.githubusercontent.com/Bhargavoza1/projects/main/images/crucible/hero.jpg
+description: A physics engine, renderer and robot-learning stack I built from scratch in CUDA C++ and Vulkan. Two robot arms learn to stack cubes from camera images, and a Unitree G1 learns to walk on rough terrain, all on one RTX 4070 Ti.
+date: 2026-11-24
+tags: [robotics, reinforcement_learning, simulation, cuda, vulkan, manipulation, humanoid, project]
+---
+
+<video autoPlay loop muted playsInline controls style={{ width: "100%", borderRadius: "8px" }}>
+  <source src="/projects/crucible/stack.webm" type="video/webm" />
+  <source src="/projects/crucible/stack.mp4" type="video/mp4" />
+</video>
+
+*Two OpenArm arms build a red–green–blue tower. The policy sees only three 64×64 camera images and its own joints.*
+
+## At a glance
+
+- **What:** my own GPU physics engine (CUDA C++), renderer (Vulkan) and RL / imitation learning stack (cuDNN, cuBLAS), in one C++ program. Not MuJoCo, Isaac or Genesis.
+- **Hardware:** everything runs on a single RTX 4070 Ti (12 GB). Up to 2,048 parallel environments with 3 cameras each.
+- **Main result:** two-arm cube stacking from camera images, 92% success on 3,000 held-out starts (the scripted expert gets 94%).
+- **Also:** a Unitree G1 humanoid walks and steers on rough terrain.
+- **Checked:** the physics is tested against MuJoCo reference trajectories, and the GPU against the CPU.
+- **Built with help:** I designed the engine and verified every step on my own hardware; Claude was my coding partner.
+
+## Why I built it
+
+I wanted to understand robot learning all the way down: how contacts become forces, how a camera image reaches a policy, and where a simulator cuts corners. Using a simulator only shows the outside. Building one shows everything, and lets me debug any layer when a policy does something strange.
+
+## How it is put together
+
+![Crucible architecture: forge, flux, temper and the apps](https://raw.githubusercontent.com/Bhargavoza1/projects/main/images/crucible/architecture.png)
+
+- **forge** is the physics. A robot is loaded from a URDF into a tree of bodies. The same C++ functions run on the CPU and inside CUDA kernels, so the CPU version is the "answer key" for the GPU.
+- **flux** is the renderer. It draws the viewer (robot meshes, sun light, shadows) and, for vision policies, the camera images of every environment into one big image (an atlas) in a single pass.
+- **temper** is the learning side: PPO, SAC, TQC, and the small CNN + GRU vision students. The VLA is trained in PyTorch and runs inside the C++ apps through ONNX Runtime.
+
+## One physics step
+
+![One physics step: kinematics, mass matrix, bias forces, motors, contacts, Newton solver, integrate](https://raw.githubusercontent.com/Bhargavoza1/projects/main/images/crucible/physics_step.png)
+
+The engine follows MuJoCo's math, so every number can be compared with MuJoCo:
+
+1. **Kinematics:** where every body is.
+2. **Mass matrix (CRBA) and bias forces (RNEA):** how heavy each joint is, and what gravity and motion do.
+3. **Contacts:** spheres, boxes, capsules, planes and a heightfield for rough terrain. Each contact becomes a few rows with a friction pyramid, using MuJoCo's soft-contact model.
+4. **Newton solver:** finds the contact forces. The problem is convex, so it has one answer, the same one MuJoCo finds.
+5. **Integrate:** semi-implicit Euler with a 2 ms step; one policy action = 10 physics steps.
+
+On the GPU, every environment gets one warp (32 threads), and up to 2,048 environments run at the same time.
+
+## From a scripted expert to a camera policy
+
+![Learning pipeline: IK expert, demos, VLA, student, RL fine-tune](https://raw.githubusercontent.com/Bhargavoza1/projects/main/images/crucible/learning_pipeline.png)
+
+| Stage | Input | Success |
+|---|---|---|
+| Scripted IK expert | true cube poses | 94% |
+| VLA (flow matching, text), supervised | 3 cameras 128×128, joints | 55% |
+| VLA after DAgger | same | 72% |
+| CNN + GRU student, DAgger distillation | 3 cameras 64×64, joints | 51% |
+| Student after RL fine-tuning (PPO) | same | **92%** on held-out starts |
+
+Two things made distillation work:
+
+- **The student was blind.** Copying actions alone never taught the CNN where the cubes are. An auxiliary head that predicts the cube poses during training (never used as input) fixed it.
+- **Noisy teacher labels made the student timid.** The flow-matching VLA gives a slightly different plan every call, and a student trained with MSE learns their average. Labels with the VLA's noise set to zero fixed it.
+
+Then RL did the heavy lifting: potential-based reward shaping, small PPO steps and a start curriculum took the student from 51% to 92%. Imitation gives a good start; RL is not limited by its teacher.
+
+## Unitree G1 on rough terrain
+
+<video autoPlay loop muted playsInline controls style={{ width: "100%", borderRadius: "8px" }}>
+  <source src="/projects/crucible/g1-rough.webm" type="video/webm" />
+  <source src="/projects/crucible/g1-rough.mp4" type="video/mp4" />
+</video>
+
+*The G1 follows velocity commands on a random heightfield. I drive it like a car from the keyboard: forward, back, steer, sideways.*
+
+The first walking policy walked sideways instead of turning. The fix was in the reward: a stronger yaw-tracking term and a hip-yaw penalty. After retraining, it steers properly.
+
+{/* TODO: add the other tasks when their videos are recorded (see the list I keep for this page):
+## Other tasks in Crucible
+- Go2 walking on velocity commands
+- G1 standing under pushes
+- Franka Panda picking a cube (scripted expert, behavior cloning, DAgger)
+- OpenArm one-arm pick-and-place (expert → VLA → student)
+- Ant and cartpole (PPO, SAC, TQC)
+*/}
+
+## Making it fast
+
+Nsight Systems showed one kernel, the physics solver, using 84% of the GPU time in RL training, with one thread doing the collision checks while 31 waited. I measured each phase inside the kernel, then spread the work over the warp and skipped work that could never matter (far-apart shape pairs, the zeros of the mass matrix).
+
+| One RL iteration, 2,048 envs × 3 cameras | Before | After |
+|---|---|---|
+| physics | 12.0 s | ~6.5 s |
+| shrinking the camera images | 4.0 s | 0.5 s |
+| whole iteration | 24–25 s | 16 s |
+
+Every change kept the results **bit-identical**: the same positions over 300 test steps, and the same RL run, eval for eval.
+
+## Limitations
+
+- Simulation only, no real robot yet.
+- Not a replacement for MuJoCo or Isaac: fewer features and robots, and I have not benchmarked it against them yet.
+- One GPU and one person, so each result comes from a small number of training runs.
+
+## Tech
+
+CUDA C++, Vulkan, cuDNN, cuBLAS, ONNX Runtime, PyTorch (VLA training), GoogleTest, Nsight Systems. Robots: OpenArm, Unitree G1 and Go2, Franka Panda.
