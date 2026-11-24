@@ -270,11 +270,11 @@ export default function Home() {
                 <Page>
                     <SectionHead n="04" title="About" />
                     <div className="grid gap-8 md:grid-cols-[280px_1fr]">
-                        <figure>
-                            <div className="relative w-full max-w-[280px] overflow-hidden rounded-[6px] border border-rule" style={{ aspectRatio: "1 / 1" }}>
+                        <figure className="mx-auto w-full max-w-[280px] md:mx-0">
+                            <div className="relative w-full overflow-hidden rounded-[6px] border border-rule" style={{ aspectRatio: "1 / 1" }}>
                                 <Image src="/Bhargav.jpg" alt="Bhargav Oza" fill sizes="280px" className="object-cover" />
                             </div>
-                            <figcaption className="mt-2 font-mono text-[11px] text-faint">Rajkot, India</figcaption>
+                            <figcaption className="mt-2 text-center font-mono text-[11px] text-faint md:text-left">Rajkot, India</figcaption>
                         </figure>
                         <div className="max-w-[640px] space-y-4 text-[15px] leading-7">
                             <p>
