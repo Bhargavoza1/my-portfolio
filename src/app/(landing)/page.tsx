@@ -92,10 +92,10 @@ export default function Home() {
                         </div>
                     </div>
                     <div>
-                        <ReplayViewer src="/rollouts/h1_walk.json" label="replay · h1_walk · ckpt 600"
+                        <ReplayViewer src="/rollouts/h1_walk.json" label="replay · h1_walk · ckpt 1600"
                                       fallbackVideo="/projects/h1/walk" poster="/projects/h1/walk-poster.jpg" />
                         <Fig n={1}>
-                            Real rollout recorded in MuJoCo: the H1 policy (checkpoint 600) and the reference motion
+                            Real rollout recorded in MuJoCo: the H1 policy (checkpoint 1600) and the reference motion
                             (green ghost). Drag to orbit.
                         </Fig>
                     </div>

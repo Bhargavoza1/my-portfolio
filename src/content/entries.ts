@@ -42,7 +42,7 @@ export const entries: Record<string, EntryInfo> = {
         ],
         replay: {
             src: '/rollouts/h1_walk.json',
-            label: 'debug view · policy vs reference · ckpt 600',
+            label: 'debug view · policy vs reference · ckpt 1600',
             video: '/projects/h1/walk',
             poster: '/projects/h1/walk-poster.jpg',
             caption: 'Real rollout recorded in MuJoCo: trained policy (solid) and reference motion (green ghost). Turn on the heatmap to color each body by its distance to the reference.',
