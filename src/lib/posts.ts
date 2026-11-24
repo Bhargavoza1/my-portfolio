@@ -28,14 +28,18 @@ const ghHeaders: Record<string, string> = {
     ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
 }
 
+// How long a fetched post is reused before GitHub is asked again (seconds).
+// New posts show up within this time, or at once through /api/revalidate.
+const REVALIDATE = 600
+
 // GitHub fetch. If the token is wrong or expired (401/403), try once without it,
 // because both repos are public.
 async function ghFetch(url: string) {
-    const res = await fetch(url, { headers: ghHeaders, next: { revalidate: 1 } })
+    const res = await fetch(url, { headers: ghHeaders, next: { revalidate: REVALIDATE } })
     if ((res.status === 401 || res.status === 403) && ghHeaders.Authorization) {
         console.warn(`[posts] ${res.status} with GITHUB_TOKEN for ${url}, retrying without it`)
         const { Authorization: _, ...noAuth } = ghHeaders
-        return fetch(url, { headers: noAuth, next: { revalidate: 1 } })
+        return fetch(url, { headers: noAuth, next: { revalidate: REVALIDATE } })
     }
     return res
 }
@@ -155,16 +159,17 @@ async function getPost(repo: Repo, fileName: string): Promise<BlogPost | undefin
 async function getPostsMeta(repo: Repo): Promise<Meta[] | undefined> {
     const files = await listFiles(repo)
     if (!files) return undefined
+    // fetch all posts at the same time, not one after another
+    const raws = await Promise.all(files.map(f => readRaw(repo, f)))
     const posts: Meta[] = []
-    for (const file of files) {
-        const raw = await readRaw(repo, file)
-        if (!raw) continue
+    raws.forEach((raw, i) => {
+        if (!raw) return
         const meta = getFrontmatterOnly(raw)
         if (meta) {
-            meta.id = file.replace(/\.mdx$/, '')
+            meta.id = files[i].replace(/\.mdx$/, '')
             posts.push(meta)
         }
-    }
+    })
     return posts.sort((a, b) => a.date < b.date ? 1 : -1)
 }
 
