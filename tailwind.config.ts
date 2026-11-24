@@ -66,6 +66,10 @@ module.exports = {
             '--tw-prose-quote-borders': theme('colors.rule'),
             '--tw-prose-captions': theme('colors.muted'),
             '--tw-prose-code': theme('colors.ink'),
+            // code blocks: dark text on a white box (the plugin default is light text
+            // for a dark box, which made un-highlighted code invisible)
+            '--tw-prose-pre-code': theme('colors.ink'),
+            '--tw-prose-pre-bg': theme('colors.card'),
             '--tw-prose-th-borders': theme('colors.rule'),
             '--tw-prose-td-borders': theme('colors.rule'),
           },
