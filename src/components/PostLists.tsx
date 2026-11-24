@@ -53,6 +53,39 @@ function BigCard({post}: { post: Meta }) {
     )
 }
 
+export const PER_PAGE = 10
+
+function usePage(total: number) {
+    const [page, setPage] = useState(1)
+    const pages = Math.max(1, Math.ceil(total / PER_PAGE))
+    const cur = Math.min(page, pages)
+    const go = (p: number) => {
+        setPage(p)
+        window.scrollTo({top: 0, behavior: "smooth"})
+    }
+    return {page: cur, pages, go, setPage, from: (cur - 1) * PER_PAGE, to: cur * PER_PAGE}
+}
+
+// "← prev · 1 2 3 · next →", shown only when there is more than one page
+function Pager({count, noun, page, pages, go}: { count: number, noun: string, page: number, pages: number, go: (p: number) => void }) {
+    const btn = "rounded-[4px] border px-3 py-1.5 font-mono text-[12px] disabled:cursor-not-allowed disabled:opacity-30"
+    return (
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
+            <p className="font-mono text-[11px] text-faint">{count} {noun} · page {page} of {pages}</p>
+            {pages > 1 && (
+                <nav className="flex flex-wrap items-center gap-1.5" aria-label="Pages">
+                    <button className={`${btn} border-rule bg-card text-ink hover:border-ink`} disabled={page === 1} onClick={() => go(page - 1)}>← prev</button>
+                    {Array.from({length: pages}, (_, i) => i + 1).map(p => (
+                        <button key={p} onClick={() => go(p)} aria-current={p === page ? "page" : undefined}
+                                className={`${btn} ${p === page ? "border-ink bg-ink text-white" : "border-rule bg-card text-ink hover:border-ink"}`}>{p}</button>
+                    ))}
+                    <button className={`${btn} border-rule bg-card text-ink hover:border-ink`} disabled={page === pages} onClick={() => go(page + 1)}>next →</button>
+                </nav>
+            )}
+        </div>
+    )
+}
+
 const FILTERS = ["All", "Robotics and RL", "Deep learning and LLM"] as const
 
 export function ProjectIndex({posts}: { posts: Meta[] }) {
@@ -60,41 +93,47 @@ export function ProjectIndex({posts}: { posts: Meta[] }) {
     const robo = posts.filter(p => isRobotics(p.tags))
     const other = posts.filter(p => !isRobotics(p.tags))
     const showRobo = filter !== "Deep learning and LLM", showOther = filter !== "Robotics and RL"
-    const shown = (showRobo ? robo.length : 0) + (showOther ? other.length : 0)
+    // robotics entries first, then the rest; the page takes a slice of that order
+    const list = [...(showRobo ? robo : []), ...(showOther ? other : [])]
+    const pg = usePage(list.length)
+    const slice = list.slice(pg.from, pg.to)
+    const pageRobo = slice.filter(p => isRobotics(p.tags)), pageOther = slice.filter(p => !isRobotics(p.tags))
     const years = (ps: Meta[]) => Array.from(new Set(ps.map(p => getYear(p.date)))).sort().reverse().join("–")
 
     return (
         <>
             <div className="mt-6 flex flex-wrap gap-2">
                 {FILTERS.map(f => (
-                    <button key={f} onClick={() => setFilter(f)}
+                    <button key={f} onClick={() => { setFilter(f); pg.setPage(1) }}
                             className={`rounded-[4px] border px-3 py-1.5 font-mono text-[12px] ${filter === f ? "border-ink bg-ink text-white" : "border-rule bg-card text-ink hover:border-ink"}`}>
                         {f}
                     </button>
                 ))}
             </div>
 
-            {showRobo && robo.length > 0 && (
+            {pageRobo.length > 0 && (
                 <section className="mt-12">
                     <p className="label mb-3">Robotics and RL · {years(robo)}</p>
-                    <div className="space-y-4">{robo.map(p => <BigCard key={p.id} post={p}/>)}</div>
+                    <div className="space-y-4">{pageRobo.map(p => <BigCard key={p.id} post={p}/>)}</div>
                 </section>
             )}
-            {showOther && other.length > 0 && (
+            {pageOther.length > 0 && (
                 <section className="mt-12">
                     <p className="label mb-3">Deep learning, CUDA and LLM · {years(other)}</p>
-                    <ul className="space-y-3">{other.map(p => <Row key={p.id} post={p} href={`/projects/${p.id}`}/>)}</ul>
+                    <ul className="space-y-3">{pageOther.map(p => <Row key={p.id} post={p} href={`/projects/${p.id}`}/>)}</ul>
                 </section>
             )}
-            <p className="mt-8 font-mono text-[11px] text-faint">{shown} entries · page 1 of 1</p>
+            <Pager count={list.length} noun="entries" page={pg.page} pages={pg.pages} go={pg.go}/>
         </>
     )
 }
 
 export function NotesList({posts}: { posts: Meta[] }) {
+    const pg = usePage(posts.length)
     return (
+        <>
         <ul className="divide-y divide-rule border-y border-rule">
-            {posts.map(p => (
+            {posts.slice(pg.from, pg.to).map(p => (
                 <li key={p.id}>
                     <Link href={`/blogs/${p.id}`} className="group grid items-center gap-2 py-5 md:grid-cols-[130px_1fr_auto] md:gap-6">
                         <Thumb src={p.image} className="h-[150px] w-full md:hidden"/>
@@ -112,5 +151,7 @@ export function NotesList({posts}: { posts: Meta[] }) {
                 </li>
             ))}
         </ul>
+        <Pager count={posts.length} noun="posts" page={pg.page} pages={pg.pages} go={pg.go}/>
+        </>
     )
 }

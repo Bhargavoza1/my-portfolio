@@ -18,7 +18,7 @@ export default async function Notes() {
                     <p className="label">Writing</p>
                     <h1 className="mt-2 text-[40px] font-bold tracking-tight md:text-[48px]">Blogs</h1>
                     <p className="mt-3 text-[16px] leading-7 text-muted">Technology, thoughts and stories.</p>
-                    {posts && <p className="mt-4 font-mono text-[11px] text-faint">{posts.length} posts · newest first · page 1 of 1</p>}
+                    {posts && <p className="mt-4 font-mono text-[11px] text-faint">{posts.length} posts · newest first</p>}
                 </Page>
             </section>
             <Page className="py-10">
