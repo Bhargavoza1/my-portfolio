@@ -19,7 +19,7 @@ const GITHUB = 'https://github.com/Bhargavoza1'
 
 const stats: [string, string][] = [
     ['4,096', 'parallel envs, ~8,800 steps/s on one RTX 4070 Ti'],
-    ['22', 'silent failures documented in the H1 paper'],
+    ['22', 'failures documented in the H1 paper, most of them silent'],
     ['92%', 'cube stacking from 64×64 camera images'],
     ['8× H100', '1B model pretraining'],
 ]
@@ -169,7 +169,7 @@ export default function Home() {
                                 <p className="mb-4 mt-3 text-[14px] leading-6 text-muted">
                                     DeepMimic from scratch for the full 19-DOF Unitree H1 in MuJoCo MJX and JAX. Training
                                     ran and the reward went up, but the robot still did the wrong thing. The paper
-                                    catalogues 22 such failures and the per-joint diagnostic that found them.
+                                    catalogues 22 failures, most of them silent, and the per-joint diagnostic that found them.
                                 </p>
                                 <Rows rows={[
                                     ['LONGEST CLIP', '14.7 min, no falls'],
