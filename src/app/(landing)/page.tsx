@@ -158,10 +158,12 @@ export default function Home() {
                     <article id="h1" className="card mt-6 scroll-mt-20 overflow-hidden">
                         <EntryBar left="Entry 001 · Oct 2026 · research preprint" status="complete" />
                         <div className="grid lg:grid-cols-2">
-                            <Link href={H1_CASE_STUDY} className="relative block min-h-[260px] border-rule bg-screen lg:border-r">
-                                <Image src="/projects/h1/hero.jpg" alt="Unitree H1 policy tracking a reference walking motion"
-                                       fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
-                            </Link>
+                            <div className="border-rule p-4 lg:border-r">
+                                <Link href={H1_CASE_STUDY} className="block overflow-hidden rounded-[4px] bg-screen" style={{ aspectRatio: '620 / 376' }}>
+                                    <Clip src="/projects/h1/walk" label="Unitree H1 policy tracking a reference walking motion" />
+                                </Link>
+                                <Fig n={3}>Unitree H1 policy (solid) tracking the reference walk (green ghost) in MuJoCo.</Fig>
+                            </div>
                             <div className="p-5 md:p-6">
                                 <h3 className="text-[22px] font-semibold leading-tight">Unitree H1 DeepMimic: silent failures in motion imitation</h3>
                                 <p className="mb-4 mt-3 text-[14px] leading-6 text-muted">
@@ -198,7 +200,7 @@ export default function Home() {
                                         </div>
                                     ))}
                                 </div>
-                                <Fig n={k + 3}>{e.clips.length > 1 ? 'Three get-up attempts in K-Sim.' : 'The skinned-mesh character climbing in Unity.'}</Fig>
+                                <Fig n={k + 4}>{e.clips.length > 1 ? 'Three get-up attempts in K-Sim.' : 'The skinned-mesh character climbing in Unity.'}</Fig>
                                 <h3 className="mt-3 text-[17px] font-semibold leading-snug">{e.title}</h3>
                                 <p className="mt-1 flex-grow text-[14px] leading-6 text-muted">{e.text}</p>
                                 <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
