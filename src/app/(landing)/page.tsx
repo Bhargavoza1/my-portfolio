@@ -24,23 +24,31 @@ const stats: [string, string][] = [
     ['8× H100', '1B model pretraining'],
 ]
 
-// "Other entries" rows. id = anchor, so bhargavoza.com/#skinned-mesh still works.
-const otherEntries: { id?: string; title: string; text: string; href: string; thumb: string; external?: boolean }[] = [
+// "Other entries" cards with their clips. id = anchor, so bhargavoza.com/#skinned-mesh still works.
+const otherEntries: { id: string; title: string; text: string; href: string; hrefLabel: string; clips: { src: string; label: string }[]; ratio: string; tags: string[] }[] = [
     {
         id: 'skinned-mesh',
         title: 'Skinned-mesh locomotion and climbing',
         text: 'RL for locomotion and climbing of a skinned-mesh character in Unity ML-Agents. Freelance.',
         href: 'https://x.com/Troniq_/status/2041858132591440148',
-        thumb: '/projects/skinned-mesh/climb-poster.jpg',
-        external: true,
+        hrefLabel: 'Watch on X',
+        clips: [{ src: '/projects/skinned-mesh/climb', label: 'Skinned-mesh character climbing' }],
+        ratio: '1100 / 612',
+        tags: ['Unity ML-Agents', 'C#', 'RL'],
     },
     {
         id: 'ksim',
         title: 'Humanoid get-up with TQC in K-Sim',
         text: '20-DoF humanoid gets up and stands, TQC in JAX, ~24 h on one RTX 4070 Ti. Balance after standing still in progress.',
         href: 'https://github.com/Bhargavoza1/ksim-tqc-humanoidstanding',
-        thumb: '/projects/ksim/2-poster.jpg',
-        external: true,
+        hrefLabel: 'Code on GitHub',
+        clips: [
+            { src: '/projects/ksim/1', label: 'Attempt 1' },
+            { src: '/projects/ksim/2', label: 'Attempt 2' },
+            { src: '/projects/ksim/3', label: 'Attempt 3' },
+        ],
+        ratio: '640 / 440',
+        tags: ['TQC', 'JAX', 'K-Sim'],
     },
 ]
 
@@ -177,19 +185,27 @@ export default function Home() {
 
                     {/* other entries */}
                     <p className="label mb-3 mt-10">Other entries</p>
-                    <div className="space-y-3">
-                        {otherEntries.map(e => (
-                            <a key={e.title} id={e.id} href={e.href} target="_blank" rel="noopener noreferrer"
-                               className="card group flex scroll-mt-20 items-center gap-4 p-3 hover:border-ink">
-                                <div className="relative h-[56px] w-[96px] shrink-0 overflow-hidden rounded-[4px] bg-screen">
-                                    <Image src={e.thumb} alt="" fill sizes="96px" className="object-cover" />
+                    <div className="grid gap-4 md:grid-cols-2">
+                        {otherEntries.map((e, k) => (
+                            <article key={e.id} id={e.id} className="card flex scroll-mt-20 flex-col p-4">
+                                <div className={`grid gap-2 ${e.clips.length > 1 ? 'grid-cols-3' : 'grid-cols-1'}`}>
+                                    {e.clips.map(c => (
+                                        <div key={c.src}>
+                                            <div className="overflow-hidden rounded-[4px] bg-screen" style={{ aspectRatio: e.ratio }}>
+                                                <Clip src={c.src} label={`${e.title}, ${c.label}`} />
+                                            </div>
+                                            {e.clips.length > 1 && <p className="mt-1 text-center font-mono text-[10px] text-faint">{c.label}</p>}
+                                        </div>
+                                    ))}
                                 </div>
-                                <div className="min-w-0 flex-1">
-                                    <h3 className="text-[15px] font-semibold">{e.title}</h3>
-                                    <p className="text-[13px] leading-5 text-muted">{e.text}</p>
+                                <Fig n={k + 3}>{e.clips.length > 1 ? 'Three get-up attempts in K-Sim.' : 'The skinned-mesh character climbing in Unity.'}</Fig>
+                                <h3 className="mt-3 text-[17px] font-semibold leading-snug">{e.title}</h3>
+                                <p className="mt-1 flex-grow text-[14px] leading-6 text-muted">{e.text}</p>
+                                <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+                                    <Tags items={e.tags} />
+                                    <Ext href={e.href} className="link text-[14px]">{e.hrefLabel} →</Ext>
                                 </div>
-                                <span className="px-2 text-faint group-hover:text-ink">→</span>
-                            </a>
+                            </article>
                         ))}
                     </div>
                     <Link href="/projects" className="link mt-5 inline-block text-[14px]">All projects →</Link>
