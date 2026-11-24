@@ -20,10 +20,24 @@ import 'katex/dist/katex.min.css'
 
 type Repo = 'blogs' | 'projects'
 
-const ghHeaders = {
+// Send the token only when it is set: "Bearer undefined" makes GitHub answer 401,
+// and then the lists are empty. Without a token the API still works (60 calls/hour).
+const ghHeaders: Record<string, string> = {
     Accept: 'application/vnd.github+json',
-    Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     'X-GitHub-Api-Version': '2022-11-28',
+    ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
+}
+
+// GitHub fetch. If the token is wrong or expired (401/403), try once without it,
+// because both repos are public.
+async function ghFetch(url: string) {
+    const res = await fetch(url, { headers: ghHeaders, next: { revalidate: 1 } })
+    if ((res.status === 401 || res.status === 403) && ghHeaders.Authorization) {
+        console.warn(`[posts] ${res.status} with GITHUB_TOKEN for ${url}, retrying without it`)
+        const { Authorization: _, ...noAuth } = ghHeaders
+        return fetch(url, { headers: noAuth, next: { revalidate: 1 } })
+    }
+    return res
 }
 
 function localDir(repo: Repo) {
@@ -38,9 +52,11 @@ async function listFiles(repo: Repo): Promise<string[] | undefined> {
             return (await fs.readdir(dir)).filter(f => f.endsWith('.mdx'))
         } catch { return undefined }
     }
-    const res = await fetch(`https://api.github.com/repos/Bhargavoza1/${repo}/git/trees/main?recursive=1`,
-        { headers: ghHeaders, next: { revalidate: 1 } })
-    if (!res.ok) return undefined
+    const res = await ghFetch(`https://api.github.com/repos/Bhargavoza1/${repo}/git/trees/main?recursive=1`)
+    if (!res.ok) {
+        console.warn(`[posts] GitHub file list for ${repo} failed: ${res.status} ${res.statusText}`)
+        return undefined
+    }
     const tree: { tree: { path: string }[] } = await res.json()
     return tree.tree.map(o => o.path).filter(p => p.endsWith('.mdx'))
 }
@@ -52,8 +68,7 @@ async function readRaw(repo: Repo, file: string): Promise<string | undefined> {
             return await fs.readFile(path.join(dir, file), 'utf8')
         } catch { return undefined }
     }
-    const res = await fetch(`https://raw.githubusercontent.com/Bhargavoza1/${repo}/main/${file}`,
-        { headers: ghHeaders, next: { revalidate: 1 } })
+    const res = await ghFetch(`https://raw.githubusercontent.com/Bhargavoza1/${repo}/main/${encodeURI(file)}`)
     if (!res.ok) return undefined
     const raw = await res.text()
     return raw === '404: Not Found' ? undefined : raw

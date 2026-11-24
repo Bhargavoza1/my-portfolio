@@ -33,7 +33,7 @@ export default async function TagPostList(props: Props) {
                 <Page className="py-12">
                     <p className="label">Tag</p>
                     <h1 className="mt-2 font-mono text-[32px] text-accent">#{tag}</h1>
-                    <p className="mt-2 font-mono text-[11px] text-faint">{items.length} entries and notes</p>
+                    <p className="mt-2 font-mono text-[11px] text-faint">{items.length} projects and blogs</p>
                 </Page>
             </section>
             <Page className="py-10">

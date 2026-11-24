@@ -36,8 +36,8 @@ export default async function Note(props: Props) {
             <section className="grid-paper border-b border-rule">
                 <Page className="py-10 md:py-14">
                     <div className="max-w-[760px] lg:ml-[240px]">
-                        <Link href="/blogs" className="link text-[14px]">← All notes</Link>
-                        <p className="label mt-6">Note · {getIsoDate(meta.date)} · ~{meta.minutes} min read</p>
+                        <Link href="/blogs" className="link text-[14px]">← All blogs</Link>
+                        <p className="label mt-6">Blog · {getIsoDate(meta.date)} · ~{meta.minutes} min read</p>
                         <h1 className="mt-2 text-[32px] font-bold leading-[1.12] tracking-tight md:text-[42px]">{meta.title}</h1>
                         <p className="mt-4 text-[16px] leading-7 text-muted">{meta.description}</p>
                         <div className="mt-3 flex flex-wrap gap-x-3">
@@ -63,7 +63,7 @@ export default async function Note(props: Props) {
 
             {more.length > 0 && (
                 <Page className="pb-16">
-                    <p className="label mb-3">More notes</p>
+                    <p className="label mb-3">More blogs</p>
                     <div className="grid gap-3 md:grid-cols-2">
                         {more.map(p => (
                             <Link key={p.id} href={`/blogs/${p.id}`} className="card p-4 hover:border-ink">
