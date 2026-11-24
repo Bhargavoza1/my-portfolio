@@ -1,10 +1,12 @@
 import Link from "next/link"
+import { Page } from "@/components/notebook"
 
 export default function NotFound() {
     return (
-        <div className="text-center">
-            <p className="mt-10">Sorry, the requested post does not exist.</p>
-            <Link href="/">Back to Home</Link>
-        </div>
+        <Page className="py-24">
+            <p className="label">404</p>
+            <p className="mt-2 text-[18px]">Sorry, this entry does not exist.</p>
+            <Link href="/" className="link mt-4 inline-block text-[14px]">← Back to home</Link>
+        </Page>
     )
 }

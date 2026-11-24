@@ -1,93 +1,79 @@
-import getFormattedDate from "@/lib/getFormattedDate"
-import {  getBlogPostByName , getBlogPostsMeta} from "@/lib/posts"
+import { getIsoDate } from "@/lib/getFormattedDate"
+import { getBlogPostByName, getBlogPostsMeta } from "@/lib/posts"
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import 'highlight.js/styles/github-dark.css'
-import styles from "@/app/(section)/about/page.module.css";
-import ScrollToTopButton from "@/components/BacktoTop";
-import React from "react";
+import React from "react"
+import { ArticleBody, Contents } from "@/components/Article"
+import { Page } from "@/components/notebook"
 
-
-
-type Props = {
-    params: Promise<{
-        postId: string
-    }>
-}
+type Props = { params: Promise<{ postId: string }> }
 
 export async function generateStaticParams() {
-    const posts = await getBlogPostsMeta() //deduped!
-
+    const posts = await getBlogPostsMeta()
     if (!posts) return []
-
-    return posts.map((post) => ({
-        postId: post.id
-    }))
+    return posts.map(post => ({ postId: post.id }))
 }
 
 export async function generateMetadata(props: Props) {
-    const params = await props.params;
-
-    const {
-        postId
-    } = params;
-
-    const post = await getBlogPostByName(`${postId}.mdx`) //deduped!
-
-    if (!post) {
-        return {
-            title: 'Post Not Found'
-        }
-    }
-
-    return {
-        title: post.meta.title,
-        description: post.meta.description,
-    }
+    const { postId } = await props.params
+    const post = await getBlogPostByName(`${decodeURIComponent(postId)}.mdx`)
+    if (!post) return { title: 'Post Not Found' }
+    return { title: post.meta.title, description: post.meta.description }
 }
 
-export default async function Post(props: Props) {
-    const params = await props.params;
-
-    const {
-        postId
-    } = params;
-
-    const post = await getBlogPostByName(`${postId}.mdx`) //deduped!
-
+export default async function Note(props: Props) {
+    const { postId } = await props.params
+    const id = decodeURIComponent(postId)
+    const post = await getBlogPostByName(`${id}.mdx`)
     if (!post) notFound()
 
-    const { meta, content } = post
-
-    const pubDate = getFormattedDate(meta.date)
-
-    const tags = meta.tags.map((tag, i) => (
-        <React.Fragment key={i}>
-            <Link className='text-MyRed md:text-lg text-sm' href={`/tags/${tag}`} style={{ marginRight: '8px', marginBottom: '8px' }}>
-                #{tag} {'\n'}
-            </Link>
-        </React.Fragment>
-    ));
+    const { meta, content, headings } = post
+    const more = ((await getBlogPostsMeta()) ?? []).filter(p => p.id !== id).slice(0, 2)
+    const tags = meta.tags.filter(t => t !== 'blog')
 
     return (
-        <main className='mt-24 md:mt-40 px-4 md:px-6 prose  prose-invert prose-xl prose-slate dark:prose-invert mx-auto max-w-[1600px]'>
-            <h2 className={`  text-5xl md:text-7xl   mt-4 mb-1 `}>{meta.title}</h2>
-
-            <p className= {`${styles.thickline3} mt-0 text-sm  `}>
-                {pubDate}
-            </p>
-            <article  >
-                {content}
-            </article>
-            <section>
-                <h3 className='text-gray-400'>Related:</h3>
-                <div className="  ">
-                    {tags}
-                </div>
+        <main>
+            <section className="grid-paper border-b border-rule">
+                <Page className="py-10 md:py-14">
+                    <div className="max-w-[760px] lg:ml-[240px]">
+                        <Link href="/blogs" className="link text-[14px]">← All notes</Link>
+                        <p className="label mt-6">Note · {getIsoDate(meta.date)} · ~{meta.minutes} min read</p>
+                        <h1 className="mt-2 text-[32px] font-bold leading-[1.12] tracking-tight md:text-[42px]">{meta.title}</h1>
+                        <p className="mt-4 text-[16px] leading-7 text-muted">{meta.description}</p>
+                        <div className="mt-3 flex flex-wrap gap-x-3">
+                            {tags.map(t => <Link key={t} href={`/tags/${t}`} className="tag hover:underline">#{t}</Link>)}
+                        </div>
+                    </div>
+                </Page>
             </section>
-            <p className="  mb-10">
-                <Link className='text-MyRed' href="/blogs">← Back</Link>
-            </p>
+
+            <Page className="grid gap-10 py-12 lg:grid-cols-[200px_minmax(0,760px)]">
+                <Contents headings={headings} />
+                <div>
+                    <ArticleBody>{content}</ArticleBody>
+                    <div className="mt-12 flex items-center gap-3 border-t border-rule pt-5">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-mono text-[12px] text-white">BO</div>
+                        <div>
+                            <p className="text-[14px] font-semibold">Bhargav Oza</p>
+                            <p className="text-[13px] text-muted">Robotics simulation and RL engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </Page>
+
+            {more.length > 0 && (
+                <Page className="pb-16">
+                    <p className="label mb-3">More notes</p>
+                    <div className="grid gap-3 md:grid-cols-2">
+                        {more.map(p => (
+                            <Link key={p.id} href={`/blogs/${p.id}`} className="card p-4 hover:border-ink">
+                                <p className="font-mono text-[11px] text-faint">{getIsoDate(p.date)}</p>
+                                <p className="mt-1 text-[15px] font-semibold">{p.title}</p>
+                            </Link>
+                        ))}
+                    </div>
+                </Page>
+            )}
         </main>
     )
 }

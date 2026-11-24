@@ -1,31 +1,30 @@
-import React from 'react';
-import ProjectPosts from "@/components/ProjectPosts";
-import styles from "@/app/(section)/about/page.module.css";
-import SocialMedia from "@/components/SocialMedia";
-import type {Metadata} from 'next'
+import React from 'react'
+import type { Metadata } from 'next'
+import { getProjectPostsMeta } from '@/lib/posts'
+import { ProjectIndex } from '@/components/PostLists'
+import { Page } from '@/components/notebook'
 
 export const metadata: Metadata = {
     title: 'Projects',
     description: 'Robotics simulation, reinforcement learning and engine projects by Bhargav Oza.',
 }
 
-
-function About(): React.JSX.Element {
+export default async function Projects() {
+    const posts = await getProjectPostsMeta()
     return (
-        <div className=' mt-14 md:mt-24 px-4 md:px-6  max-w-[1700px] mx-auto    pt-4 md:pb-4 sm:px-6  lg:px-8   '>
-            <div className='md:min-w-[300px]'>
-                <h1 className={` ${styles.thickline} mt-8 my-3 text-5xl  tracking-tight font-extrabold   sm:text-5xl md:text-6xl  `}>
-                    Projects
-                </h1>
-            </div>
-            <div className=' pt-2 '>
-                <div className='text-lg md:text-2xl text-gray-400'>Robotics simulation, reinforcement learning and
-                    engine projects. The newest work is listed first.
-                </div>
-            </div>
-            <ProjectPosts/>
-        </div>
-    );
+        <main>
+            <section className="grid-paper border-b border-rule">
+                <Page className="py-12 md:py-16">
+                    <p className="label">Index of entries</p>
+                    <h1 className="mt-2 text-[40px] font-bold tracking-tight md:text-[48px]">Projects</h1>
+                    <p className="mt-3 max-w-[560px] text-[16px] leading-7 text-muted">
+                        Robotics simulation, reinforcement learning and engine projects. The newest work is listed first.
+                    </p>
+                </Page>
+            </section>
+            <Page className="pb-16 pt-2">
+                {posts ? <ProjectIndex posts={posts} /> : <p className="mt-10 text-muted">Sorry, no entries available.</p>}
+            </Page>
+        </main>
+    )
 }
-
-export default About;

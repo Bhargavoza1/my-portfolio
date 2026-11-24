@@ -1,18 +1,22 @@
 import './globals.css'
+import '@fontsource/ibm-plex-sans/400.css'
+import '@fontsource/ibm-plex-sans/500.css'
+import '@fontsource/ibm-plex-sans/600.css'
+import '@fontsource/ibm-plex-sans/700.css'
+import '@fontsource/ibm-plex-mono/400.css'
+import '@fontsource/ibm-plex-mono/500.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import NavBar from "../components/NavBar";
+import Footer from "@/components/Footer";
 import { Analytics } from '@vercel/analytics/react';
-import ScrollToTopButton from "@/components/BacktoTop";
 import React from "react";
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
     default: 'Bhargav Oza | Robotics Simulation & RL Engineer',
     template: '%s | Bhargav Oza',
   },
-  description: 'Robotics simulation and reinforcement learning engineer. Humanoid imitation learning in MuJoCo MJX and JAX, GPU physics engines in CUDA C++.',
+  description: 'Robotics simulation and reinforcement learning engineer. Crucible, my own GPU physics engine for robot learning (CUDA C++, Vulkan), and humanoid imitation learning in MuJoCo MJX and JAX.',
   metadataBase: new URL('https://www.bhargavoza.com'),
 }
 
@@ -22,11 +26,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth  ">
-      <body className={inter.className}>
+    <html lang="en" className="scroll-smooth">
+      <body className="min-h-screen bg-paper font-sans text-ink">
       <NavBar />
       {children}
-      <ScrollToTopButton/>
+      <Footer />
       <Analytics />
       </body>
     </html>
