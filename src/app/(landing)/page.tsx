@@ -133,8 +133,8 @@ export default function Home() {
                         <div className="grid lg:grid-cols-2">
                             <div className="border-rule p-4 lg:border-r">
                                 <div className="grid grid-cols-2 gap-2">
-                                    <div className="overflow-hidden rounded-[4px] bg-screen" style={{ aspectRatio: "16 / 9" }}><Clip src="/projects/crucible/stack" label="Two-arm cube stacking" /></div>
-                                    <div className="overflow-hidden rounded-[4px] bg-screen" style={{ aspectRatio: "16 / 9" }}><Clip src="/projects/crucible/g1-rough" label="Unitree G1 on rough terrain" /></div>
+                                    <div className="overflow-hidden rounded-[4px] bg-screen" style={{ aspectRatio: "16 / 9" }}><Clip src="/projects/crucible/stack" label="Two-arm cube stacking" fit="contain" /></div>
+                                    <div className="overflow-hidden rounded-[4px] bg-screen" style={{ aspectRatio: "16 / 9" }}><Clip src="/projects/crucible/g1-rough" label="Unitree G1 on rough terrain" fit="contain" /></div>
                                 </div>
                                 <Fig n={2}>Left: two arms stack cubes from cameras. Right: G1 on rough terrain.</Fig>
                             </div>

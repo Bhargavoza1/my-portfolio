@@ -44,9 +44,10 @@ export function EntryBar({left, status}: { left: string, status: string }) {
     )
 }
 
-export function Clip({src, label, className = ""}: { src: string, label: string, className?: string }) {
+// fit="contain" shows the whole frame (no cropping); "cover" fills the box
+export function Clip({src, label, className = "", fit = "cover"}: { src: string, label: string, className?: string, fit?: "cover" | "contain" }) {
     return (
-        <video className={`block h-full w-full object-cover ${className}`} poster={`${src}-poster.jpg`}
+        <video className={`block h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"} ${className}`} poster={`${src}-poster.jpg`}
                autoPlay loop muted playsInline preload="metadata" aria-label={label}>
             <source src={`${src}.webm`} type="video/webm"/>
             <source src={`${src}.mp4`} type="video/mp4"/>
