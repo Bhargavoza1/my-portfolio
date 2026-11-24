@@ -21,7 +21,7 @@ export function Row({post, href}: { post: Meta, href: string }) {
     return (
         <li>
             <Link href={href} className="card group flex items-center gap-4 p-3 hover:border-ink">
-                <Thumb src={post.image} className="hidden h-[64px] w-[104px] sm:block"/>
+                <Thumb src={post.image} className="h-[56px] w-[80px] sm:h-[64px] sm:w-[104px]"/>
                 <div className="min-w-0 flex-1">
                     <p className="font-mono text-[11px] text-faint">{getFormattedDate(post.date)}</p>
                     <h3 className="text-[15px] font-semibold leading-snug">{post.title}</h3>
@@ -96,6 +96,7 @@ export function NotesList({posts}: { posts: Meta[] }) {
             {posts.map(p => (
                 <li key={p.id}>
                     <Link href={`/blogs/${p.id}`} className="group grid items-center gap-2 py-5 md:grid-cols-[130px_1fr_auto] md:gap-6">
+                        <Thumb src={p.image} className="h-[150px] w-full md:hidden"/>
                         <span className="font-mono text-[12px] text-faint">{getIsoDate(p.date)}</span>
                         <div className="min-w-0">
                             <h3 className="text-[17px] font-semibold group-hover:text-accent">{p.title}</h3>

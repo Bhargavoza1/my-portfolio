@@ -74,7 +74,7 @@ export default async function Post(props: Props) {
 
             <Page className="grid gap-10 py-12 lg:grid-cols-[200px_minmax(0,760px)]">
                 <Contents headings={headings} />
-                <div>
+                <div className="min-w-0">
                     <ArticleBody>{content}</ArticleBody>
                     <TagLinks tags={meta.tags} />
                     <div className="mt-10 flex items-end justify-between border-t border-rule pt-5">

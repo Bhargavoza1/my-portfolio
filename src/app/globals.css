@@ -68,6 +68,27 @@ body {
 }
 .notebook-article table {
   font-size: 0.9rem;
+  /* wide tables scroll sideways on phones instead of pushing the page wider */
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.notebook-article pre,
+.notebook-article .katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.notebook-article img,
+.notebook-article video,
+.notebook-article iframe {
+  max-width: 100%;
+  height: auto;
+}
+.notebook-article p,
+.notebook-article li,
+.notebook-article a,
+.notebook-article code {
+  overflow-wrap: anywhere;
 }
 .notebook-article thead th {
   font-family: "IBM Plex Mono", ui-monospace, monospace;

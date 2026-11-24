@@ -49,7 +49,7 @@ export default async function Note(props: Props) {
 
             <Page className="grid gap-10 py-12 lg:grid-cols-[200px_minmax(0,760px)]">
                 <Contents headings={headings} />
-                <div>
+                <div className="min-w-0">
                     <ArticleBody>{content}</ArticleBody>
                     <div className="mt-12 flex items-center gap-3 border-t border-rule pt-5">
                         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-mono text-[12px] text-white">BO</div>
