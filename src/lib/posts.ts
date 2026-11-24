@@ -3,6 +3,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import remarkMath from "remark-math";
+import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import GithubSlugger from 'github-slugger'
 import { promises as fs } from 'fs'
@@ -101,6 +102,7 @@ function getFrontmatterOnly(rawMDX: string): Meta | null {
 // "## Heading" lines of the body, with the same ids rehype-slug gives them
 function getHeadings(rawMDX: string): Heading[] {
     const body = rawMDX.replace(/^---[\s\S]*?\n---/, '').replace(/```[\s\S]*?```/g, '')
+        .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')   // MDX comments are not rendered, so skip their headings
     const slugger = new GithubSlugger()
     const out: Heading[] = []
     for (const m of Array.from(body.matchAll(/^(#{2,3})\s+(.+?)\s*#*\s*$/gm))) {
@@ -139,7 +141,7 @@ async function getPost(repo: Repo, fileName: string): Promise<BlogPost | undefin
                     rehypeKatex,
                     [rehypeAutolinkHeadings, { behavior: 'wrap' }],
                 ],
-                remarkPlugins: [remarkMath],
+                remarkPlugins: [remarkGfm, remarkMath],  // gfm: tables, task lists, strikethrough
             },
         }
     })
